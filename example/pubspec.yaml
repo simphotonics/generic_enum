@@ -1,0 +1,16 @@
+name: example
+description:
+  Usage of generic_enum.
+
+homepage: https://github.com/simphotonics/generic_enum
+author: D Reschner <git@simphotonics.com>
+
+environment:
+  sdk: '>=2.3.0 <3.0.0'
+
+dependencies:
+  generic_enum:
+    path: ../
+
+dev_dependencies:
+  test: ^1.11.0

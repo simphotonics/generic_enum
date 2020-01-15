@@ -1,0 +1,14 @@
+name: generic_enum
+description:
+  Provides a generic enum-like base class.
+version: 1.0.0
+homepage: https://github.com/simphotonics/generic_enum
+author: D Reschner <git@simphotonics.com>
+
+environment:
+  sdk: '>=2.3.0 <3.0.0'
+
+dependencies:
+
+dev_dependencies:
+  test: ^1.11.0
