@@ -6,23 +6,23 @@ library generic_enum;
 /// ```
 /// import 'generic_enum.dart';
 ///
-/// /// Extend class:
+/// ///  1) Extend class:
 /// class NamePart extends GenericEnum<String> {
 ///
-///  /// Add a private const constructor:
+///  /// 2) Add a private const constructor:
 ///  const NamePart._(String value) : super(value);
 ///
-///  /// Add static const instances:
+///  /// 3) Add static const instances:
 ///  static const NamePart FIRST_NAME = NamePart._('FIRST_NAME');
 ///  static const NamePart LAST_NAME = NamePart._('LAST_NAME');
 ///
-///  /// Add a static const value map:
+///  /// 4) Add a static const value map:
 ///  static const Map<String, NamePart> _valueMap = {
 ///    'FIRST_NAME' : FIRST_NAME,
 ///    'LAST_NAME': LAST_NAME,
 ///  };
 ///
-///  /// Add a getter to access the value map.
+///  /// 5) Add a getter to access the value map.
 ///  static get valueMap => _valueMap;
 ///}
 /// ```
