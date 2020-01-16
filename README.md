@@ -148,12 +148,13 @@ import 'package:sqlite_entity/sqlite_entity.dart';
 import 'package:source_gen/source_gen.dart' show TypeChecker, ConstantReader, ;
 import 'package:sqlite_generator/src/type_utils.dart';
 
-/// Used to traverse classed annotated with @Table
+/// Sample visitor class used to traverse classed annotated with @Table
 class TableVisitor extends SimpleElementVisitor {
 
   static var constraintChecker = TypeChecker.fromRuntime(Constraint);
 
   List<FieldElement> fields = [];
+  Map<String,Constraint> constraints = {};
 
   /// Mapping field name to constraint.
   Map<String,List<Constraint>> constraints = {};
@@ -183,7 +184,7 @@ class TableVisitor extends SimpleElementVisitor {
   }
 }
 ```
-For more information about the topic of source code generation see the packages:
+For more information about source code generation see:
 [analyzer] and [source_gen].
 
 ## Examples
