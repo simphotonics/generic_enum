@@ -3,11 +3,11 @@
 
 ## Introduction
 
-Enumerations are ideal when we want to model choosing from a limited set of constant values.
-In Dart, the value of an enum resolves to a `String`.
+Enumerations are ideal when we want to model *choosing* from a limited set of constant values.
+In Dart, the value of an `enum` resolves to a `String`.
 
 Generic Enum is a base class for creating generic classes with a fixed set of static constant
-instances. These classes appear to the user of the software much like a Dart enum would.
+instances. These classes appear to the user of the software much like a Dart `enum` would.
 
 ## Boilerplate
 To create a generic enum class, say `DpiResolution`, follow these steps:
@@ -129,12 +129,12 @@ class User{
 
 ### Retrieving Annotations of Type Generic Enum
 
-Using the package [analyzer][analyzer], the data model can be traversed with the help of a
+Using the package [analyzer], the data model can be traversed with the help of a
 [SimpleElementVisitor](https://pub.dev/documentation/analyzer/latest/dart_element_visitor/SimpleElementVisitor-class.html).
 
 When processing annotations (for example during source code generation: see method `_addConstraint` below),
 the recommended way of retrieving an annotation of type generic enum
-is via [source_gen's][source_gen]
+is via [source_gen]'s
 [ConstantReader](https://pub.dev/documentation/source_gen/latest/source_gen/ConstantReader-class.html).
 
 This is because the generic enum `value` field is located in the parent class and ConstantReader
@@ -184,17 +184,18 @@ class TableVisitor extends SimpleElementVisitor {
 }
 ```
 For more information about the topic of source code generation see the packages
-[analyzer][analyzer] and [source_gen][source_gen].
+[analyzer] and [source_gen].
 
 ## Examples
 
 For a simple example on how to create a generic enum see:
-[name part](https://github.com/simphotonics/generic_enum/example/name_part.dart).
+[name_part.dart](https://github.com/simphotonics/generic_enum/example/name_part.dart).
 
 
 ## Features and bugs
 
-Please file feature requests and bugs at the [issue tracker][tracker].
-[tracker]: https://github.com/simphotonics/generic_enum/issues
+Please file feature requests and bugs at the [issue tracker].
+
+[issue tracker]: https://github.com/simphotonics/generic_enum/issues
 [analyzer]: https://pub.dev/package/analyzer
 [source_gen]: https://pub.dev/packages/source_gen
