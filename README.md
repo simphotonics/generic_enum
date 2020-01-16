@@ -176,7 +176,9 @@ class TableVisitor extends SimpleElementVisitor {
     // Read value of generic enum.
     // Note: ConstantReader searches for the field name 'value' in a
     // super class if it is not found in the annotation class.
-    String annotationValue = ConstantReader(annotation.computeConstantValue).read('value').stringValue;
+    String annotationValue = ConstantReader(
+      annotation.computeConstantValue(),
+    ).read('value').stringValue;
 
     // Retrieve the Constraint instance.
     var constraintInstance = Constraint.valueMap[annotationValue];
