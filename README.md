@@ -54,7 +54,7 @@ to serialize the value and retrieve the instance via the `valueMap`.
 ## Usage
 `GenericEnum` instances and their value are **compile-time constants** and can be
 used in *switch statements* to initalize other *constants*, *final variables*, or as *parameters* or *default parameters*
-in constructors and functions. See [example.dart](https://github.com/simphotonics/generic_enum/example/example.dart).
+in constructors and functions. See [example.dart](https://github.com/simphotonics/generic_enum/blob/master/example/example.dart).
 
 The sample class `ScannerSettings` (defined below) illustrates the use of a generic enum.
 
@@ -191,7 +191,7 @@ For more information about the topic of source code generation see the packages:
 ## Examples
 
 For a simple example on how to create and use a generic enum see:
-[example.dart](https://github.com/simphotonics/generic_enum/example/example.dart).
+[example.dart](https://github.com/simphotonics/generic_enum/blob/master/example/example.dart).
 
 
 ## Features and bugs
