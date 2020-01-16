@@ -76,9 +76,9 @@ class ScannerSettings{
 }
 ```
 
-## Generic Enum as Annotations
+## Generic Enums as Annotations
 
-`GenericEnum`s have a constant constructor and as such can be used as *annotations*.
+`GenericEnum` classes have a constant constructor and as such can be used as *annotations*.
 Annotations are commonly found in source code generating libraries.
 
 Since generic enums are normal classes they can contain
@@ -124,6 +124,7 @@ class User{
   @Constraint.PRIMARY_KEY
   final int id;
 
+  @Constraint.NOT_NULL
   final String userName;
 }
 ```
@@ -134,7 +135,7 @@ Using the package [analyzer], the data model `User` can be traversed with the he
 [SimpleElementVisitor](https://pub.dev/documentation/analyzer/latest/dart_element_visitor/SimpleElementVisitor-class.html).
 
 When processing annotations (for example during source code generation: see method `_addConstraint` below),
-the recommended way of retrieving an annotation of type generic enum
+the recommended way of retrieving an annotation of type `GenericEnum`
 is via [source_gen]'s
 [ConstantReader](https://pub.dev/documentation/source_gen/latest/source_gen/ConstantReader-class.html).
 
@@ -171,7 +172,7 @@ class TableVisitor extends SimpleElementVisitor {
     if (annotation == null) return;
 
     // Check if annotation is of type Constraint.
-    if (!_constraintChecker.isAssignableFromType(annotation)) return;
+    if (!_constraintChecker.isAssignableFromType(annotation.type)) return;
 
     // Read value of generic enum.
     // Note: ConstantReader searches for the field name 'value' in a
