@@ -16,7 +16,7 @@ To create a generic enum class, say `DpiResolution`, follow these steps:
 2. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
 3. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
 4. Optionally: Create a private field of type `Map<T,EnumClass>` and a corresponding getter
-  in order to provide easy access to all values and instances. 
+  in order to provide easy access to all values and instances.
 
 ```Dart
 import 'package:generic_enum/generic_enum.dart';
