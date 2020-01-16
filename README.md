@@ -10,13 +10,13 @@ Generic Enum is a base class for creating generic classes with a fixed set of st
 instances. These classes appear to the user of the software much like a Dart enum would.
 
 ## Boilerplate
-To create a generic enum class `DpiResolution` follow these steps:
+To create a generic enum class, say `DpiResolution`, follow these steps:
 
 1. Extend `GenericEnum<T>` where `T` is a Dart built-in type or a class with a const constructor.
 2. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
 3. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
 4. Optionally: Create a private field of type `Map<T,EnumClass>` and a corresponding getter
-  in order to provide easy access to all values and instances.
+  in order to provide easy access to all values and instances. 
 
 ```Dart
 import 'package:generic_enum/generic_enum.dart';
