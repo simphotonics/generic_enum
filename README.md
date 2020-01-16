@@ -12,28 +12,28 @@ instances. These classes appear to the user of the software much like a Dart enu
 ## Boilerplate
 To create a generic enum class `DpiResolution` follow these steps:
 
-- 1) Extend `GenericEnum<T>` where `T` is a Dart built-in type or a class with a const constructor.
-- 2) Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
-- 3) Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
-- 4) Optionally: Create a private field of type `Map<T,EnumClass>` and a corresponding getter
+- 1. Extend `GenericEnum<T>` where `T` is a Dart built-in type or a class with a const constructor.
+- 2. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
+- 3. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
+- 4. Optionally: Create a private field of type `Map<T,EnumClass>` and a corresponding getter
   in order to provide easy access to all values and instances.
 
 ```Dart
 import 'package:generic_enum/generic_enum.dart';
 
-//   1) Extend GenericEnum<T>
+//   1. Extend GenericEnum<T>
 class DpiResolution extends GeneralizedEnum<int> {
 
-  // 2) Define a private const constructor that calls the super constructor
+  // 2. Define a private const constructor that calls the super constructor
   //    and passes on the value of type int.
   const DpiResolution._(int) : super(value);
 
-  // 3) Define static constant instances of type DpiResolution
+  // 3. Define static constant instances of type DpiResolution
   static const DpiResolution LOW = DpiResolution._(90);
   static const DpiResolution MEDIUM = DpiResolution._(300);
   static const DpiResolution HIGH = DpiResolution._(600);
 
-  // 4) Define a private field mapping each value to its instance.
+  // 4. Define a private field mapping each value to its instance.
   static const Map<int, DpiResolution> _valueMap = {
     90: LOW,
     300: MEDIUM,
