@@ -17,3 +17,7 @@ Amended library description.
 # 0.0.5
 
 Amended sample code in README.md.
+
+# 0.0.6
+
+Shortened library description.
