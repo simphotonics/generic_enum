@@ -1,6 +1,9 @@
 name: example
 description:
-  Usage of generic_enum.
+  Example showing how to create a generic enumeration class.
+  Includes a runnable short program illustrating the use of a generic_enum
+  in a switch statement, as constant parameters, and as
+  default parameters in functions and constructors.
 
 homepage: https://github.com/simphotonics/generic_enum
 author: D Reschner <git@simphotonics.com>
@@ -11,6 +14,7 @@ environment:
 dependencies:
   generic_enum:
     path: ../
+  built_collection: ^4.3.2
 
 dev_dependencies:
   test: ^1.11.0
