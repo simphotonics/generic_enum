@@ -50,10 +50,11 @@ At least for simple value types it is straightforward
 to serialize the value and retrieve the instance via the `valueMap`.
 
 ## Usage
-Generic Enum instances are compile-time constants and can be
-used as default parameters in constructors and functions.
+Generic Enum instances and their value are **compile-time constants** and can be
+used to initalize other *constants*, *final variables*, or as *parameters* or *default parameters*
+in constructors and functions.
 
-To class `ScannerSettings` (defined below) illustrates the use of a generic enum.
+To sample class `ScannerSettings` (defined below) illustrates the use of a generic enum.
 
 The `value` of generic enums can be accessed directly using dot notation (like in the
 initializer statement below).
@@ -77,7 +78,7 @@ class ScannerSettings{
 
 ## Generic Enum as Annotations
 
-Generic enums have a constant constructor and as such can be used as annotations.
+Generic enums have a constant constructor and as such can be used as *annotations*.
 Annotations are commonly found in source code generating libraries.
 
 Since generic enums are normal classes they can contain
@@ -129,7 +130,7 @@ class User{
 
 ### Retrieving Annotations of Type Generic Enum
 
-Using the package [analyzer], the data model can be traversed with the help of a
+Using the package [analyzer], the data model `User` can be traversed with the help of a
 [SimpleElementVisitor](https://pub.dev/documentation/analyzer/latest/dart_element_visitor/SimpleElementVisitor-class.html).
 
 When processing annotations (for example during source code generation: see method `_addConstraint` below),
@@ -183,7 +184,7 @@ class TableVisitor extends SimpleElementVisitor {
   }
 }
 ```
-For more information about the topic of source code generation see the packages
+For more information about the topic of source code generation see the packages:
 [analyzer] and [source_gen].
 
 ## Examples
