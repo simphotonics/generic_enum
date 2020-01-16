@@ -6,8 +6,8 @@
 Enumerations are ideal when we want to model *choosing* from a limited set of constant values.
 In Dart, the value of an `enum` resolves to a `String`.
 
-Generic Enum is a base class for creating generic classes with a fixed set of static constant
-instances. These classes appear to the user of the software much like a Dart `enum` would.
+`GenericEnum` is a base class for creating generic classes with a fixed set of static constant
+instances. These classes appear to the user of the library much like a Dart `enum` would.
 
 ## Boilerplate
 To create a generic enum class, say `DpiResolution`, follow these steps:
@@ -50,7 +50,7 @@ At least for simple value types it is straightforward
 to serialize the value and retrieve the instance via the `valueMap`.
 
 ## Usage
-Generic Enum instances and their value are **compile-time constants** and can be
+`GenericEnum` instances and their value are **compile-time constants** and can be
 used to initalize other *constants*, *final variables*, or as *parameters* or *default parameters*
 in constructors and functions.
 
@@ -78,7 +78,7 @@ class ScannerSettings{
 
 ## Generic Enum as Annotations
 
-Generic enums have a constant constructor and as such can be used as *annotations*.
+`GenericEnum`s have a constant constructor and as such can be used as *annotations*.
 Annotations are commonly found in source code generating libraries.
 
 Since generic enums are normal classes they can contain
