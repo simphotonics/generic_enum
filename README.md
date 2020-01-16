@@ -54,7 +54,7 @@ to serialize the value and retrieve the instance via the `valueMap`.
 used to initalize other *constants*, *final variables*, or as *parameters* or *default parameters*
 in constructors and functions.
 
-To sample class `ScannerSettings` (defined below) illustrates the use of a generic enum.
+The sample class `ScannerSettings` (defined below) illustrates the use of a generic enum.
 
 The `value` of generic enums can be accessed directly using dot notation (like in the
 initializer statement below).
