@@ -8,6 +8,8 @@ In Dart, the value of an `enum` resolves to a `String`.
 
 `GenericEnum` is a base class for creating generic classes with a fixed set of static constant
 instances. These classes appear to the user of the library much like a Dart `enum` would.
+For example, generic enums can be used in `switch` statements, to initialize variables, or as
+default parameters in functions and constructors.
 
 ## Boilerplate
 To create a generic enum class, say `DpiResolution`, follow these steps:
@@ -15,11 +17,12 @@ To create a generic enum class, say `DpiResolution`, follow these steps:
 1. Extend `GenericEnum<T>` where `T` is a Dart built-in type or a class with a const constructor.
 2. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
 3. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
-4. Optionally: Create a private field of type `Map<T,EnumClass>` and a corresponding getter
-  in order to provide easy access to all values and instances.
+4. Optionally: Create a *static final* field of type `BuiltMap<T,EnumClass>`to provide easy access to all values and instances.
 
 ```Dart
+import 'package:built_collection/generic_enum.dart';
 import 'package:generic_enum/generic_enum.dart';
+
 
 //   1. Extend GenericEnum<T>
 class DpiResolution extends GeneralizedEnum<int> {
@@ -33,26 +36,25 @@ class DpiResolution extends GeneralizedEnum<int> {
   static const DpiResolution MEDIUM = DpiResolution._(300);
   static const DpiResolution HIGH = DpiResolution._(600);
 
-  // 4. Define a private field mapping each value to its instance.
-  static const Map<int, DpiResolution> _valueMap = {
+  // 4. Define a private static field mapping each value to its instance.
+  static final valueMap = BuiltMap<String,DpiResolution>({
     90: LOW,
     300: MEDIUM,
     600: HIGH,
-  };
+  });
 
-  // Provide access to _valueMap
-  static get valueMap => _valueMap;
+
 }
 ```
-In principle, the creation of the `_valueMap`, the getter `valueMap`, and additional methods for serialization
+In principle, the creation of the `valueMap`, and additional methods for serialization
 could be done with a source code generator (see package built_value).
-At least for simple value types it is straightforward
+At least for simple value types (the most common use-case) it is straightforward
 to serialize the value and retrieve the instance via the `valueMap`.
 
 ## Usage
 `GenericEnum` instances and their value are **compile-time constants** and can be
-used to initalize other *constants*, *final variables*, or as *parameters* or *default parameters*
-in constructors and functions.
+used in *switch statements* to initalize other *constants*, *final variables*, or as *parameters* or *default parameters*
+in constructors and functions. See [example.dart](https://github.com/simphotonics/generic_enum/example/example.dart).
 
 The sample class `ScannerSettings` (defined below) illustrates the use of a generic enum.
 
@@ -97,13 +99,11 @@ class Constraint extends GenericEnum<String> {
   static const Constraint PRIMARY_KEY = Constraint._('PRIMARY KEY');
   static const Constraint UNIQUE = Constraint._('UNIQUE');
 
-  static const Map<String, Constraint> _valueMap = {
+  static final  valueMap = BuiltMap<String, Constraint>({
     'NOT NULL': NOT_NULL,
     'PRIMARY KEY': PRIMARY_KEY,
     'UNIQUE': UNIQUE,
-  };
-
-  static get valueMap => _valueMap;
+  });
 
   bool get isPrimary => (this == PRIMARY_KEY);
   bool get isUnique => (this == UNIQUE);
@@ -190,8 +190,8 @@ For more information about the topic of source code generation see the packages:
 
 ## Examples
 
-For a simple example on how to create a generic enum see:
-[name_part.dart](https://github.com/simphotonics/generic_enum/example/name_part.dart).
+For a simple example on how to create and use a generic enum see:
+[example.dart](https://github.com/simphotonics/generic_enum/example/example.dart).
 
 
 ## Features and bugs
