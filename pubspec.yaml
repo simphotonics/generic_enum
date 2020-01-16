@@ -9,7 +9,7 @@ description:
   const variables, and as parameters or default parameters
   in functions and constructors.
 
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/simphotonics/generic_enum
 
 environment:
