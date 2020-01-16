@@ -25,7 +25,7 @@ import 'package:generic_enum/generic_enum.dart';
 
 
 //   1. Extend GenericEnum<T>
-class DpiResolution extends GeneralizedEnum<int> {
+class DpiResolution extends GenericEnum<int> {
 
   // 2. Define a private const constructor that calls the super constructor
   //    and passes on the value of type int.
@@ -42,14 +42,12 @@ class DpiResolution extends GeneralizedEnum<int> {
     300: MEDIUM,
     600: HIGH,
   });
-
-
 }
 ```
 In principle, the creation of the `valueMap`, and additional methods for serialization
 could be done with a source code generator (see package built_value).
 At least for simple value types (the most common use-case) it is straightforward
-to serialize the value and retrieve the instance via the `valueMap`.
+to serialize the value and retrieve the `GenericEnum` instance via the `valueMap`.
 
 ## Usage
 `GenericEnum` instances and their value are **compile-time constants** and can be
@@ -199,5 +197,5 @@ For a simple example on how to create and use a generic enum see:
 Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
-[analyzer]: https://pub.dev/package/analyzer
+[analyzer]: https://pub.dev/packages/analyzer
 [source_gen]: https://pub.dev/packages/source_gen
