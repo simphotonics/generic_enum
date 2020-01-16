@@ -5,7 +5,7 @@ description:
   a generic value type. These classes can be used in
   switch statements, as annotations, or as constant parameters.
 
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/simphotonics/generic_enum
 
 environment:

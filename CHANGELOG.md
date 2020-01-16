@@ -12,4 +12,8 @@ Changed GeneralizedEnum to GenericEnum.
 
 # 0.0.4
 
-Amended library description. 
+Amended library description.
+
+# 0.0.5
+
+Amended sample code in README.md.
