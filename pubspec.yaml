@@ -1,15 +1,11 @@
 name: generic_enum
 description:
-  The library provides a generic enumerations base class. It
-  includes examples on how to create enumeration classes with
-  a generic value type.
+  Provides a generic enumeration base class that
+  can be extended to create simple enumeration classes with
+  a generic value type. These classes can be used in
+  switch statements, as annotations, or as constant parameters.
 
-  Generic enumeration classes can be used in switch statements,
-  as annotations, as initializers  when instantiating final and
-  const variables, and as parameters or default parameters
-  in functions and constructors.
-
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/simphotonics/generic_enum
 
 environment:

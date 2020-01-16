@@ -9,3 +9,7 @@ Library now depends on built_collection.
 # 0.0.3
 
 Changed GeneralizedEnum to GenericEnum.
+
+# 0.0.4
+
+Amended library description. 
