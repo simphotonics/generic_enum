@@ -1,5 +1,5 @@
 # Generic Enumeration Classes for Dart
-[![Build Status](https://travis-ci.org/google/built_value.dart.svg?branch=master)](https://travis-ci.org/google/built_value.dart)
+[![Build Status](https://travis-ci.org/simphotonics/generic_enum.svg?branch=master)](https://travis-ci.org/simphotonics/generic_enum)
 
 ## Introduction
 
