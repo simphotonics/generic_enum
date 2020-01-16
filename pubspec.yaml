@@ -3,7 +3,6 @@ description:
   Provides a generic enumeration-like base class.
 version: 0.0.1
 homepage: https://github.com/simphotonics/generic_enum
-author: D Reschner <git@simphotonics.com>
 
 environment:
   sdk: '>=2.3.0 <3.0.0'
