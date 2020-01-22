@@ -27,13 +27,14 @@ import 'package:json_annotation/json_annotation.dart';
 ///
 ///}
 /// ```
-/// In your pubspec.yaml file add the following dependencies:
+/// In your pubspec.yaml file add (updated versions of) the
+/// following dependencies:
 /// ```
 /// dev_dependencies:
 ///   build_runner: ^1.0.0
 ///   source_gen: ^0.9.4+7
-///   generic_enum_generator:
-///     path: ../generic_enum/generic_enum_generator
+///   generic_enum_generator: ^0.0.1
+///
 /// ```
 /// In you local build.yaml file add and enable the following targets:
 /// ```
