@@ -25,6 +25,7 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
    ```Dart
    import 'package:built_collection/generic_enum.dart';
    import 'package:generic_enum/generic_enum.dart';
+   import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
    //   1. Extend GenericEnum<T>
    @GenerateMap()
@@ -48,7 +49,6 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
    }
 
 6. Configure the build targets.
-   ```
    In your local `build.yaml` file add the following targets:
    ```Shell
    targets:
@@ -70,7 +70,7 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
 
 7. Build the project by running the command
    ```Shell
-   flutter packages pub run build_runner build --delete-conflicting-outputs
+   $ flutter packages pub run build_runner build --delete-conflicting-outputs
    ```
 
 ## Examples
