@@ -22,57 +22,56 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
 3. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
 4. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
 5. Define accessors for the private variable `_valueMap` and `_toJson`.
+   ```Dart
+   import 'package:built_collection/generic_enum.dart';
+   import 'package:generic_enum/generic_enum.dart';
+
+   //   1. Extend GenericEnum<T>
+   @GenerateMap()
+   @GenerateJson()
+   class DpiResolution extends GenericEnum<int> {
+
+     // 3. Define a private const constructor that calls the super constructor
+     //    and passes on the value of type int.
+     const DpiResolution._(int) : super(value);
+
+     // 4. Define static constant instances of type DpiResolution
+     static const DpiResolution LOW = DpiResolution._(90);
+     static const DpiResolution MEDIUM = DpiResolution._(300);
+     static const DpiResolution HIGH = DpiResolution._(600);
+
+     // 5. Define getter to access _valueMap.
+     static BuiltMap<int,DpiResolution> get => _valueMap;
+
+     // 5. Give access to serialization methods
+     Map<String,dynamic> toJson => _toJson(this);
+   }
+
 6. Configure the build targets.
+   ```
+   In your local `build.yaml` file add the following targets:
+   ```Shell
+   targets:
+     $default:
+       builders:
+         # Configure the builder `pkg_name|builder_name`
+         generic_enum_generator|map_builder:
+           # Only run this builder on the specified input.
+           enabled: true
+           generate_for:
+             - lib/*.dart
+         # Configure the builder `pkg_name|builder_name`
+         generic_enum_generator|json_builder:
+           # Only run this builder on the specified input.
+           enabled: true
+           generate_for:
+             - lib/*.dart
+    ```
+
 7. Build the project by running the command
-```Shell
-flutter packages pub run build_runner build --delete-conflicting-outputs
-```
-
-```Dart
-import 'package:built_collection/generic_enum.dart';
-import 'package:generic_enum/generic_enum.dart';
-
-//   1. Extend GenericEnum<T>
-@GenerateMap()
-@GenerateJson()
-class DpiResolution extends GenericEnum<int> {
-
-  // 3. Define a private const constructor that calls the super constructor
-  //    and passes on the value of type int.
-  const DpiResolution._(int) : super(value);
-
-  // 4. Define static constant instances of type DpiResolution
-  static const DpiResolution LOW = DpiResolution._(90);
-  static const DpiResolution MEDIUM = DpiResolution._(300);
-  static const DpiResolution HIGH = DpiResolution._(600);
-
-  // 5. Define getter to access _valueMap.
-  static BuiltMap<int,DpiResolution> get => _valueMap;
-
-  // 5. Give access to serialization methods
-  Map<String,dynamic> toJson => _toJson(this);
-}
-```
-In your local `build.yaml` file add the following targets:
-```Shell
-targets:
-  $default:
-    builders:
-      # Configure the builder `pkg_name|builder_name`
-      generic_enum_generator|map_builder:
-        # Only run this builder on the specified input.
-        enabled: true
-        generate_for:
-          - lib/*.dart
-      # Configure the builder `pkg_name|builder_name`
-      generic_enum_generator|json_builder:
-        # Only run this builder on the specified input.
-        enabled: true
-        generate_for:
-          - lib/*.dart
-
-```
-
+   ```Shell
+   flutter packages pub run build_runner build --delete-conflicting-outputs
+   ```
 
 ## Examples
 
