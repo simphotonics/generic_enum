@@ -41,10 +41,8 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
      static const DpiResolution MEDIUM = DpiResolution._(300);
      static const DpiResolution HIGH = DpiResolution._(600);
 
-     // 5. Define getter to access _valueMap.
+     // 5. Give access to _valueMap and _toJson.
      static BuiltMap<int,DpiResolution> get => _valueMap;
-
-     // 5. Give access to serialization methods
      Map<String,dynamic> toJson => _toJson(this);
    }
 
