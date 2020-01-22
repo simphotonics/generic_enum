@@ -3,47 +3,75 @@
 
 ## Introduction
 
-This library defines classes with const constructor used to annotate classes that extend `GenericEnum`.
+This library defines classes with const constructor used to **annotate** classes that extend `GenericEnum`.
 
-`GenericEnum` is a base class for creating generic classes with a fixed set of static constant instances. These classes appear to the user of the library much like a Dart `enum` would. For example, generic enums can be used in `switch` statements, to initialize variables, or as default parameters in functions and constructors.
+`GenericEnum` is a base class for creating generic classes with a fixed set of static constant instances. These classes appear to the user like a Dart `enum` would. For example, generic enums can be used in `switch` statements, to initialize variables, or as default parameters in functions and constructors.
 
 ## Usage
 
-In general, there is no need to explicitly include `generic_enum_annotation` in the list of dependencies. Instead,
+The annotations defined in this library are:
+ -`@GenerateJson()`: Requests the generation of the methods `_toJson` and `fromJson`
+ -`@GenerateMap()`: Requests the generation of a `BuiltMap` containing the enum values and instances.
 
-To create a generic enum class, say `DpiResolution`, follow these steps:
+To use this library include `generic_enum_annotation` as dependency in your pubspec.yaml file.
+Include `generic_enum_generator, source_gen, build_runner` as dev_dependencies.
 
-1. Extend `GenericEnum<T>` where `T` is a Dart built-in type or a class with a const constructor.
-2. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
-3. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
-4. Optionally: Create a *static final* field of type `BuiltMap<T,EnumClass>`to provide easy access to all values and instances.
+To create a generic enum class, say `DpiResolution`, the following steps are required:
+1. Extend `GenericEnum<T>` where `T` is a Dart built-in type or a class with a const constructor. (To use the serialization methods `T` should have `fromJson` and `toJson` methods.)
+2. Annotate the class with `@GenerateMap` and `@GenerateJson`.
+3. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
+4. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
+5. Define accessors for the private variable `_valueMap` and `_toJson`.
+6. Configure the build targets.
+7. Build the project by running the command
+```Shell
+flutter packages pub run build_runner build --delete-conflicting-outputs
+```
 
 ```Dart
 import 'package:built_collection/generic_enum.dart';
 import 'package:generic_enum/generic_enum.dart';
 
-
 //   1. Extend GenericEnum<T>
+@GenerateMap()
+@GenerateJson()
 class DpiResolution extends GenericEnum<int> {
 
-  // 2. Define a private const constructor that calls the super constructor
+  // 3. Define a private const constructor that calls the super constructor
   //    and passes on the value of type int.
   const DpiResolution._(int) : super(value);
 
-  // 3. Define static constant instances of type DpiResolution
+  // 4. Define static constant instances of type DpiResolution
   static const DpiResolution LOW = DpiResolution._(90);
   static const DpiResolution MEDIUM = DpiResolution._(300);
   static const DpiResolution HIGH = DpiResolution._(600);
 
-  // 4. Define a private static field mapping each value to its instance.
+  // 5. Define getter to access _valueMap.
   static BuiltMap<int,DpiResolution> get => _valueMap;
 
   // 5. Give access to serialization methods
-  
+  Map<String,dynamic> toJson => _toJson(this);
 }
 ```
-The generation of the private variable `_valueMap`, as well as the functions
-`_toJson()` and `_fromJson()` can be done with the source code generating libray `generic_enum_generator`.
+In your local `build.yaml` file add the following targets:
+```Shell
+targets:
+  $default:
+    builders:
+      # Configure the builder `pkg_name|builder_name`
+      generic_enum_generator|map_builder:
+        # Only run this builder on the specified input.
+        enabled: true
+        generate_for:
+          - lib/*.dart
+      # Configure the builder `pkg_name|builder_name`
+      generic_enum_generator|json_builder:
+        # Only run this builder on the specified input.
+        enabled: true
+        generate_for:
+          - lib/*.dart
+
+```
 
 
 ## Examples
@@ -53,7 +81,6 @@ For a simple example on how to create and use a generic enum see:
 
 
 ## Features and bugs
-
 Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
