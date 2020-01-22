@@ -2,7 +2,7 @@ name: generic_enum_annotation
 description:
   Defines annotations processed by source code generating library generic_enum_generator.
 
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_annotation
 
 environment:
