@@ -1,5 +1,5 @@
 /// Annotation requesting the generation of a BuiltMap containing
-/// the const static instances defined for a class that
+/// the const static instances and values defined for a class that
 /// extends GenericEnum.
 class GenerateBuiltMap {
   /// Annotation processed by GenericEnumGenerator.
@@ -16,14 +16,13 @@ class GenerateBuiltMap {
   ///  static const INTEGER = ValidType._(int);
   ///  static const BOOL = ValidType._(bool);
   ///
-  ///  BuiltMap<Type,ValidType> get => _valueMap;
-  ///
+  ///  BuiltMap<Type,ValidType> get valueMap => _valueMap; // <--- Add getter.
   /// }
   /// ```
   /// Running the build process will generate a
   /// BuiltMap object:
   /// ```
-  /// static final _valueMap = BuiltMap<Type,ValidType>({
+  /// final _valueMap = BuiltMap<Type,ValidType>({
   ///   int: INTEGER,
   ///   bool: BOOL,
   /// });

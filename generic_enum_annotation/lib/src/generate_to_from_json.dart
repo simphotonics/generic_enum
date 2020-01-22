@@ -13,15 +13,14 @@ class GenerateToFromJson {
   ///
   /// part valid_type.g.dart;
   ///
-  /// @GenerateBuiltMap() @GenerateToFromJson // <--- Include annotations above class definition.
+  /// @GenerateBuiltMap() @GenerateToFromJson // <--- Add annotations above class definition.
   /// ValidType extends GenericEnum<Type>{
   ///  const ValidType._(Type value) : super(value);
   ///
   ///  static const INTEGER = ValidType._(int);
   ///  static const BOOL = ValidType._(bool);
   ///
-  ///  BuiltMap<Type,ValidType> get => _valueMap;
-  ///
+  ///  BuiltMap<Type,ValidType> get valueMap => _valueMap; // <--- Define getter.
   /// }
   /// ```
   /// Running the build process will generate
