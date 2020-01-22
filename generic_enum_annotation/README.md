@@ -7,11 +7,11 @@ This library defines annotation classes (with const constructor). These are used
 
 `GenericEnum` is a base class for creating generic classes with a fixed set of static constant instances. These classes appear to the user like a Dart `enum` would. For example, generic enums can be used in `switch` statements, to initialize variables, or as default parameters in functions and constructors.
 
-## Usage
-
 The annotations defined in this library are:
  - `@GenerateJson()`: Requests the generation of the methods `_toJson` and `fromJson`
  - `@GenerateMap()`: Requests the generation of a `BuiltMap` containing the enum values and instances.
+
+## Usage
 
 To use this library include `generic_enum_annotation` as dependency in your pubspec.yaml file.
 Include `generic_enum_generator, source_gen, build_runner` as dev_dependencies.
