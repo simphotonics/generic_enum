@@ -29,7 +29,7 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
 
    //   1. Extend GenericEnum<T>
    @GenerateMap()  // 2. Annotate class
-   @GenerateJson() // 
+   @GenerateJson() //
    class DpiResolution extends GenericEnum<int> {
 
      // 3. Define a private const constructor that calls the super constructor
@@ -73,8 +73,8 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
 
 ## Examples
 
-For a simple example on how to create and use a generic enum see:
-[example.dart](https://github.com/simphotonics/generic_enum/blob/master/example/example.dart).
+For a simple example on how to use `generic_enum_annotation` to annotate and build generic enums see:
+[example.dart](https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example)
 
 
 ## Features and bugs
