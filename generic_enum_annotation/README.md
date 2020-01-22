@@ -28,8 +28,8 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
    import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
    //   1. Extend GenericEnum<T>
-   @GenerateMap()
-   @GenerateJson()
+   @GenerateMap()  // 2. Annotate class
+   @GenerateJson() // 
    class DpiResolution extends GenericEnum<int> {
 
      // 3. Define a private const constructor that calls the super constructor
