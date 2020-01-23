@@ -1,4 +1,7 @@
-# Builder defined by this library:
+# Note: You need to define the build targets in your local build.yaml file.
+# See 'Instructions' below.
+
+# Builders defined by this library:
 builders:
   map_builder:
     import: "package:generic_enum_generator/builder.dart"
@@ -15,6 +18,7 @@ builders:
     build_to: cache
     applies_builders: ["source_gen|combining_builder"]
 
+# Instructions:
 # When using this package, define the build targets in
 # your local build.yaml file.
 #
