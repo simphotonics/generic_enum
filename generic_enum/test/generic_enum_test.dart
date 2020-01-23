@@ -9,7 +9,7 @@ class NamePart extends GenericEnum<String> {
 
   static const NamePart LAST_NAME = NamePart._('LAST_NAME');
 
-  static final valueMap = BuiltMap<String,NamePart>({
+  static final valueMap = BuiltMap<String, NamePart>({
     'FIRST_NAME': FIRST_NAME,
     'LAST_NAME': LAST_NAME,
   });
@@ -35,7 +35,6 @@ void main() {
     test('Get int value', () {
       expect(PlaneType.AB707.value, 707);
     });
-
   });
 
   group('Testing valueMap getter:', () {
@@ -46,22 +45,11 @@ void main() {
 
   group('Serialization:', () {
     test('String value', () {
-      expect(NamePart.FIRST_NAME.toJson(), {'value': NamePart.FIRST_NAME.value});
+      expect(
+          NamePart.FIRST_NAME.toJson(), {'value': NamePart.FIRST_NAME.value});
     });
     test('Int value', () {
       expect(PlaneType.AB747.toJson(), {'value': PlaneType.AB747.value});
     });
   });
-
-  group('Deserialization:', () {
-    test('String value', () {
-      expect(GenericEnum<String>('lorem'), GenericEnum<String>.fromJson({'value': 'lorem'}));
-    });
-    test('Int value', () {
-      expect(PlaneType.AB747.toJson(), {'value': PlaneType.AB747.value});
-    });
-  });
-
-
-
 }
