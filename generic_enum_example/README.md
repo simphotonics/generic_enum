@@ -74,34 +74,34 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
    $ flutter packages pub run build_runner build --delete-conflicting-outputs
    ```
 
-The generated file `dpi_resolution.g.dart` should have the following content:
-```Dart
-   // GENERATED CODE - DO NOT MODIFY BY HAND
+   The generated file `dpi_resolution.g.dart` should have the following content:
+   ```Dart
+      // GENERATED CODE - DO NOT MODIFY BY HAND
 
-   part of 'dpi_resolution.dart';
+      part of 'dpi_resolution.dart';
 
-   // **************************************************************************
-   // JsonGenerator
-   // **************************************************************************
+      // **************************************************************************
+      // JsonGenerator
+      // **************************************************************************
 
-   Map<String, dynamic> _toJson(DpiResolution instance) => instance.toJson();
+      Map<String, dynamic> _toJson(DpiResolution instance) => instance.toJson();
 
-   DpiResolution fromJson(Map<String, dynamic> json) {
-     int value = GenericEnum.fromJson(json).value;
-     return DpiResolution.valueMap[value];
-   }
+      DpiResolution fromJson(Map<String, dynamic> json) {
+        int value = GenericEnum.fromJson(json).value;
+        return DpiResolution.valueMap[value];
+      }
 
-   // **************************************************************************
-   // MapGenerator
-   // **************************************************************************
+      // **************************************************************************
+      // MapGenerator
+      // **************************************************************************
 
-   final _valueMap = BuiltMap<int, DpiResolution>({
-     DpiResolution.LOW.value: DpiResolution.LOW,
-     DpiResolution.MEDIUM.value: DpiResolution.MEDIUM,
-     DpiResolution.HIGH.value: DpiResolution.HIGH
-   });
+      final _valueMap = BuiltMap<int, DpiResolution>({
+        DpiResolution.LOW.value: DpiResolution.LOW,
+        DpiResolution.MEDIUM.value: DpiResolution.MEDIUM,
+        DpiResolution.HIGH.value: DpiResolution.HIGH
+      });
 
-```
+   ```
 
 ## Features and bugs
 Please file feature requests and bugs at the [issue tracker].
