@@ -54,8 +54,8 @@ $ pub run build_runner build --delete-conflicting-outputs
 
 ## Examples
 
-For examples on how to use build generic enums see:
-[generic_enum_example](https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example)
+For examples on how to use build generic enums see: [generic_enum_example].
+
 
 
 ## Features and bugs
@@ -64,3 +64,4 @@ Please file feature requests and bugs at the [issue tracker].
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
 [analyzer]: https://pub.dev/packages/analyzer
 [source_gen]: https://pub.dev/packages/source_gen
+[generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
