@@ -21,3 +21,7 @@ Amended sample code in README.md.
 # 0.0.6
 
 Shortened library description.
+
+# 0.1.0
+
+Added json-serialization

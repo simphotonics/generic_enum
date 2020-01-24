@@ -33,7 +33,7 @@ import 'package:json_annotation/json_annotation.dart';
 /// dev_dependencies:
 ///   build_runner: ^1.0.0
 ///   source_gen: ^0.9.4+7
-///   generic_enum_generator: ^0.0.1
+///   generic_enum_builder: ^0.0.1
 ///
 /// ```
 /// In you local build.yaml file add and enable the following targets:
@@ -42,13 +42,13 @@ import 'package:json_annotation/json_annotation.dart';
 ///  $default:
 ///    builders:
 ///      # Configure the builder `pkg_name|builder_name`
-///      generic_enum_generator|map_builder:
+///      generic_enum_builder|map_builder:
 ///        # Only run this builder on the specified input.
 ///        enabled: true
 ///        generate_for:
 ///          - lib/*.dart
 ///      # Configure the builder `pkg_name|builder_name`
-///      generic_enum_generator|json_builder:
+///      generic_enum_builder|json_builder:
 ///        # Only run this builder on the specified input.
 ///        enabled: true
 ///        generate_for:

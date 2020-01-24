@@ -18,7 +18,7 @@ BuiltMap to retrieve generic enum instances based on their value.
 ## Usage
 
 To use this library include `generic_enum_annotation` as dependency in your pubspec.yaml file.
-Include `generic_enum_generator, source_gen, build_runner` as dev_dependencies.
+Include `generic_enum_builder, source_gen, build_runner` as dev_dependencies.
 
 To create a generic enum class, say `DpiResolution`, the following steps are required:
 1. Extend `GenericEnum<T>` where `T` is a Dart built-in type or a class with a const constructor.
@@ -61,13 +61,13 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
      $default:
        builders:
          # Configure the builder `pkg_name|builder_name`
-         generic_enum_generator|map_builder:
+         generic_enum_builder|map_builder:
            # Only run this builder on the specified input.
            enabled: true
            generate_for:
              - lib/*.dart
          # Configure the builder `pkg_name|builder_name`
-         generic_enum_generator|json_builder:
+         generic_enum_builder|json_builder:
            # Only run this builder on the specified input.
            enabled: true
            generate_for:

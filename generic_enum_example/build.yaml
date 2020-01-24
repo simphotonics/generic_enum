@@ -2,13 +2,13 @@ targets:
   $default:
     builders:
       # Configure the builder `pkg_name|builder_name`
-      generic_enum_generator|map_builder:
+      generic_enum_builder|map_builder:
         # Only run this builder on the specified input.
         enabled: true
         generate_for:
           - lib/*.dart
       # Configure the builder `pkg_name|builder_name`
-      generic_enum_generator|json_builder:
+      generic_enum_builder|json_builder:
         # Only run this builder on the specified input.
         enabled: true
         generate_for:

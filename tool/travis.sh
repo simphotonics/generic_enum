@@ -4,7 +4,7 @@
 set -e
 
 # Folders to be processed
-folders="generic_enum generic_enum_annotation generic_enum_generator \
+folders="generic_enum generic_enum_annotation generic_enum_builder \
     generic_enum_example"
 
 library_folder=$PWD
