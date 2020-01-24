@@ -1,0 +1,44 @@
+# Note: You need to define the build targets in your local build.yaml file.
+# See 'Instructions' below.
+
+# Builders defined by this library:
+builders:
+  map_builder:
+    import: "package:generic_enum_builder/generic_enum_builder.dart"
+    builder_factories: ["mapBuilder"]
+    build_extensions: {".dart": ["map_builder.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
+  json_builder:
+    import: "package:generic_enum_builder/generic_enum_builder.dart"
+    builder_factories: ["jsonBuilder"]
+    build_extensions: {".dart": ["json_builder.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
+
+# Instructions:
+# When using this package, define the build targets in
+# your local build.yaml file.
+#
+# To enable the builders above add the following lines
+# to your local build.yaml file:
+# (Don't forget to uncomment and amend the path in
+# the generate_for directive.)
+#
+# targets:
+#   $default:
+#     builders:
+#       # Configure the builder `pkg_name|builder_name`
+#       generic_enum_builder|map_builder:
+#         # Only run this builder on the specified input.
+#         generate_for:
+#           - lib/*.dart
+#         enabled: true
+#       # Configure the builder `pkg_name|builder_name`
+#       generic_enum_builder|json_builder:
+#         # Only run this builder on the specified input.
+#         generate_for:
+#           - lib/*.dart
+#         enabled: true
