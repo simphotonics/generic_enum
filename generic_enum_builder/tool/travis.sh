@@ -44,6 +44,14 @@ dartanalyzer \
     --fatal-warnings \
     --fatal-infos \
     --packages="$PWD/.packages" \
-    $(find bin lib test -name \*.dart 2>/dev/null)
+    $(find bin lib -name \*.dart 2>/dev/null)
 
-# Tests to be added later.
+# Running tests
+echo
+echo -e "${CYAN}=== Testing $PWD...${RESET}"
+echo
+# Running tests
+echo
+echo -e "${CYAN}=== Testing $PWD...${RESET}"
+echo
+pub run test
