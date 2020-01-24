@@ -4,10 +4,8 @@ environment:
   sdk: '>=2.6.0 <3.0.0'
 
 dependencies:
-  generic_enum_annotation:
-    path: ../generic_enum_annotation
-  generic_enum:
-    path: ../generic_enum
+  generic_enum_annotation: ^0.0.4
+  generic_enum: ^0.0.6
   built_collection: ^4.3.2
 
 dev_dependencies:

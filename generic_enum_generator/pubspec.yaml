@@ -13,18 +13,11 @@ dependencies:
   analyzer: ^0.39.2+1
   build: ^1.1.6
   meta: ^1.1.6
-  generic_enum_annotation:
-    path: ../generic_enum_annotation/
-  generic_enum:
-    path: ../generic_enum
-  
+  generic_enum_annotation: ^0.0.4
+  generic_enum: ^0.0.6
+
 dev_dependencies:
   test: ^1.6.8
   build_test: ^0.10.8
   build_runner: ^1.7.2
   source_gen: ^0.9.4+6
-
-  #path: ^1.6.2
-  #dart_style: ^1.2.9
-  #test_cov: ^0.2.0
-  #mockito: ^4.1.0
