@@ -18,7 +18,7 @@ To use this library the following configuration steps are required:
 
 1. Include `generic_enum, generic_enum_annotation` as dependency in your pubspec.yaml file.
    Include `generic_enum_generator, source_gen, build_runner` as dev_dependencies.
-2. Create a class extending `GenericEnum`. See [example].
+2. Create a class extending `GenericEnum`. See [generic_enum_example].
 3. Annotate the class with `@GenerateBuiltMap` and `@GenerateJsonToFrom`.
 4. Configure the build targets. Amend the generate_for entry to point to the
    folder containing your generic enum classes.
@@ -40,7 +40,7 @@ To use this library the following configuration steps are required:
            generate_for:
              - lib/*.dart
     ```
-    
+
 ## Building
 
 If you are using Flutter, build the project by running the command:
@@ -55,7 +55,7 @@ $ pub run build_runner build --delete-conflicting-outputs
 ## Examples
 
 For examples on how to use build generic enums see:
-[example.dart](https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example)
+[generic_enum_example](https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example)
 
 
 ## Features and bugs
