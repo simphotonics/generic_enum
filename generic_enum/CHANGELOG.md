@@ -24,4 +24,8 @@ Shortened library description.
 
 # 0.1.0
 
-Added json-serialization
+Added json-serialization.
+
+# 0.1.1
+
+Added Dart docs.
