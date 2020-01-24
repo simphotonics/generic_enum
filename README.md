@@ -50,7 +50,7 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
 ## Usage
 `GenericEnum` instances and their value are **compile-time constants** and can be
 used in *switch statements* to initalize other *constants*, *final variables*, or as *parameters* or *default parameters*
-in constructors and functions. 
+in constructors and functions.
 
 The sample class `ScannerSettings` (defined below) illustrates the use of a generic enum.
 
@@ -73,6 +73,8 @@ class ScannerSettings{
   final ScanSize;
 }
 ```
+See section [generic_enum/example] for details of how to use generic enums as annotations and how to retrieve their value
+using Dart's static [analyzer] package.
 
 ## Examples
 
@@ -90,3 +92,4 @@ Please file feature requests and bugs at the [issue tracker].
 [analyzer]: https://pub.dev/packages/analyzer
 [source_gen]: https://pub.dev/packages/source_gen
 [generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
+[generic_enum/example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum/example
