@@ -5,7 +5,7 @@ environment:
 
 dependencies:
   generic_enum_annotation: ^0.0.4
-  generic_enum: ^0.0.6
+  generic_enum: ^0.1.0
   built_collection: ^4.3.2
 
 dev_dependencies:
