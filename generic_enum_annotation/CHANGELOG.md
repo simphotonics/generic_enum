@@ -13,3 +13,7 @@ Added folder tool.
 # 0.0.4
 
 Amended README.md.
+
+# 0.0.5
+
+Amended description in pubspec.yaml.
