@@ -114,7 +114,6 @@ class _Converter<T> implements JsonConverter<T, Object> {
   }
 }
 
-
 class GenericEnumException implements Exception {
   /// Exception message
   final String message;
