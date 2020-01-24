@@ -8,10 +8,10 @@ This library defines annotation classes (with const constructor). These are used
 `GenericEnum` is a base class for creating generic classes with a fixed set of static constant instances. These classes appear to the user like a Dart `enum` would. For example, generic enums can be used in `switch` statements, to initialize variables, or as default parameters in functions and constructors.
 
 The annotations defined in this library are:
- - `@GenerateMap()`: Requests the generation of a `BuiltMap` containing the enum values and      instances.
- - `@GenerateJson()`: Requests the generation of the methods `_toJson` and `fromJson`
+ - `@GenerateBuiltMap()`: Requests the generation of a `BuiltMap` containing the enum values and      instances.
+ - `@GenerateToFromJson()`: Requests the generation of the methods `_toJson` and `fromJson`
 
-Important: `@GenerateJson()` requires `@GenerateMap()` since the `fromJson` function uses the
+Important: `@GenerateToFromJson()` requires `@GenerateBuiltMap()` since the `fromJson` function uses the
 BuiltMap to retrieve generic enum instances based on their value.
 
 
@@ -23,7 +23,7 @@ Include `generic_enum_builder, source_gen, build_runner` as dev_dependencies.
 To create a generic enum class, say `DpiResolution`, the following steps are required:
 1. Extend `GenericEnum<T>` where `T` is a Dart built-in type or a class with a const constructor.
    (To use the serialization methods, `T` should have `fromJson` and `toJson` methods.)
-2. Annotate the class with `@GenerateMap` and `@GenerateJson`.
+2. Annotate the class with `@GenerateBuiltMap` and `@GenerateToFromJson`.
 3. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
 4. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
 5. Define accessors for the private variable `_valueMap` and `_toJson`.
