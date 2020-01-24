@@ -54,7 +54,7 @@ $ pub run build_runner build --delete-conflicting-outputs
 
 ## Examples
 
-For examples on how to use build generic enums see: [generic_enum_example].
+For examples on how to build generic enums see: [generic_enum_example].
 
 
 
