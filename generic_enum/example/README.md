@@ -123,7 +123,7 @@ For more information about source code generation see:
 ## Examples
 
 For examples on how to create generic enums see:
-[example.dart]
+[generic_enum_example].
 
 
 ## Features and bugs
@@ -133,4 +133,4 @@ Please file feature requests and bugs at the [issue tracker].
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
 [analyzer]: https://pub.dev/packages/analyzer
 [source_gen]: https://pub.dev/packages/source_gen
-[example.dart]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
+[generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
