@@ -2,7 +2,7 @@
 
 ## Introduction
 
-``GenericEnumGenerator` contains source code generating classes
+`GenericEnumGenerator` contains source code generating classes
 based on [source_gen] and [analyzer].
 These can be configured to build *generic enumeration* classes
 supporting json-serialization.
