@@ -36,13 +36,14 @@ part 'generic_enum.g.dart';
 ///   static BuiltMap<int, DpiResolution> get valueMap => _valueMap;
 ///   Map<String, dynamic> toJson() => _toJson(this);
 /// }
+/// ```
 /// In your pubspec.yaml file add (updated versions of) the
 /// following dependencies:
 /// ```
 /// dev_dependencies:
 ///   build_runner: ^1.0.0
 ///   source_gen: ^0.9.4+7
-///   generic_enum_builder: ^0.0.1
+///   generic_enum_builder: ^0.0.2
 ///
 /// ```
 /// In your local build.yaml file add and enable the following targets:
