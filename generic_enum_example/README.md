@@ -8,7 +8,7 @@ These classes appear to the user like a Dart `enum` would.
 For example, generic enums can be used in `switch` statements,
 to initialize variables, or as default parameters in functions and constructors.
 
-This library demonstrates how to define and built a generic enumeration class.
+This library demonstrates how to define and built generic enumeration classes.
 
 ## Boilerplate
 
