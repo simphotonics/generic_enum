@@ -8,13 +8,20 @@ import 'package:generic_enum_builder/src/generic_enum_visitor.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
-/// Builds ToJson and FromJson functions
+/// Souce code generator that builds _ToJson and FromJson functions.
+/// Extends [GeneratorForAnnotation<GenerateToFromJson>] and as such
+/// processes only classes annotated with [@GenerateToFromJson].
 class JsonGenerator extends GeneratorForAnnotation<GenerateToFromJson> {
   static const GenericEnumChecker = TypeChecker.fromRuntime(GenericEnum);
 
+  /// Visits a [ClassElement] and extracts static type information.
   ClassElementVisitor classVis;
+
+  /// Visits an element with a static type that is assignable from [GenericEnum].
   GenericEnumVisitor vis;
 
+  /// Function called by [generate] during the build process. Provides
+  /// access to the current element, its annotations, and the buildStep.
   @override
   FutureOr<String> generateForAnnotatedElement(
       Element element, ConstantReader annotation, BuildStep buildStep) {
@@ -41,7 +48,7 @@ class JsonGenerator extends GeneratorForAnnotation<GenerateToFromJson> {
     return DartFormatter().format(source.toString());
   }
 
-  /// Generates toJson function.
+  /// Generates the function _ToJson.
   String _generateToJson() {
     var buffer = StringBuffer();
     // Function declaration
@@ -54,7 +61,7 @@ class JsonGenerator extends GeneratorForAnnotation<GenerateToFromJson> {
 
   // factory GenericEnum.fromJson(Map<String, dynamic> json) =>
   //     _$GenericEnumFromJson<T>(json);
-  /// Generates FromJson function
+  /// Generates the function FromJson.
   String _generateFromJson() {
     var buffer = StringBuffer();
     // Function declaration

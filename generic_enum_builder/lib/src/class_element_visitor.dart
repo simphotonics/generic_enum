@@ -5,7 +5,7 @@ import 'package:generic_enum_builder/src/type_utils.dart';
 
 /// Visits ClassElements and collects static type information.
 /// The static type of class, superclass, and type parameters
-/// (for parametrized types) can be access via getters.
+/// (for parametrized types) can be accessed via getters.
 ///
 /// Usage:
 /// ```

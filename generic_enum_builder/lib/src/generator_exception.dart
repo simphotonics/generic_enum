@@ -1,3 +1,4 @@
+/// Marks exceptions occurring during source code generation.
 class GeneratorException implements Exception {
   const GeneratorException([this.message]);
 

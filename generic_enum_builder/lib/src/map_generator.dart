@@ -8,12 +8,20 @@ import 'package:generic_enum_builder/src/generic_enum_visitor.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
+/// Souce code generator that builds the BuiltMap object [_valueMap].
+/// Extends [GeneratorForAnnotation<GenerateBuiltMap>] and as such
+/// processes only classes annotated with [@GenerateBuiltMap].
 class MapGenerator extends GeneratorForAnnotation<GenerateBuiltMap> {
   static const GenericEnumChecker = TypeChecker.fromRuntime(GenericEnum);
 
+  /// Visits a [ClassElement] and extracts static type information.
   ClassElementVisitor classVis;
+
+  /// Visits an element with a static type that is assignable from [GenericEnum].
   GenericEnumVisitor vis;
 
+  /// Function called by [generate] during the build process. Provides
+  /// access to the current element, its annotations, and the buildStep.
   @override
   FutureOr<String> generateForAnnotatedElement(
       Element element, ConstantReader annotation, BuildStep buildStep) {
@@ -32,7 +40,7 @@ class MapGenerator extends GeneratorForAnnotation<GenerateBuiltMap> {
     return (vis.instances.isNotEmpty) ? _generateValueMap() : null;
   }
 
-  /// Generates code defining a private BuiltMap variable [_valueMap].
+  /// Generates code defining [_valueMap], a private variable of type [BuiltMap].
   String _generateValueMap() {
     var buffer = StringBuffer();
     // BuiltMap declaration
