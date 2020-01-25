@@ -29,3 +29,7 @@ Added json-serialization.
 # 0.1.1
 
 Added Dart docs.
+
+# 0.1.2
+
+Amended Dart docs.
