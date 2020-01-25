@@ -1,3 +1,4 @@
+import 'package:generic_enum_builder/src/generator_exception.dart';
 import 'package:generic_enum_builder/src/json_generator.dart';
 import 'package:test/test.dart';
 import 'package:source_gen_test/src/init_library_reader.dart';
@@ -12,6 +13,10 @@ Future<void> main() async {
   /// Read library vector.dart.
   final readerVector =
       await initializeLibraryReaderForDirectory('test/src', 'vector.dart');
+
+  /// Read library num_type.dart.
+  final readerNumType =
+      await initializeLibraryReaderForDirectory('test/src', 'num_type.dart');
 
   /// Instantiate generators:
   final mapGenerator = MapGenerator();
@@ -62,6 +67,13 @@ Future<void> main() async {
     });
     test('ToJson, FromJson for for vector.dart.', () {
       expect(generatedJsonVector, expectedJsonVector);
+    });
+  });
+
+  group('GeneratorException:', () {
+    test('Non const Constructor in num_type.dart', () {
+      expect(() async => await mapGenerator.generate(readerNumType, null),
+          throwsA(TypeMatcher<GeneratorException>()));
     });
   });
 }
