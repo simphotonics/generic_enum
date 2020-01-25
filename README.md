@@ -73,16 +73,13 @@ class ScannerSettings{
   final ScanSize;
 }
 ```
-See section [generic_enum/example] for details of how to use generic enums as annotations and how to retrieve their value
-using Dart's static [analyzer] package.
 
 ## Examples
 
-For examples on how to create generic enums see:
-[generic_enum_example].
-For more information about how to use generic enums as annotations see:
-[example](https://github.com/simphotonics/generic_enum/tree/master/generic_enum/example)
+Further examples on how to define and build generic enumeration classes can be found in the library [generic_enum_example].
 
+For details of how to use generic enums as annotations and how to retrieve their value
+using Dart's static [analyzer] package see [generic_enum/example].
 
 ## Features and bugs
 
@@ -91,5 +88,5 @@ Please file feature requests and bugs at the [issue tracker].
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
 [analyzer]: https://pub.dev/packages/analyzer
 [source_gen]: https://pub.dev/packages/source_gen
-[generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
-[generic_enum/example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum/example
+[generic_enum_example]: generic_enum_example
+[generic_enum/example]: generic_enum/example
