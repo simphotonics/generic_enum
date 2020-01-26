@@ -15,7 +15,8 @@ This library demonstrates how to define and built generic enumeration classes.
 
 This package provides a complete example on how to define and build
 generic enumeration classes. As a starting point users could clone this repository, add
-their own generic enum classes to the folder `lib` and build the library.
+their own generic enum classes to the folder `lib` and build the library. Build instructions
+are provided below.
 
 ## Boilerplate
 
@@ -114,7 +115,7 @@ Please file feature requests and bugs at the [issue tracker].
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
 [analyzer]: https://pub.dev/packages/analyzer
 [source_gen]: https://pub.dev/packages/source_gen
-[GenericEnum]: ../
+[GenericEnum]: ../generic_enum
 [Dart enum]: https://dart.dev/guides/language/language-tour#enumerated-types
 [generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
 [generic_enum_builder]: https://pub.dev/packages/generic_enum_builder
