@@ -1,4 +1,4 @@
-# Generic Enum Generator
+# Generic Enum Builder
 
 ## Examples
 
