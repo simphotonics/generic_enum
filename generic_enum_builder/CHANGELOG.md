@@ -5,3 +5,7 @@ Initial Version of the library.
 # 0.0.2
 
 Added code generator tests.
+
+# 0.0.3
+
+Added Dart docs.
