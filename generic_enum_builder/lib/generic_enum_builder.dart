@@ -1,3 +1,5 @@
+library generic_enum_builder;
+
 import 'package:build/build.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:generic_enum_builder/src/json_generator.dart';
