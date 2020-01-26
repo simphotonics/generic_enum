@@ -18,7 +18,7 @@ To use this library the following configuration steps are required:
 
 1. Include `generic_enum, generic_enum_annotation` as dependency in your pubspec.yaml file.
    Include `generic_enum_builder, source_gen, build_runner` as dev_dependencies.
-2. Create a class extending `GenericEnum`. See [generic_enum_example].
+2. Create a class extending `GenericEnum`. See [generic_enum#boilerplate].
 3. Annotate the class with `@GenerateBuiltMap` and `@GenerateJsonToFrom`.
 4. Configure the build targets. Amend the generate_for entry to point to the
    folder containing your generic enum classes.
@@ -57,11 +57,11 @@ $ pub run build_runner build --delete-conflicting-outputs
 For examples on how to build generic enums see: [generic_enum_example].
 
 
-
 ## Features and bugs
 Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
 [analyzer]: https://pub.dev/packages/analyzer
 [source_gen]: https://pub.dev/packages/source_gen
-[generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
+[generic_enum_example]: ../generic_enum_example
+[generic_enum#boilerplate]: ../generic_enum#boilerplate
