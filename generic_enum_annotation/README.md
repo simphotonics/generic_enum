@@ -1,4 +1,5 @@
 # Generic Enum Annotation
+[![Build Status](https://travis-ci.com/simphotonics/generic_enum.svg?branch=master)](https://travis-ci.com/simphotonics/generic_enum)
 
 
 ## Introduction
