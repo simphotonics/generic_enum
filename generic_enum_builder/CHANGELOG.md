@@ -13,3 +13,7 @@ Added Dart docs.
 # 0.0.4
 
 Added library keyword.
+
+# 0.0.5
+
+Added Travis badge.

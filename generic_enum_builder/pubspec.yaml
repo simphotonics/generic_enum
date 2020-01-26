@@ -2,7 +2,7 @@ name: generic_enum_builder
 description: >
   Source code generator processing annotated generic_enum classes.
   It builds a value-instance map and json-serialization functions.
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_builder
 
 environment:
