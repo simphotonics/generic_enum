@@ -9,3 +9,7 @@ Added code generator tests.
 # 0.0.3
 
 Added Dart docs.
+
+# 0.0.4
+
+Added library keyword.
