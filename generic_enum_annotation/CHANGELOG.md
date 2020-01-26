@@ -17,3 +17,7 @@ Amended README.md.
 # 0.0.5
 
 Amended description in pubspec.yaml.
+
+# 0.0.6
+
+Added relative hyperlinks to README.md.
