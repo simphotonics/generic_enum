@@ -54,7 +54,9 @@ $ pub run build_runner build --delete-conflicting-outputs
 
 ## Examples
 
-For examples on how to build generic enums see: [generic_enum_example].
+The package [generic_enum_example] provides a complete example on how to define and build
+generic enumeration classes. As a starting point users could clone this repository, add
+their own generic enum classes to the folder `lib` and build the library.
 
 
 ## Features and bugs

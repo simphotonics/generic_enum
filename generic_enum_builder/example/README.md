@@ -2,11 +2,15 @@
 
 ## Examples
 
-For examples on how to use build generic enums see: [generic_enum_example].
+The package [generic_enum_example] provides a complete example on how to define and build
+generic enumeration classes. As a starting point users could clone this repository, add
+their own generic enum classes to the folder `lib` and build the library.
 
 
 ## Features and bugs
 Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
-[generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
+[analyzer]: https://pub.dev/packages/analyzer
+[source_gen]: https://pub.dev/packages/source_gen
+[generic_enum_example]: ../../generic_enum_example
