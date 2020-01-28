@@ -5,7 +5,7 @@
 /// - fromJson
 ///
 /// functions.
-class GenerateToFromJson {
+class GenerateFromJson {
   /// Annotation processed by GenericEnumGenerator.
   /// Usage:
   /// ```
@@ -30,5 +30,5 @@ class GenerateToFromJson {
   /// ValidType static _fromJson ...
   /// ```
   ///
-  const GenerateToFromJson();
+  const GenerateFromJson();
 }
