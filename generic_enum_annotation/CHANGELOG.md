@@ -25,3 +25,7 @@ Added relative hyperlinks to README.md.
 # 0.0.7
 
 Added Travis badge.
+
+# 0.1.0
+
+Renamed @GenerateToFromJson to @GenerateFromJson.
