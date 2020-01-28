@@ -16,10 +16,16 @@ default parameters in functions and constructors.
 To create a generic enum class, say `DpiResolution`, the following steps are required:
 1. Extend `GenericEnum<T>` where `T` is a Dart built-in type or a class with a const        constructor.
    (To use the serialization methods, `T` should have `fromJson` and `toJson` methods.)
-2. Annotate the class with `@GenerateMap` and `@GenerateJson`.
-3. Define a private `const` constructor that calls the super constructor and passes on      the value of type `T`.
-4. Define the static const instances of `DpiResolution`. You may capitalize instance        names to mark them as constants.
-5. Define accessors for the private variable `_valueMap` and `_toJson`.
+2. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
+3. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
+
+The following steps are optional. They are only required if there one needs access to a list of all defined values
+and instances or if json-serialization is required.
+
+4. Annotate the class with `@GenerateBuiltMap` and `@GenerateFromJson`.
+5. Define an accessor for the private variable `_valueMap`.
+6. Define a name factory constructor named `.fromJson` pointing to the function `fromJson`.
+
    ```Dart
    import 'package:built_collection/built_collection.dart';
    import 'package:generic_enum/generic_enum.dart';
@@ -29,21 +35,24 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
    part 'dpi_resolution.g.dart';
 
    //   1. Extend GenericEnum<T>
-   @GenerateBuiltMap()   //         <----------- 2. Annotate class
-   @GenerateToFromJson() //
+   @GenerateBuiltMap()   //         <----------- 4. Annotate class
+   @GenerateFromJson()   //
    class DpiResolution extends GenericEnum<int> {
-     // 3. Define a private const constructor that calls the super constructor
+     // 2. Define a private const constructor that calls the super constructor
      //    and passes on the value of type int.
      const DpiResolution._(int value) : super(value);
 
-     // 4. Define static constant instances of type DpiResolution
+     // 3. Define static constant instances of type DpiResolution
      static const DpiResolution LOW = DpiResolution._(90);
      static const DpiResolution MEDIUM = DpiResolution._(300);
      static const DpiResolution HIGH = DpiResolution._(600);
 
-     // 5. Give access to _valueMap and _toJson.
+     // 5. Give access to _valueMap and
      static BuiltMap<int, DpiResolution> get valueMap => _valueMap;
-     Map<String, dynamic> toJson() => _toJson(this);
+
+     // 6. Define the named factory constructor:
+     factory DpiResolution(Map<String,dynamic> json) => _fromJson(json);
+
    }
    ```
 
