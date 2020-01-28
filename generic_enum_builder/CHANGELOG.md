@@ -17,3 +17,7 @@ Added library keyword.
 # 0.0.5
 
 Added Travis badge.
+
+# 0.0.6
+
+Removed toJson generator.
