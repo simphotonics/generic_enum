@@ -72,3 +72,4 @@ Please file feature requests and bugs at the [issue tracker].
 [source_gen]: https://pub.dev/packages/source_gen
 [generic_enum_example]: ../generic_enum_example
 [generic_enum#boilerplate]: ../generic_enum#boilerplate
+[build_runner]: https://pub.dev/packages/build_runner
