@@ -50,8 +50,8 @@ and instances or if json-serialization is required.
      // 5. Give access to _valueMap and
      static BuiltMap<int, DpiResolution> get valueMap => _valueMap;
 
-     // 6. Define the named factory constructor:
-     factory DpiResolution(Map<String,dynamic> json) => _fromJson(json);
+     // 6. Define the named factory constructor .fromJson:
+     factory DpiResolution.fromJson(Map<String,dynamic> json) => _fromJson(json);
 
    }
    ```
