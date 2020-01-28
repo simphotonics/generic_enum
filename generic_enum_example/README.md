@@ -20,8 +20,6 @@ are provided below.
 
 ## Boilerplate
 
-
-
 To use this library include [generic_enum_annotation] as dependency in your pubspec.yaml file.
 Include [generic_enum_builder], [source_gen], [build_runner] as dev_dependencies.
 
@@ -106,8 +104,6 @@ use a builder.
       // **************************************************************************
       // JsonGenerator
       // **************************************************************************
-
-      Map<String, dynamic> _toJson(DpiResolution instance) => instance.toJson();
 
       DpiResolution fromJson(Map<String, dynamic> json) {
         int value = GenericEnum.fromJson(json).value;
