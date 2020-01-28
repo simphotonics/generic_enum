@@ -19,8 +19,11 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
 2. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
 3. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
 
-The following steps are optional. They are only required if there one needs access to a list of all defined values
-and instances or if json-serialization is required.
+The following steps are **optional**. They are only required if one needs access to a list of all defined values
+and instances or if json-serialization is needed.
+In principle, a map containing values and instances and serialization functions could be
+maintained by manually. When defining several generic enumeration classes it might be more convenient to
+use a builder. 
 
 4. Annotate the class with `@GenerateBuiltMap` and `@GenerateFromJson`.
 5. Define an accessor for the private variable `_valueMap`.
