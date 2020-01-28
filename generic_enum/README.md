@@ -13,6 +13,10 @@ default parameters in functions and constructors.
 
 ## Boilerplate
 
+To use this library include [generic_enum_annotation] as dependency in your pubspec.yaml file.
+Include [generic_enum_builder], [source_gen], [build_runner] as dev_dependencies.
+
+
 To create a generic enum class, say `DpiResolution`, the following steps are required:
 1. Extend `GenericEnum<T>` where `T` is a Dart built-in type or a class with a const        constructor.
    (To use the serialization methods, `T` should have `fromJson` and `toJson` methods.)
@@ -23,7 +27,7 @@ The following steps are **optional**. They are only required if one needs access
 and instances or if json-serialization is needed.
 In principle, a map containing values and instances and serialization functions could be
 maintained by manually. When defining several generic enumeration classes it might be more convenient to
-use a builder. 
+use a builder.
 
 4. Annotate the class with `@GenerateBuiltMap` and `@GenerateFromJson`.
 5. Define an accessor for the private variable `_valueMap`.
@@ -57,6 +61,30 @@ use a builder.
      factory DpiResolution.fromJson(Map<String,dynamic> json) => _fromJson(json);
 
    }
+   ```
+7. Configure the build targets (and amend the generate_for entry).
+   In your local `build.yaml` file add the following targets:
+   ```Shell
+   targets:
+     $default:
+       builders:
+         # Configure the builder `pkg_name|builder_name`
+         generic_enum_builder|map_builder:
+           # Only run this builder on the specified input.
+           enabled: true
+           generate_for:
+             - lib/*.dart
+         # Configure the builder `pkg_name|builder_name`
+         generic_enum_builder|json_builder:
+           # Only run this builder on the specified input.
+           enabled: true
+           generate_for:
+             - lib/*.dart
+    ```
+
+8. Build the project by running the command
+   ```Shell
+   $ pub run build_runner build --delete-conflicting-outputs
    ```
 
 ## Usage
@@ -102,3 +130,6 @@ Please file feature requests and bugs at the [issue tracker].
 [source_gen]: https://pub.dev/packages/source_gen
 [generic_enum_example]: ../generic_enum_example
 [example]: example
+[generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
+[generic_enum_builder]: https://pub.dev/packages/generic_enum_builder
+[build_runner]: https://pub.dev/packages/build_runner
