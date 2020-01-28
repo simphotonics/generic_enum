@@ -21,3 +21,7 @@ Added Travis badge.
 # 0.0.6
 
 Removed toJson generator.
+
+# 0.0.7
+
+Modified _fromJson.

@@ -21,7 +21,7 @@ part 'generic_enum.g.dart';
 ///
 /// //   1. Extend GenericEnum<T>
 /// @GenerateBuiltMap() // 2. Annotate class
-/// @GenerateToFromJson() //
+/// @GenerateFromJson() //
 /// class DpiResolution extends GenericEnum<int> {
 ///   // 3. Define a private const constructor that calls the super constructor
 ///   //    and passes on the value of type int.
