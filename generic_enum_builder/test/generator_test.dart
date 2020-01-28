@@ -47,11 +47,10 @@ Future<void> main() async {
       '  Direction instance = Direction.valueMap[value];\n'
       '  if (instance == null) {\n'
       '    String msg = \'Could not find Direction instance with value: \$value.\';\n'
-      '    throw GenericEnumException(\$msg);\n'
+      '    throw GenericEnumException(msg);\n'
       '  }\n'
       '  return instance;\n'
       '}';
-
 
   String generatedJsonVector = await jsonGenerator.generate(readerVector, null);
   String expectedJsonVector = '';
