@@ -4,7 +4,7 @@ import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
 part 'direction.g.dart';
 
-@GenerateToFromJson()
+@GenerateFromJson()
 @GenerateBuiltMap()
 class Direction extends GenericEnum<String> {
   const Direction._(String value) : super(value);

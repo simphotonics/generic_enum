@@ -42,8 +42,6 @@ Future<void> main() async {
   String generatedJsonDirection =
       await jsonGenerator.generate(readerDirection, null);
   String expectedJsonDirection =
-      'Map<String, dynamic> _toJson(Direction instance) => instance.toJson();\n'
-      '\n'
       'Direction fromJson(Map<String, dynamic> json) {\n'
       '  String value = GenericEnum.fromJson(json).value;\n'
       '  return Direction.valueMap[value];\n'
@@ -65,7 +63,7 @@ Future<void> main() async {
     test('ToJson, FromJson for direction.dart.', () {
       expect(generatedJsonDirection, expectedJsonDirection);
     });
-    test('ToJson, FromJson for for vector.dart.', () {
+    test('ToJson, FromJson for vector.dart.', () {
       expect(generatedJsonVector, expectedJsonVector);
     });
   });
