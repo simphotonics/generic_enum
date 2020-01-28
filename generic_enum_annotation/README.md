@@ -38,7 +38,7 @@ use a builder.
 
 4. Annotate the class with `@GenerateBuiltMap` and `@GenerateFromJson`.
 5. Define an accessor for the private variable `_valueMap`.
-6. Define a name factory constructor named `.fromJson` pointing to the function `fromJson`.
+6. Define a name factory constructor named `.fromJson` calling the private function `_fromJson`.
 
    ```Dart
    import 'package:built_collection/built_collection.dart';
