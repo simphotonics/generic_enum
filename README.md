@@ -13,7 +13,7 @@ default parameters in functions and constructors.
 
 ## Boilerplate
 
-To use this library include [generic_enum_annotation] as dependency in your pubspec.yaml file.
+To use this library include [generic_enum] and [generic_enum_annotation] as dependency in your pubspec.yaml file.
 Include [generic_enum_builder], [source_gen], [build_runner] as dev_dependencies.
 
 
