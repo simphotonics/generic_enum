@@ -1,6 +1,5 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:generic_enum/generic_enum.dart';
-import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
 // **************************************************************************
 // JsonGenerator
@@ -22,8 +21,6 @@ final _valueMap = BuiltMap<int, PlaneType>({
 /// Sample Generic Enum Class used for testing
 /// Note: The functions and variables above can be built automatically
 /// For details see the file: ../../README.md.
-@GenerateBuiltMap()
-@GenerateToFromJson()
 class PlaneType extends GenericEnum<int> {
   const PlaneType._(int value) : super(value);
 
