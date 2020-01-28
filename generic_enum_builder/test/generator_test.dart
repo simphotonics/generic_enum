@@ -42,10 +42,16 @@ Future<void> main() async {
   String generatedJsonDirection =
       await jsonGenerator.generate(readerDirection, null);
   String expectedJsonDirection =
-      'Direction fromJson(Map<String, dynamic> json) {\n'
+      'Direction _fromJson(Map<String, dynamic> json) {\n'
       '  String value = GenericEnum.fromJson(json).value;\n'
-      '  return Direction.valueMap[value];\n'
+      '  Direction instance = Direction.valueMap[value];\n'
+      '  if (instance == null) {\n'
+      '    String msg = \'Could not find Direction instance with value: \$value.\';\n'
+      '    throw GenericEnumException(\$msg);\n'
+      '  }\n'
+      '  return instance;\n'
       '}';
+
 
   String generatedJsonVector = await jsonGenerator.generate(readerVector, null);
   String expectedJsonVector = '';
