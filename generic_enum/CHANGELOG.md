@@ -33,3 +33,7 @@ Added Dart docs.
 # 0.1.2
 
 Amended Dart docs.
+
+# 0.1.3
+
+Added serialization tests. 
