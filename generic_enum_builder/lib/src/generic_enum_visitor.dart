@@ -73,6 +73,9 @@ class GenericEnumVisitor extends SimpleElementVisitor {
       ''');
     }
 
+    // Skip factory constructor fromJson.
+    if (element.isFactory && element.name == 'fromJson') return;
+
     // Check if constructor is const
     if (!element.isConst) {
       throw GeneratorException(''' Classes extending GenericEnum should have
