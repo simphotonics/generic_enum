@@ -13,6 +13,7 @@ environment:
 dependencies:
   built_collection: ^4.3.2
   json_annotation: ^3.0.1
+  generic_enum_annotation: ^0.0.7
 
 dev_dependencies:
   test: ^1.11.0
