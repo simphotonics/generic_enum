@@ -1,31 +1,6 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:test/test.dart';
-import 'package:generic_enum/generic_enum.dart';
-
-class NamePart extends GenericEnum<String> {
-  const NamePart._(String value) : super(value);
-
-  static const NamePart FIRST_NAME = NamePart._('FIRST_NAME');
-
-  static const NamePart LAST_NAME = NamePart._('LAST_NAME');
-
-  static final valueMap = BuiltMap<String, NamePart>({
-    'FIRST_NAME': FIRST_NAME,
-    'LAST_NAME': LAST_NAME,
-  });
-}
-
-class PlaneType extends GenericEnum<int> {
-  const PlaneType._(int value) : super(value);
-
-  static const PlaneType AB707 = PlaneType._(707);
-  static const PlaneType AB747 = PlaneType._(747);
-
-  static final valueMap = BuiltMap<int, PlaneType>({
-    707: AB707,
-    747: AB747,
-  });
-}
+import 'src/name_part.dart';
+import 'src/plane_type.dart';
 
 void main() {
   group('Get value of enum:', () {
@@ -38,8 +13,11 @@ void main() {
   });
 
   group('Testing valueMap getter:', () {
-    test('Retrieve instance', () {
+    test('Retrieve instance of NamePart', () {
       expect(NamePart.FIRST_NAME, NamePart.valueMap[NamePart.FIRST_NAME.value]);
+    });
+    test('Retrieve instance of PlaneType', () {
+      expect(PlaneType.AB707, PlaneType.valueMap[PlaneType.AB707.value]);
     });
   });
 
@@ -50,6 +28,21 @@ void main() {
     });
     test('Int value', () {
       expect(PlaneType.AB747.toJson(), {'value': PlaneType.AB747.value});
+    });
+  });
+
+  group('DeSerialization:', () {
+    test('String value', () {
+      expect(
+        NamePart.LAST_NAME,
+        NamePart.fromJson({'value': NamePart.LAST_NAME.value}),
+      );
+    });
+    test('Int value', () {
+      expect(
+        PlaneType.AB707,
+        PlaneType.fromJson({'value': PlaneType.AB707.value}),
+      );
     });
   });
 }
