@@ -26,7 +26,7 @@ To create a generic enum class, say `DpiResolution`, the following steps are req
 The following steps are **optional**. They are only required if one needs access to a list of all defined values
 and instances or if json-serialization is needed.
 In principle, a map containing values and instances and serialization functions could be
-maintained by manually. When defining several generic enumeration classes it might be more convenient to
+maintained manually. When defining several generic enumeration classes it might be more convenient to
 use a builder.
 
 4. Annotate the class with `@GenerateBuiltMap` and `@GenerateFromJson`.
