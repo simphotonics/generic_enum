@@ -25,3 +25,7 @@ Removed toJson generator.
 # 0.0.7
 
 Modified _fromJson.
+
+# 0.0.8
+
+Corrected syntax error in json_generator.dart.
