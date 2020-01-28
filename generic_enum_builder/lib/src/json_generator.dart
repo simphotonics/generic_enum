@@ -70,7 +70,7 @@ class JsonGenerator extends GeneratorForAnnotation<GenerateFromJson> {
     buffer.writeln(
       'String msg = \'Could not find ${classVis.thisType} instance with value: \$value.\';',
     );
-    buffer.writeln('throw GenericEnumException(\$msg);');
+    buffer.writeln('throw GenericEnumException(msg);');
     buffer.writeln('}');
     buffer.writeln('return instance;');
 
