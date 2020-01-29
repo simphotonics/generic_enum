@@ -5,7 +5,7 @@ import 'package:generic_enum/generic_enum.dart';
 // JsonGenerator
 // **************************************************************************
 
-PlaneType _fromJson(Map<String, dynamic> json) {
+PlaneType _$PlaneTypeFromJson(Map<String, dynamic> json) {
   int value = GenericEnum.fromJson(json).value;
   PlaneType instance = PlaneType.valueMap[value];
   if (instance == null) {
@@ -19,7 +19,7 @@ PlaneType _fromJson(Map<String, dynamic> json) {
 // MapGenerator
 // **************************************************************************
 
-final _valueMap = BuiltMap<int, PlaneType>({
+final _$PlantTypeValueMap = BuiltMap<int, PlaneType>({
   PlaneType.AB707.value: PlaneType.AB707,
   PlaneType.AB747.value: PlaneType.AB747
 });
@@ -33,7 +33,8 @@ class PlaneType extends GenericEnum<int> {
   static const PlaneType AB707 = PlaneType._(707);
   static const PlaneType AB747 = PlaneType._(747);
 
-  static BuiltMap<int, PlaneType> get valueMap => _valueMap;
+  static BuiltMap<int, PlaneType> get valueMap => _$PlantTypeValueMap;
 
-  factory PlaneType.fromJson(Map<String, dynamic> json) => _fromJson(json);
+  factory PlaneType.fromJson(Map<String, dynamic> json) =>
+      _$PlaneTypeFromJson(json);
 }

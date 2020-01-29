@@ -54,7 +54,7 @@ class JsonGenerator extends GeneratorForAnnotation<GenerateFromJson> {
     var buffer = StringBuffer();
     // Function declaration
     buffer.writeln(
-      '${classVis.thisType} _fromJson(Map<String, dynamic> json){',
+      '${classVis.thisType} _\$${classVis.thisType}FromJson(Map<String, dynamic> json){',
     );
 
     // Function body
@@ -67,10 +67,11 @@ class JsonGenerator extends GeneratorForAnnotation<GenerateFromJson> {
     buffer.writeln(
       'if( instance == null ) {',
     );
+    buffer.writeln('throw GenericEnumException(');
     buffer.writeln(
-      'String msg = \'Could not find ${classVis.thisType} instance with value: \$value.\';',
+      '\'Could not find ${classVis.thisType} instance with value: \$value.\',',
     );
-    buffer.writeln('throw GenericEnumException(msg);');
+    buffer.writeln(');');
     buffer.writeln('}');
     buffer.writeln('return instance;');
 

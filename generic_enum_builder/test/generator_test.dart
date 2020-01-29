@@ -26,7 +26,7 @@ Future<void> main() async {
   String generatedMapDirection =
       await mapGenerator.generate(readerDirection, null);
   String expectedMapDirection =
-      'final _valueMap = BuiltMap<String, Direction>({\n'
+      'final _\$DirectionValueMap = BuiltMap<String, Direction>({\n'
       '  Direction.NORTH.value: Direction.NORTH,\n'
       '  Direction.EAST.value: Direction.EAST,\n'
       '  Direction.SOUTH.value: Direction.SOUTH,\n'
@@ -35,19 +35,20 @@ Future<void> main() async {
 
   String generatedMapVector = await mapGenerator.generate(readerVector, null);
   String expectedMapVector =
-      'final _valueMap = BuiltMap<Vector<double>, VectorEnum>(\n'
+      'final _\$VectorEnumValueMap = BuiltMap<Vector<double>, VectorEnum>(\n'
       '    {VectorEnum.V1.value: VectorEnum.V1, VectorEnum.V2.value: VectorEnum.V2});';
 
   /// Run Json Generator.
   String generatedJsonDirection =
       await jsonGenerator.generate(readerDirection, null);
   String expectedJsonDirection =
-      'Direction _fromJson(Map<String, dynamic> json) {\n'
+      'Direction _\$DirectionFromJson(Map<String, dynamic> json) {\n'
       '  String value = GenericEnum.fromJson(json).value;\n'
       '  Direction instance = Direction.valueMap[value];\n'
       '  if (instance == null) {\n'
-      '    String msg = \'Could not find Direction instance with value: \$value.\';\n'
-      '    throw GenericEnumException(msg);\n'
+      '    throw GenericEnumException(\n'
+      '      \'Could not find Direction instance with value: \$value.\',\n'
+      '    );\n'
       '  }\n'
       '  return instance;\n'
       '}';
@@ -65,10 +66,10 @@ Future<void> main() async {
   });
 
   group('JsonGenerator:', () {
-    test('ToJson, FromJson for direction.dart.', () {
+    test('FromJson for direction.dart.', () {
       expect(generatedJsonDirection, expectedJsonDirection);
     });
-    test('ToJson, FromJson for vector.dart.', () {
+    test('FromJson for vector.dart.', () {
       expect(generatedJsonVector, expectedJsonVector);
     });
   });

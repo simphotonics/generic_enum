@@ -45,7 +45,8 @@ class MapGenerator extends GeneratorForAnnotation<GenerateBuiltMap> {
     var buffer = StringBuffer();
     // BuiltMap declaration
     //buffer.writeln('/*');
-    buffer.writeln('final _valueMap = BuiltMap<${classVis.superTypeArg},'
+    buffer.writeln(
+        'final _\$${classVis.thisType}ValueMap = BuiltMap<${classVis.superTypeArg},'
         '${classVis.thisType}>({');
 
     // BuiltMap enties: generic enum Instances

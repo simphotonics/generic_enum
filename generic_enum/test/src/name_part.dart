@@ -5,7 +5,7 @@ import 'package:generic_enum/generic_enum.dart';
 // JsonGenerator
 // **************************************************************************
 
-NamePart _fromJson(Map<String, dynamic> json) {
+NamePart _$NamePartFromJson(Map<String, dynamic> json) {
   String value = GenericEnum.fromJson(json).value;
   NamePart instance = NamePart.valueMap[value];
   if (instance == null) {
@@ -19,7 +19,7 @@ NamePart _fromJson(Map<String, dynamic> json) {
 // MapGenerator
 // **************************************************************************
 
-final _valueMap = BuiltMap<String, NamePart>({
+final _$NamePartValueMap = BuiltMap<String, NamePart>({
   NamePart.FIRST_NAME.value: NamePart.FIRST_NAME,
   NamePart.LAST_NAME.value: NamePart.LAST_NAME
 });
@@ -34,9 +34,8 @@ class NamePart extends GenericEnum<String> {
 
   static const NamePart LAST_NAME = NamePart._('LAST_NAME');
 
-  static BuiltMap<String, NamePart> get valueMap => _valueMap;
+  static BuiltMap<String, NamePart> get valueMap => _$NamePartValueMap;
 
-  factory NamePart.fromJson(Map<String, dynamic> json) {
-    return _fromJson(json);
-  }
+  factory NamePart.fromJson(Map<String, dynamic> json) =>
+      _$NamePartFromJson(json);
 }
