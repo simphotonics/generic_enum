@@ -29,3 +29,7 @@ Modified _fromJson.
 # 0.0.8
 
 Corrected syntax error in json_generator.dart.
+
+# 0.1.0
+
+Generators now use a prefix for fcts and vars. 
