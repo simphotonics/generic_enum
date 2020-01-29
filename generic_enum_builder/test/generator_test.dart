@@ -74,7 +74,7 @@ Future<void> main() async {
   });
 
   group('GeneratorException:', () {
-    test('Non const Constructor in num_type.dart', () {
+    test('Non-const Constructor in num_type.dart', () {
       expect(() async => await mapGenerator.generate(readerNumType, null),
           throwsA(TypeMatcher<GeneratorException>()));
     });
