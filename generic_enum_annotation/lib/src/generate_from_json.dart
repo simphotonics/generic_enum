@@ -7,27 +7,53 @@
 /// functions.
 class GenerateFromJson {
   /// Annotation processed by GenericEnumGenerator.
+  /// Important: @GenerateFromJson() requires @GenerateBuiltMap().
   /// Usage:
   /// ```
   /// import 'package:generic_enum/generic_enum.dart';
   ///
   /// part valid_type.g.dart;
   ///
-  /// @GenerateBuiltMap() @GenerateToFromJson // <--- Add annotations above class definition.
+  /// @GenerateBuiltMap() @GenerateFromJson // <--- Add annotations above class definition.
   /// ValidType extends GenericEnum<Type>{
   ///  const ValidType._(Type value) : super(value);
   ///
   ///  static const INTEGER = ValidType._(int);
   ///  static const BOOL = ValidType._(bool);
   ///
-  ///  BuiltMap<Type,ValidType> get valueMap => _valueMap; // <--- Define getter.
+  ///  BuiltMap<Type,ValidType> get valueMap => _$ValidTypeValueMap; // <--- Define getter.
+  ///
+  ///  // Define a factory constructor calling _$ValidTypeFromJson().
+  ///  factory ValidType.fromJson(Map<String, dynamic> json) => _$ValidTypeFromJson(json);
   /// }
   /// ```
-  /// Running the build process will generate
-  /// the functions:
+  /// The builder will generate the file valid_type.g.dart with content:
+  ///
   /// ```
-  /// static _toJson() ...
-  /// ValidType static _fromJson ...
+  /// // **************************************************************************
+  /// // JsonGenerator
+  /// // **************************************************************************
+  ///
+  /// ValidType _$ValidTypeFromJson(Map<String, dynamic> json) {
+  ///   String value = GenericEnum.fromJson(json).value;
+  ///   ValidType instance = ValidType.valueMap[value];
+  ///   if (instance == null) {
+  ///     throw GenericEnumException('
+  ///       Could not find ValidType instance with value: $value.',
+  ///     );
+  ///   }
+  ///   return instance;
+  /// }
+  ///
+  /// // **************************************************************************
+  /// // MapGenerator
+  /// // **************************************************************************
+  ///
+  /// final _$ValidTypeValueMap = BuiltMap<Type, ValidType>({
+  ///   ValidType.INTEGER.value: ValidType.INTEGER,
+  ///   ValidType.BOOL.value: ValidType.BOOL
+  /// });
+  ///
   /// ```
   ///
   const GenerateFromJson();

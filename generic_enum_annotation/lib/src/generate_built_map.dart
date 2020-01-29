@@ -16,15 +16,19 @@ class GenerateBuiltMap {
   ///  static const INTEGER = ValidType._(int);
   ///  static const BOOL = ValidType._(bool);
   ///
-  ///  BuiltMap<Type,ValidType> get valueMap => _valueMap; // <--- Add getter.
+  ///  BuiltMap<Type,ValidType> get valueMap => _$ValidTypeValueMap; // <--- Add getter.
   /// }
   /// ```
   /// Running the build process will generate a
   /// BuiltMap object:
   /// ```
-  /// final _valueMap = BuiltMap<Type,ValidType>({
-  ///   int: INTEGER,
-  ///   bool: BOOL,
+  /// // **************************************************************************
+  /// // MapGenerator
+  /// // **************************************************************************
+  ///
+  /// final _$ValidTypeValueMap = BuiltMap<Type, ValidType>({
+  ///   ValidType.INTEGER.value: ValidType.INTEGER,
+  ///   ValidType.BOOL.value: ValidType.BOOL
   /// });
   /// ```
   ///
