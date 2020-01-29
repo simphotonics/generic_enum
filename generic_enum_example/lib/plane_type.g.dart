@@ -6,12 +6,13 @@ part of 'plane_type.dart';
 // JsonGenerator
 // **************************************************************************
 
-PlaneType _fromJson(Map<String, dynamic> json) {
+PlaneType _$PlaneTypeFromJson(Map<String, dynamic> json) {
   int value = GenericEnum.fromJson(json).value;
   PlaneType instance = PlaneType.valueMap[value];
   if (instance == null) {
-    String msg = 'Could not find PlaneType instance with value: $value.';
-    throw GenericEnumException(msg);
+    throw GenericEnumException(
+      'Could not find PlaneType instance with value: $value.',
+    );
   }
   return instance;
 }
@@ -20,7 +21,7 @@ PlaneType _fromJson(Map<String, dynamic> json) {
 // MapGenerator
 // **************************************************************************
 
-final _valueMap = BuiltMap<int, PlaneType>({
+final _$PlaneTypeValueMap = BuiltMap<int, PlaneType>({
   PlaneType.AB707.value: PlaneType.AB707,
   PlaneType.AB747.value: PlaneType.AB747
 });

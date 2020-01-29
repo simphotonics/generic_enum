@@ -12,7 +12,8 @@ class PlaneType extends GenericEnum<int> {
   static const PlaneType AB707 = PlaneType._(707);
   static const PlaneType AB747 = PlaneType._(747);
 
-  static BuiltMap<int, PlaneType> get valueMap => _valueMap;
+  static BuiltMap<int, PlaneType> get valueMap => _$PlaneTypeValueMap;
 
-  factory PlaneType.fromJson(Map<String, dynamic> json) => _fromJson(json);
+  factory PlaneType.fromJson(Map<String, dynamic> json) =>
+      _$PlaneTypeFromJson(json);
 }

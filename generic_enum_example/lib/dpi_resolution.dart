@@ -18,9 +18,10 @@ class DpiResolution extends GenericEnum<int> {
   static const DpiResolution MEDIUM = DpiResolution._(300);
   static const DpiResolution HIGH = DpiResolution._(600);
 
-  // 5. Give access to _valueMap and _toJson.
-  static BuiltMap<int, DpiResolution> get valueMap => _valueMap;
+  // 5. Give access to _$DpiResolutionValueMap
+  static BuiltMap<int, DpiResolution> get valueMap => _$DpiResolutionValueMap;
 
   // 6. Define factory constructor .fromJson
-  factory DpiResolution.fromJson(Map<String, dynamic> json) => _fromJson(json);
+  factory DpiResolution.fromJson(Map<String, dynamic> json) =>
+      _$DpiResolutionFromJson(json);
 }

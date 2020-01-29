@@ -6,12 +6,13 @@ part of 'direction.dart';
 // JsonGenerator
 // **************************************************************************
 
-Direction _fromJson(Map<String, dynamic> json) {
+Direction _$DirectionFromJson(Map<String, dynamic> json) {
   String value = GenericEnum.fromJson(json).value;
   Direction instance = Direction.valueMap[value];
   if (instance == null) {
-    String msg = 'Could not find Direction instance with value: $value.';
-    throw GenericEnumException(msg);
+    throw GenericEnumException(
+      'Could not find Direction instance with value: $value.',
+    );
   }
   return instance;
 }
@@ -20,7 +21,7 @@ Direction _fromJson(Map<String, dynamic> json) {
 // MapGenerator
 // **************************************************************************
 
-final _valueMap = BuiltMap<String, Direction>({
+final _$DirectionValueMap = BuiltMap<String, Direction>({
   Direction.NORTH.value: Direction.NORTH,
   Direction.EAST.value: Direction.EAST,
   Direction.SOUTH.value: Direction.SOUTH,

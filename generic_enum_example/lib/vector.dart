@@ -19,5 +19,6 @@ class VectorEnum extends GenericEnum<Vector<double>> {
   static const V1 = VectorEnum._(Vector<double>(1.0, 0.0));
   static const V2 = VectorEnum._(Vector<double>(0.0, 1.0));
 
-  static BuiltMap<Vector<double>, VectorEnum> get valueMap => _valueMap;
+  static BuiltMap<Vector<double>, VectorEnum> get valueMap =>
+      _$VectorEnumValueMap;
 }

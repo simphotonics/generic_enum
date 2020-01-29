@@ -13,7 +13,8 @@ class NamePart extends GenericEnum<String> {
 
   static const NamePart LAST_NAME = NamePart._('LAST_NAME');
 
-  static BuiltMap<String, NamePart> get valueMap => _valueMap;
+  static BuiltMap<String, NamePart> get valueMap => _$NamePartValueMap;
 
-  factory NamePart.fromJson(Map<String, dynamic> json) => _fromJson(json);
+  factory NamePart.fromJson(Map<String, dynamic> json) =>
+      _$NamePartFromJson(json);
 }
