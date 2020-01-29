@@ -4,9 +4,15 @@ import 'package:generic_enum/generic_enum.dart';
 // **************************************************************************
 // JsonGenerator
 // **************************************************************************
-PlaneType fromJson(Map<String, dynamic> json) {
+
+PlaneType _fromJson(Map<String, dynamic> json) {
   int value = GenericEnum.fromJson(json).value;
-  return PlaneType.valueMap[value];
+  PlaneType instance = PlaneType.valueMap[value];
+  if (instance == null) {
+    String msg = 'Could not find PlaneType instance with value: $value.';
+    throw GenericEnumException(msg);
+  }
+  return instance;
 }
 
 // **************************************************************************
@@ -29,5 +35,5 @@ class PlaneType extends GenericEnum<int> {
 
   static BuiltMap<int, PlaneType> get valueMap => _valueMap;
 
-  factory PlaneType.fromJson(Map<String, dynamic> json) => fromJson(json);
+  factory PlaneType.fromJson(Map<String, dynamic> json) => _fromJson(json);
 }

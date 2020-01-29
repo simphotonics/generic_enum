@@ -5,9 +5,14 @@ import 'package:generic_enum/generic_enum.dart';
 // JsonGenerator
 // **************************************************************************
 
-NamePart fromJson(Map<String, dynamic> json) {
+NamePart _fromJson(Map<String, dynamic> json) {
   String value = GenericEnum.fromJson(json).value;
-  return NamePart.valueMap[value];
+  NamePart instance = NamePart.valueMap[value];
+  if (instance == null) {
+    String msg = 'Could not find NamePart instance with value: $value.';
+    throw GenericEnumException(msg);
+  }
+  return instance;
 }
 
 // **************************************************************************
@@ -32,6 +37,6 @@ class NamePart extends GenericEnum<String> {
   static BuiltMap<String, NamePart> get valueMap => _valueMap;
 
   factory NamePart.fromJson(Map<String, dynamic> json) {
-    return fromJson(json);
+    return _fromJson(json);
   }
 }
