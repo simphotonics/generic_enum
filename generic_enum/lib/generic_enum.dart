@@ -12,7 +12,6 @@ part 'generic_enum.g.dart';
 /// Enum-like class with generic value type.
 /// Usage:
 /// ```
-/// import 'package:built_collection/built_collection.dart';
 /// import 'package:generic_enum/generic_enum.dart';
 /// import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 ///
@@ -32,9 +31,13 @@ part 'generic_enum.g.dart';
 ///   static const DpiResolution MEDIUM = DpiResolution._(300);
 ///   static const DpiResolution HIGH = DpiResolution._(600);
 ///
-///   // 5. Give access to _valueMap and _toJson.
-///   static BuiltMap<int, DpiResolution> get valueMap => _valueMap;
-///   Map<String, dynamic> toJson() => _toJson(this);
+///   // 5. Give access to _$DpiResolutionValueMap and
+///   //    $DpiResolutionFromJson.
+///   static BuiltMap<int, DpiResolution> get valueMap => _$DpiResolutionValueMap;
+///
+///   // 6. Define a factory constructor named .fromJson.
+///   factory DpiResolution.fromJson(Map<String, dynamic> json) =>
+///     _$DpiResolutionFromJson(json);
 /// }
 /// ```
 /// In your pubspec.yaml file add (updated versions of) the
