@@ -29,3 +29,7 @@ Added Travis badge.
 # 0.1.0
 
 Renamed @GenerateToFromJson to @GenerateFromJson.
+
+# 0.1.1
+
+Amended README.md. Added fct. prefix for gen. fcts.
