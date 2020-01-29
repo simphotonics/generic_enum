@@ -8,7 +8,7 @@ import 'package:generic_enum_builder/src/generic_enum_visitor.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
-/// Souce code generator that builds the BuiltMap object [_valueMap].
+/// Souce code generator that builds the BuiltMap object [_$<ClassName>valueMap].
 /// Extends [GeneratorForAnnotation<GenerateBuiltMap>] and as such
 /// processes only classes annotated with [@GenerateBuiltMap].
 class MapGenerator extends GeneratorForAnnotation<GenerateBuiltMap> {

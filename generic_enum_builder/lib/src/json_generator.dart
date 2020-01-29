@@ -8,7 +8,7 @@ import 'package:generic_enum_builder/src/generic_enum_visitor.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
-/// Souce code generator that builds _ToJson and FromJson functions.
+/// Souce code generator that builds _$<ClassName>FromJson function.
 /// Extends [GeneratorForAnnotation<GenerateFromJson>] and as such
 /// processes only classes annotated with [@GenerateFromJson].
 class JsonGenerator extends GeneratorForAnnotation<GenerateFromJson> {

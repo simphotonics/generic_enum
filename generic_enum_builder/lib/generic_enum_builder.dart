@@ -1,3 +1,6 @@
+/// Library providing the builders [mapBuilder] and [jsonBuilder].
+/// These functions are used to build
+/// generic enumeration classes extending [GenericEnum<T>].
 library generic_enum_builder;
 
 import 'package:build/build.dart';
