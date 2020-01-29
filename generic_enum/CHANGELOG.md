@@ -38,6 +38,6 @@ Amended Dart docs.
 
 Added serialization tests.
 
-# 0.1.3
+# 0.1.4
 
 Amended #usage (prefix for gen. functions)
