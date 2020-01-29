@@ -6,11 +6,14 @@ part of 'direction.dart';
 // JsonGenerator
 // **************************************************************************
 
-Map<String, dynamic> _toJson(Direction instance) => instance.toJson();
-
-Direction fromJson(Map<String, dynamic> json) {
+Direction _fromJson(Map<String, dynamic> json) {
   String value = GenericEnum.fromJson(json).value;
-  return Direction.valueMap[value];
+  Direction instance = Direction.valueMap[value];
+  if (instance == null) {
+    String msg = 'Could not find Direction instance with value: $value.';
+    throw GenericEnumException(msg);
+  }
+  return instance;
 }
 
 // **************************************************************************

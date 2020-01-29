@@ -2,7 +2,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:generic_enum/generic_enum.dart';
 import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
-part 'direction.g.dart';
+part 'direction.test_sample.dart';
 
 @GenerateFromJson()
 @GenerateBuiltMap()
@@ -15,5 +15,5 @@ class Direction extends GenericEnum<String> {
   static const WEST = Direction._('WEST');
   static BuiltMap<String, Direction> get valueMap => _valueMap;
 
-  Map<String, dynamic> toJson() => _toJson(this);
+  factory Direction.fromJson(Map<String, dynamic> json) => _fromJson(json);
 }

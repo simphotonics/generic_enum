@@ -2,7 +2,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:generic_enum/generic_enum.dart';
 import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
-part 'vector.g.dart';
+part 'vector.test_sample.dart';
 
 class Vector<T extends num> {
   const Vector(this.a1, this.a2);
