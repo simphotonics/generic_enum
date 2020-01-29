@@ -6,11 +6,14 @@ part of 'plane_type.dart';
 // JsonGenerator
 // **************************************************************************
 
-Map<String, dynamic> _toJson(PlaneType instance) => instance.toJson();
-
-PlaneType fromJson(Map<String, dynamic> json) {
+PlaneType _fromJson(Map<String, dynamic> json) {
   int value = GenericEnum.fromJson(json).value;
-  return PlaneType.valueMap[value];
+  PlaneType instance = PlaneType.valueMap[value];
+  if (instance == null) {
+    String msg = 'Could not find PlaneType instance with value: $value.';
+    throw GenericEnumException(msg);
+  }
+  return instance;
 }
 
 // **************************************************************************

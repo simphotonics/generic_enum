@@ -4,7 +4,7 @@ import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
 part 'direction.g.dart';
 
-@GenerateToFromJson()
+@GenerateFromJson()
 @GenerateBuiltMap()
 class Direction extends GenericEnum<String> {
   const Direction._(String value) : super(value);
@@ -15,5 +15,5 @@ class Direction extends GenericEnum<String> {
   static const WEST = Direction._('WEST');
   static BuiltMap<String, Direction> get valueMap => _valueMap;
 
-  Map<String, dynamic> toJson() => _toJson(this);
+  factory Direction.fromJson(Map<String, dynamic> json) => _fromJson(json);
 }

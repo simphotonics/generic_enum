@@ -5,7 +5,7 @@ import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 part 'name_part.g.dart';
 
 @GenerateBuiltMap()
-@GenerateToFromJson()
+@GenerateFromJson()
 class NamePart extends GenericEnum<String> {
   const NamePart._(String value) : super(value);
 
@@ -15,5 +15,5 @@ class NamePart extends GenericEnum<String> {
 
   static BuiltMap<String, NamePart> get valueMap => _valueMap;
 
-  Map<String, dynamic> toJson() => _toJson(this);
+  factory NamePart.fromJson(Map<String, dynamic> json) => _fromJson(json);
 }

@@ -6,11 +6,14 @@ part of 'name_part.dart';
 // JsonGenerator
 // **************************************************************************
 
-Map<String, dynamic> _toJson(NamePart instance) => instance.toJson();
-
-NamePart fromJson(Map<String, dynamic> json) {
+NamePart _fromJson(Map<String, dynamic> json) {
   String value = GenericEnum.fromJson(json).value;
-  return NamePart.valueMap[value];
+  NamePart instance = NamePart.valueMap[value];
+  if (instance == null) {
+    String msg = 'Could not find NamePart instance with value: $value.';
+    throw GenericEnumException(msg);
+  }
+  return instance;
 }
 
 // **************************************************************************

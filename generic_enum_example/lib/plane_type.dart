@@ -5,7 +5,7 @@ import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 part 'plane_type.g.dart';
 
 @GenerateBuiltMap()
-@GenerateToFromJson()
+@GenerateFromJson()
 class PlaneType extends GenericEnum<int> {
   const PlaneType._(int value) : super(value);
 
@@ -14,5 +14,5 @@ class PlaneType extends GenericEnum<int> {
 
   static BuiltMap<int, PlaneType> get valueMap => _valueMap;
 
-  Map<String, dynamic> toJson() => _toJson(this);
+  factory PlaneType.fromJson(Map<String, dynamic> json) => _fromJson(json);
 }

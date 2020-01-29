@@ -7,7 +7,7 @@ part 'dpi_resolution.g.dart';
 
 //   1. Extend GenericEnum<T>
 @GenerateBuiltMap() // 2. Annotate class
-@GenerateToFromJson() //
+@GenerateFromJson() //
 class DpiResolution extends GenericEnum<int> {
   // 3. Define a private const constructor that calls the super constructor
   //    and passes on the value of type int.
@@ -20,5 +20,7 @@ class DpiResolution extends GenericEnum<int> {
 
   // 5. Give access to _valueMap and _toJson.
   static BuiltMap<int, DpiResolution> get valueMap => _valueMap;
-  Map<String, dynamic> toJson() => _toJson(this);
+
+  // 6. Define factory constructor .fromJson
+  factory DpiResolution.fromJson(Map<String, dynamic> json) => _fromJson(json);
 }

@@ -6,11 +6,14 @@ part of 'dpi_resolution.dart';
 // JsonGenerator
 // **************************************************************************
 
-Map<String, dynamic> _toJson(DpiResolution instance) => instance.toJson();
-
-DpiResolution fromJson(Map<String, dynamic> json) {
+DpiResolution _fromJson(Map<String, dynamic> json) {
   int value = GenericEnum.fromJson(json).value;
-  return DpiResolution.valueMap[value];
+  DpiResolution instance = DpiResolution.valueMap[value];
+  if (instance == null) {
+    String msg = 'Could not find DpiResolution instance with value: $value.';
+    throw GenericEnumException(msg);
+  }
+  return instance;
 }
 
 // **************************************************************************
