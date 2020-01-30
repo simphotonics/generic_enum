@@ -41,7 +41,6 @@ use a builder.
 6. Define a name factory constructor named `.fromJson` pointing to the function `fromJson`.
 
    ```Dart
-   import 'package:built_collection/built_collection.dart';
    import 'package:generic_enum/generic_enum.dart';
    import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 

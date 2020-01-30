@@ -41,7 +41,6 @@ use a builder.
 6. Define a factory constructor named `fromJson` calling the private function `_$DpiResolutionFromJson`.
 
    ```Dart
-   import 'package:built_collection/built_collection.dart';
    import 'package:generic_enum/generic_enum.dart';
    import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
