@@ -1,7 +1,6 @@
-/// Annotation requesting the generation of a BuiltMap containing
-/// the const static instances and values defined for a class that
-/// extends GenericEnum.
-class GenerateBuiltMap {
+/// Annotation requesting the generation of an immutable map. The map object
+/// maps each generic enum value to the generic enum instance with that value.
+class GenerateMap {
   /// Annotation processed by GenericEnumGenerator.
   /// Usage:
   /// ```
@@ -9,14 +8,14 @@ class GenerateBuiltMap {
   ///
   /// part valid_type.g.dart;
   ///
-  /// @GenerateBuiltMap() // <--- Include annotation above class definition.
+  /// @GenerateMap()  //              <--- Include annotation above class definition.
   /// ValidType extends GenericEnum<Type>{
   ///  const ValidType._(Type value) : super(value);
   ///
   ///  static const INTEGER = ValidType._(int);
   ///  static const BOOL = ValidType._(bool);
   ///
-  ///  BuiltMap<Type,ValidType> get valueMap => _$ValidTypeValueMap; // <--- Add getter.
+  ///  Map<Type,ValidType> get valueMap => _$ValidTypeValueMap; // <--- Add getter.
   /// }
   /// ```
   /// Running the build process will generate a
@@ -26,11 +25,11 @@ class GenerateBuiltMap {
   /// // MapGenerator
   /// // **************************************************************************
   ///
-  /// final _$ValidTypeValueMap = BuiltMap<Type, ValidType>({
+  /// final _$ValidTypeValueMap = Map<Type, ValidType>.unmodifiable({
   ///   ValidType.INTEGER.value: ValidType.INTEGER,
   ///   ValidType.BOOL.value: ValidType.BOOL
   /// });
   /// ```
   ///
-  const GenerateBuiltMap();
+  const GenerateMap();
 }

@@ -1,27 +1,23 @@
-/// Annotation requesting the generation of
-///
-/// - toJson and
-///
-/// - fromJson
-///
-/// functions.
+/// Annotation processed by [generic_enum_builder] requesting
+/// the generation of a function that converts a json array to an instance of class that extends
+/// [generic_enum]. 
 class GenerateFromJson {
   /// Annotation processed by GenericEnumGenerator.
-  /// Important: @GenerateFromJson() requires @GenerateBuiltMap().
+  /// Important: @GenerateFromJson() requires @GenerateMap().
   /// Usage:
   /// ```
   /// import 'package:generic_enum/generic_enum.dart';
   ///
   /// part valid_type.g.dart;
   ///
-  /// @GenerateBuiltMap() @GenerateFromJson // <--- Add annotations above class definition.
+  /// @GenerateMap() @GenerateFromJson // <--- Add annotations above class definition.
   /// ValidType extends GenericEnum<Type>{
   ///  const ValidType._(Type value) : super(value);
   ///
   ///  static const INTEGER = ValidType._(int);
   ///  static const BOOL = ValidType._(bool);
   ///
-  ///  BuiltMap<Type,ValidType> get valueMap => _$ValidTypeValueMap; // <--- Define getter.
+  ///  Map<Type,ValidType> get valueMap => _$ValidTypeValueMap; // <--- Define getter.
   ///
   ///  // Define a factory constructor calling _$ValidTypeFromJson().
   ///  factory ValidType.fromJson(Map<String, dynamic> json) => _$ValidTypeFromJson(json);
@@ -49,7 +45,7 @@ class GenerateFromJson {
   /// // MapGenerator
   /// // **************************************************************************
   ///
-  /// final _$ValidTypeValueMap = BuiltMap<Type, ValidType>({
+  /// final _$ValidTypeValueMap = Map<Type, ValidType>.unmodifiable({
   ///   ValidType.INTEGER.value: ValidType.INTEGER,
   ///   ValidType.BOOL.value: ValidType.BOOL
   /// });

@@ -4,18 +4,19 @@
 
 ## Introduction
 
-This library defines annotation classes (with const constructor). These are used to **annotate** classes that extend `GenericEnum`.
+This library defines annotation classes (with const constructor). These are used to **annotate** classes that extend [generic_enum].
 
 `GenericEnum` is a base class for creating generic classes with a fixed set of static constant instances.
-These classes appear to the user like a Dart `enum` would.
+These classes appear to the user like Dart [enumerated types] would.
 For example, generic enums can be used in `switch` statements, to initialize variables, or as default parameters in functions and constructors.
 
 The annotations defined in this library are:
- - `@GenerateBuiltMap()`: Requests the generation of a `BuiltMap` containing the enum values and
+ - `@GenerateMap()`: Requests the generation of an **unmodifiable** Dart map containing the enum values and
     const static instances.
  - `@GenerateFromJson()`: Requests the generation of the method `fromJson`
 
-**Important**: `@GenerateFromJson()` requires `@GenerateBuiltMap()` since the `fromJson` function uses the BuiltMap `valueMap` to retrieve generic enum instances based on their value.
+**Important**: `@GenerateFromJson()` requires `@GenerateMap()` since the `fromJson` function uses the `valueMap` to
+retrieve generic enum instances based on their value.
 
 
 ## Usage
@@ -36,9 +37,9 @@ In principle, a map containing values and instances and serialization functions 
 maintained manually. When defining several generic enumeration classes it might be more convenient to
 use a builder.
 
-4. Annotate the class with `@GenerateBuiltMap` and `@GenerateFromJson`.
-5. Define an accessor for the private variable `_valueMap`.
-6. Define a name factory constructor named `.fromJson` calling the private function `_fromJson`.
+4. Annotate the class with `@GenerateMap` and `@GenerateFromJson`.
+5. Define an accessor for the private variable `_$DpiResolutionValueMap`.
+6. Define a factory constructor named `fromJson` calling the private function `_$DpiResolutionFromJson`.
 
    ```Dart
    import 'package:built_collection/built_collection.dart';
@@ -62,7 +63,7 @@ use a builder.
      static const DpiResolution HIGH = DpiResolution._(600);
 
      // 5. Give access to _valueMap and
-     static BuiltMap<int, DpiResolution> get valueMap => _$DpiResolutionValueMap;
+     static Map<int, DpiResolution> get valueMap => _$DpiResolutionValueMap;
 
      // 6. Define the named factory constructor .fromJson:
      factory DpiResolution.fromJson(Map<String,dynamic> json) => _$DpiResolutionFromJson(json);
@@ -112,3 +113,4 @@ Please file feature requests and bugs at the [issue tracker].
 [generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
 [generic_enum_builder]: https://pub.dev/packages/generic_enum_builder
 [build_runner]: https://pub.dev/packages/build_runner
+[enumerated types]: https://dart.dev/guides/language/language-tour#enumerated-types
