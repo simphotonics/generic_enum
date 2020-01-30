@@ -22,8 +22,7 @@ pub upgrade
 echo
 echo -e "${CYAN}=== Building $PWD...${RESET}"
 echo
-# Clear any pre-existing build output so package:build doesn't get confused
-# when we use built_value to build itself.
+
 rm -rf .dart_tool/build/
 grep -q build_runner pubspec.yaml && \
     pub run build_runner build \
