@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:generic_enum/generic_enum.dart';
 
 // **************************************************************************
