@@ -3,18 +3,17 @@ description: >
   Demonstrates how to define and build generic enumeration classes
   using the library generic_enum.
 
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
 
 environment:
   sdk: '>=2.6.0 <3.0.0'
 
 dependencies:
-  generic_enum_annotation: ^0.1.1
+  generic_enum_annotation: ^0.1.2
   generic_enum: ^0.1.4
-  built_collection: ^4.3.2
 
 dev_dependencies:
   build_runner: ^1.0.0
   source_gen: ^0.9.4+7
-  generic_enum_builder: ^0.1.0
+  generic_enum_builder: ^0.1.1

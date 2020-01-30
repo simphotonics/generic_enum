@@ -105,7 +105,7 @@ use a builder.
       // JsonGenerator
       // **************************************************************************
 
-      DpiResolution fromJson(Map<String, dynamic> json) {
+      DpiResolution _$DpiResolutionFromJson(Map<String, dynamic> json) {
         int value = GenericEnum.fromJson(json).value;
         return DpiResolution.valueMap[value];
       }
