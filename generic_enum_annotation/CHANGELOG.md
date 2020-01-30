@@ -37,3 +37,7 @@ Amended README.md. Added fct. prefix for gen. fcts.
 # 0.1.2
 
 Renamed annotation GenerateBuiltMap -> GenerateValueMap.
+
+# 0.1.3
+
+Amended docs. 
