@@ -33,3 +33,7 @@ Renamed @GenerateToFromJson to @GenerateFromJson.
 # 0.1.1
 
 Amended README.md. Added fct. prefix for gen. fcts.
+
+# 0.1.2
+
+Renamed annotation GenerateBuiltMap -> GenerateValueMap.
