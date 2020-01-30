@@ -1,16 +1,16 @@
 /// Annotation processed by [generic_enum_builder] requesting
 /// the generation of a function that converts a json array to an instance of class that extends
-/// [generic_enum]. 
+/// [generic_enum].
 class GenerateFromJson {
   /// Annotation processed by GenericEnumGenerator.
-  /// Important: @GenerateFromJson() requires @GenerateMap().
+  /// Important: @GenerateFromJson() requires @GenerateValueMap().
   /// Usage:
   /// ```
   /// import 'package:generic_enum/generic_enum.dart';
   ///
   /// part valid_type.g.dart;
   ///
-  /// @GenerateMap() @GenerateFromJson // <--- Add annotations above class definition.
+  /// @GenerateValueMap() @GenerateFromJson // <--- Add annotations above class definition.
   /// ValidType extends GenericEnum<Type>{
   ///  const ValidType._(Type value) : super(value);
   ///

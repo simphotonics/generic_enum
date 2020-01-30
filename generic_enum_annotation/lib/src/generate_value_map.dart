@@ -1,6 +1,6 @@
 /// Annotation requesting the generation of an immutable map. The map object
 /// maps each generic enum value to the generic enum instance with that value.
-class GenerateMap {
+class GenerateValueMap {
   /// Annotation processed by GenericEnumGenerator.
   /// Usage:
   /// ```
@@ -8,7 +8,7 @@ class GenerateMap {
   ///
   /// part valid_type.g.dart;
   ///
-  /// @GenerateMap()  //              <--- Include annotation above class definition.
+  /// @GenerateValueMap()  //              <--- Include annotation above class definition.
   /// ValidType extends GenericEnum<Type>{
   ///  const ValidType._(Type value) : super(value);
   ///
@@ -31,5 +31,5 @@ class GenerateMap {
   /// });
   /// ```
   ///
-  const GenerateMap();
+  const GenerateValueMap();
 }

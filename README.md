@@ -26,8 +26,7 @@ Include [generic_enum_builder], [source_gen], [build_runner] as dev_dependencies
 
 
 To create a generic enum class, say `DpiResolution`, the following steps are required:
-1. Extend `GenericEnum<T>` where `T` is a Dart built-in type or a class with a const        constructor.
-   (To use the serialization methods, `T` should have `fromJson` and `toJson` methods.)
+1. Extend `GenericEnum<T>`. (To use the serialization methods, `T` should have `fromJson` and `toJson` methods.)
 2. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
 3. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
 
