@@ -11,11 +11,11 @@ These classes appear to the user like Dart [enumerated types] would.
 For example, generic enums can be used in `switch` statements, to initialize variables, or as default parameters in functions and constructors.
 
 The annotations defined in this library are:
- - `@GenerateMap()`: Requests the generation of an **unmodifiable** Dart map containing the enum values and
+ - `@GenerateValueMap()`: Requests the generation of an **unmodifiable** Dart map containing the enum values and
     const static instances.
  - `@GenerateFromJson()`: Requests the generation of the method `fromJson`
 
-**Important**: `@GenerateFromJson()` requires `@GenerateMap()` since the `fromJson` function uses the `valueMap` to
+**Important**: `@GenerateFromJson()` requires `@GenerateValueMap()` since the `fromJson` function uses the `valueMap` to
 retrieve generic enum instances based on their value.
 
 
@@ -26,8 +26,7 @@ Include [generic_enum_builder], [source_gen], [build_runner] as dev_dependencies
 
 
 To create a generic enum class, say `DpiResolution`, the following steps are required:
-1. Extend `GenericEnum<T>` where `T` is a Dart built-in type or a class with a const        constructor.
-   (To use the serialization methods, `T` should have `fromJson` and `toJson` methods.)
+1. Extend `GenericEnum<T>`. To use the serialization methods, `T` should have `fromJson` and `toJson` methods.
 2. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
 3. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
 
@@ -37,7 +36,7 @@ In principle, a map containing values and instances and serialization functions 
 maintained manually. When defining several generic enumeration classes it might be more convenient to
 use a builder.
 
-4. Annotate the class with `@GenerateMap` and `@GenerateFromJson`.
+4. Annotate the class with `@GenerateValueMap` and `@GenerateFromJson`.
 5. Define an accessor for the private variable `_$DpiResolutionValueMap`.
 6. Define a factory constructor named `fromJson` calling the private function `_$DpiResolutionFromJson`.
 
@@ -50,7 +49,7 @@ use a builder.
    part 'dpi_resolution.g.dart';
 
    //   1. Extend GenericEnum<T>
-   @GenerateBuiltMap()   //         <----------- 4. Annotate class
+   @GenerateValueMap()   //         <----------- 4. Annotate class
    @GenerateFromJson()   //
    class DpiResolution extends GenericEnum<int> {
      // 2. Define a private const constructor that calls the super constructor
