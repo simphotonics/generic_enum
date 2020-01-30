@@ -6,5 +6,5 @@ part of 'vector.dart';
 // MapGenerator
 // **************************************************************************
 
-final _valueMap = BuiltMap<Vector<double>, VectorEnum>(
+final _$VectorValueMap = Map<Vector<double>, VectorEnum>.unmodifiable(
     {VectorEnum.V1.value: VectorEnum.V1, VectorEnum.V2.value: VectorEnum.V2});

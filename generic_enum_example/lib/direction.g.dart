@@ -21,7 +21,7 @@ Direction _$DirectionFromJson(Map<String, dynamic> json) {
 // MapGenerator
 // **************************************************************************
 
-final _$DirectionValueMap = BuiltMap<String, Direction>({
+final _$DirectionValueMap = Map<String, Direction>.unmodifiable({
   Direction.NORTH.value: Direction.NORTH,
   Direction.EAST.value: Direction.EAST,
   Direction.SOUTH.value: Direction.SOUTH,

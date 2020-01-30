@@ -2,7 +2,7 @@ import 'package:generic_enum/generic_enum.dart';
 import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
 /// Sample class used as test input in map_generator_test.dart.
-@GenerateBuiltMap()
+@GenerateValueMap()
 class NumType extends GenericEnum<Type> {
   const NumType._(Type value) : super(value);
 

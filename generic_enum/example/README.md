@@ -31,7 +31,7 @@ class Constraint extends GenericEnum<String> {
   static const Constraint PRIMARY_KEY = Constraint._('PRIMARY KEY');
   static const Constraint UNIQUE = Constraint._('UNIQUE');
 
-  static BuiltMap<String, Constraint> get valueMap => _valueMap;
+  static Map<String, Constraint> get valueMap => _valueMap;
   Map<String, dynamic> toJson() => _toJson(this);
 
   bool get isPrimary => (this == PRIMARY_KEY);

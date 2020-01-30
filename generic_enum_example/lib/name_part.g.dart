@@ -21,7 +21,7 @@ NamePart _$NamePartFromJson(Map<String, dynamic> json) {
 // MapGenerator
 // **************************************************************************
 
-final _$NamePartValueMap = BuiltMap<String, NamePart>({
+final _$NamePartValueMap = ValueMap<String, NamePart>({
   NamePart.FIRST_NAME.value: NamePart.FIRST_NAME,
   NamePart.LAST_NAME.value: NamePart.LAST_NAME
 });

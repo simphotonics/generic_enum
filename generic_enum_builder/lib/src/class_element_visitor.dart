@@ -23,6 +23,7 @@ class ClassElementVisitor extends SimpleElementVisitor {
   List<DartType> _thisTypeArgs;
   List<DartType> _superTypeArgs;
   List<PropertyAccessorElement> _accessors;
+
   @override
   visitClassElement(ClassElement element) {
     _thisType = element.thisType;

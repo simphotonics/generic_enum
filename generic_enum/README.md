@@ -29,7 +29,7 @@ In principle, a map containing values and instances and serialization functions 
 maintained manually. When defining several generic enumeration classes it might be more convenient to
 use a builder.
 
-4. Annotate the class with `@GenerateBuiltMap` and `@GenerateFromJson`.
+4. Annotate the class with `@GenerateValueMap` and `@GenerateFromJson`.
 5. Define an accessor for the private variable `_valueMap`.
 6. Define a name factory constructor named `.fromJson` pointing to the function `fromJson`.
 
@@ -42,7 +42,7 @@ use a builder.
    part 'dpi_resolution.g.dart';
 
    //   1. Extend GenericEnum<T>
-   @GenerateBuiltMap()   //         <----------- 4. Annotate class
+   @GenerateValueMap()   //         <----------- 4. Annotate class
    @GenerateFromJson()   //
    class DpiResolution extends GenericEnum<int> {
      // 2. Define a private const constructor that calls the super constructor
@@ -55,7 +55,7 @@ use a builder.
      static const DpiResolution HIGH = DpiResolution._(600);
 
      // 5. Give access to _valueMap and
-     static BuiltMap<int, DpiResolution> get valueMap => _$DpiResolutionValueMap;
+     static Map<int, DpiResolution> get valueMap => _$DpiResolutionValueMap;
 
      // 6. Define the named factory constructor .fromJson:
      factory DpiResolution.fromJson(Map<String,dynamic> json) => _$DpiResolutionFromJson(json);

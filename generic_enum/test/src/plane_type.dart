@@ -19,7 +19,7 @@ PlaneType _$PlaneTypeFromJson(Map<String, dynamic> json) {
 // MapGenerator
 // **************************************************************************
 
-final _$PlantTypeValueMap = BuiltMap<int, PlaneType>({
+final _$PlantTypeValueMap = Map<int, PlaneType>.unmodifiable({
   PlaneType.AB707.value: PlaneType.AB707,
   PlaneType.AB747.value: PlaneType.AB747
 });
@@ -33,7 +33,7 @@ class PlaneType extends GenericEnum<int> {
   static const PlaneType AB707 = PlaneType._(707);
   static const PlaneType AB747 = PlaneType._(747);
 
-  static BuiltMap<int, PlaneType> get valueMap => _$PlantTypeValueMap;
+  static Map<int, PlaneType> get valueMap => _$PlantTypeValueMap;
 
   factory PlaneType.fromJson(Map<String, dynamic> json) =>
       _$PlaneTypeFromJson(json);

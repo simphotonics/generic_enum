@@ -26,7 +26,7 @@ Future<void> main() async {
   String generatedMapDirection =
       await mapGenerator.generate(readerDirection, null);
   String expectedMapDirection =
-      'final _\$DirectionValueMap = BuiltMap<String, Direction>({\n'
+      'final _\$DirectionValueMap = Map<String, Direction>.unmodifiable({\n'
       '  Direction.NORTH.value: Direction.NORTH,\n'
       '  Direction.EAST.value: Direction.EAST,\n'
       '  Direction.SOUTH.value: Direction.SOUTH,\n'
@@ -35,7 +35,7 @@ Future<void> main() async {
 
   String generatedMapVector = await mapGenerator.generate(readerVector, null);
   String expectedMapVector =
-      'final _\$VectorEnumValueMap = BuiltMap<Vector<double>, VectorEnum>(\n'
+      'final _\$VectorEnumValueMap = Map<Vector<double>, VectorEnum>.unmodifiable(\n'
       '    {VectorEnum.V1.value: VectorEnum.V1, VectorEnum.V2.value: VectorEnum.V2});';
 
   /// Run Json Generator.
@@ -57,10 +57,10 @@ Future<void> main() async {
   String expectedJsonVector = '';
 
   group('MapGenerator:', () {
-    test('BuiltMap for direction.dart.', () {
+    test('ValueMap for direction.dart.', () {
       expect(generatedMapDirection, expectedMapDirection);
     });
-    test('BuiltMap for vector.dart.', () {
+    test('ValueMap for vector.dart.', () {
       expect(generatedMapVector, expectedMapVector);
     });
   });

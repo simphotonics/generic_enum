@@ -18,8 +18,7 @@ class GenerateValueMap {
   ///  Map<Type,ValidType> get valueMap => _$ValidTypeValueMap; // <--- Add getter.
   /// }
   /// ```
-  /// Running the build process will generate a
-  /// BuiltMap object:
+  /// Running the build process will generate an unmodifiable map:
   /// ```
   /// // **************************************************************************
   /// // MapGenerator

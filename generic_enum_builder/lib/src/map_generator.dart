@@ -8,10 +8,10 @@ import 'package:generic_enum_builder/src/generic_enum_visitor.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
-/// Souce code generator that builds the BuiltMap object [_$<ClassName>valueMap].
-/// Extends [GeneratorForAnnotation<GenerateBuiltMap>] and as such
-/// processes only classes annotated with [@GenerateBuiltMap].
-class MapGenerator extends GeneratorForAnnotation<GenerateBuiltMap> {
+/// Souce code generator that builds the ValueMap object [_$<ClassName>valueMap].
+/// Extends [GeneratorForAnnotation<GenerateValueMap>] and as such
+/// processes only classes annotated with [@GenerateValueMap].
+class MapGenerator extends GeneratorForAnnotation<GenerateValueMap> {
   static const GenericEnumChecker = TypeChecker.fromRuntime(GenericEnum);
 
   /// Visits a [ClassElement] and extracts static type information.
@@ -40,16 +40,16 @@ class MapGenerator extends GeneratorForAnnotation<GenerateBuiltMap> {
     return (vis.instances.isNotEmpty) ? _generateValueMap() : null;
   }
 
-  /// Generates code defining [_valueMap], a private variable of type [BuiltMap].
+  /// Generates code defining [_valueMap], a private variable of type [Map].
   String _generateValueMap() {
     var buffer = StringBuffer();
-    // BuiltMap declaration
+    // Map declaration
     //buffer.writeln('/*');
     buffer.writeln(
-        'final _\$${classVis.thisType}ValueMap = BuiltMap<${classVis.superTypeArg},'
-        '${classVis.thisType}>({');
+        'final _\$${classVis.thisType}ValueMap = Map<${classVis.superTypeArg},'
+        '${classVis.thisType}>.unmodifiable({');
 
-    // BuiltMap enties: generic enum Instances
+    // Map enties: generic enum Instances
     List<String> entries = [];
     for (var instance in vis.instances) {
       entries.add(

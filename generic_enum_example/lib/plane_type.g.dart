@@ -21,7 +21,7 @@ PlaneType _$PlaneTypeFromJson(Map<String, dynamic> json) {
 // MapGenerator
 // **************************************************************************
 
-final _$PlaneTypeValueMap = BuiltMap<int, PlaneType>({
+final _$PlaneTypeValueMap = Map<int, PlaneType>.unmodifiable({
   PlaneType.AB707.value: PlaneType.AB707,
   PlaneType.AB747.value: PlaneType.AB747
 });

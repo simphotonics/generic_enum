@@ -12,13 +12,13 @@ class Vector<T extends num> {
 }
 
 /// Sample class used as test input in map_generator_test.dart.
-@GenerateBuiltMap()
+@GenerateValueMap()
 class VectorEnum extends GenericEnum<Vector<double>> {
   const VectorEnum._(Vector value) : super(value);
 
   static const V1 = VectorEnum._(Vector<double>(1.0, 0.0));
   static const V2 = VectorEnum._(Vector<double>(0.0, 1.0));
 
-  static BuiltMap<Vector<double>, VectorEnum> get valueMap =>
+  static Map<Vector<double>, VectorEnum> get valueMap =>
       _$VectorEnumValueMap;
 }

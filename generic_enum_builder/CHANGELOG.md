@@ -32,4 +32,9 @@ Corrected syntax error in json_generator.dart.
 
 # 0.1.0
 
-Generators now use a prefix for fcts and vars. 
+Generators now use a prefix for fcts and vars.
+
+# 0.1.1
+
+Removed dependency on build_collection.
+Used an unmodifiable map instead.

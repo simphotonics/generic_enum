@@ -21,7 +21,7 @@ DpiResolution _$DpiResolutionFromJson(Map<String, dynamic> json) {
 // MapGenerator
 // **************************************************************************
 
-final _$DpiResolutionValueMap = BuiltMap<int, DpiResolution>({
+final _$DpiResolutionValueMap = Map<int, DpiResolution>.unmodifiable({
   DpiResolution.LOW.value: DpiResolution.LOW,
   DpiResolution.MEDIUM.value: DpiResolution.MEDIUM,
   DpiResolution.HIGH.value: DpiResolution.HIGH
