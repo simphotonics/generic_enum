@@ -41,3 +41,7 @@ Added serialization tests.
 # 0.1.4
 
 Amended #usage (prefix for gen. functions)
+
+# 0.1.5
+
+Amended documentation.

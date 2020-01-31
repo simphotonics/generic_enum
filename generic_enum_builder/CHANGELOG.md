@@ -38,3 +38,8 @@ Generators now use a prefix for fcts and vars.
 
 Removed dependency on build_collection.
 Used an unmodifiable map instead.
+
+# 0.1.2
+
+Included dependency on latest versions of
+generic_enum and generic_enum_annotation.
