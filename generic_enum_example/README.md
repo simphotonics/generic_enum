@@ -20,7 +20,7 @@ are provided below.
 
 ## Boilerplate
 
-To use this library include [generic_enum_annotation] as dependency in your pubspec.yaml file.
+To use this library include [generic_enum] and [generic_enum_annotation] as dependency in your pubspec.yaml file.
 Include [generic_enum_builder], [source_gen], [build_runner] as dev_dependencies.
 
 
@@ -127,6 +127,7 @@ Please file feature requests and bugs at the [issue tracker].
 [source_gen]: https://pub.dev/packages/source_gen
 [GenericEnum]: ../generic_enum
 [Dart enum]: https://dart.dev/guides/language/language-tour#enumerated-types
+[generic_enum]: https://pub.dev/packages/generic_enum
 [generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
 [generic_enum_builder]: https://pub.dev/packages/generic_enum_builder
 [build_runner]: https://pub.dev/packages/build_runner

@@ -13,7 +13,7 @@ default parameters in functions and constructors.
 
 ## Boilerplate
 
-To use this library include [generic_enum_annotation] as dependency in your pubspec.yaml file.
+To use this library include [generic_enum] and [generic_enum_annotation] as dependency in your pubspec.yaml file.
 Include [generic_enum_builder], [source_gen], [build_runner] as dev_dependencies.
 
 
@@ -126,6 +126,7 @@ Please file feature requests and bugs at the [issue tracker].
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
 [analyzer]: https://pub.dev/packages/analyzer
 [source_gen]: https://pub.dev/packages/source_gen
+[generic_enum]: https://pub.dev/packages/generic_enum
 [generic_enum_example]: ../generic_enum_example
 [example]: example
 [generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
