@@ -6,8 +6,8 @@
 based on [source_gen] and [analyzer].
 
 This part of the library contains tests designed to verify
-that the source code generators [MapGenerator] and [JsonGenerator]
-produce correct output.
+that the source code generators [MapGenerator], [JsonGenerator], and
+[IdentifierGenerator] produce correct output.
 
 The folder [src](src) contains sample classes extending [GenericEnum].
 The content of these files is accessed via a [LibraryReader].
@@ -38,3 +38,4 @@ Please file feature requests and bugs at the [issue tracker].
 [GenericEnumBuilder]: ../
 [MapGenerator]: ../lib/src/map_generator.dart
 [JsonGenerator]: ../lib/src/json_generator.dart
+[IdentifierGenerator]: ../lib/src/identifier_generator.dart
