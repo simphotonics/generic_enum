@@ -1,4 +1,5 @@
 import 'package:generic_enum_builder/src/generator_exception.dart';
+import 'package:generic_enum_builder/src/identifier_generator.dart';
 import 'package:generic_enum_builder/src/json_generator.dart';
 import 'package:test/test.dart';
 import 'package:source_gen_test/src/init_library_reader.dart';
@@ -21,6 +22,7 @@ Future<void> main() async {
   /// Instantiate generators:
   final mapGenerator = MapGenerator();
   final jsonGenerator = JsonGenerator();
+  final identifierGenerator = IdentifierGenerator();
 
   /// Run MapGenerator.
   String generatedMapDirection =
@@ -56,6 +58,22 @@ Future<void> main() async {
   String generatedJsonVector = await jsonGenerator.generate(readerVector, null);
   String expectedJsonVector = '';
 
+  String generatedIdentifierFct =
+      await identifierGenerator.generate(readerVector, null);
+  String expectedIdentifierFct =
+      'String _\$VectorEnumIdentifier(VectorEnum vectorEnum) {\n'
+      '  switch (vectorEnum) {\n'
+      '    case VectorEnum.V1:\n'
+      '      return \'VectorEnum.V1\';\n'
+      '      break;\n'
+      '    case VectorEnum.V2:\n'
+      '      return \'VectorEnum.V2\';\n'
+      '      break;\n'
+      '    default:\n'
+      '      return \'\';\n'
+      '  }\n'
+      '}';
+
   group('MapGenerator:', () {
     test('ValueMap for direction.dart.', () {
       expect(generatedMapDirection, expectedMapDirection);
@@ -71,6 +89,12 @@ Future<void> main() async {
     });
     test('FromJson for vector.dart.', () {
       expect(generatedJsonVector, expectedJsonVector);
+    });
+  });
+
+  group('IdentifierGenerator', () {
+    test('Identifier for vector.dart.', () {
+      expect(generatedIdentifierFct, expectedIdentifierFct);
     });
   });
 
