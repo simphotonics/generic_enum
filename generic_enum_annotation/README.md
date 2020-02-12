@@ -14,7 +14,7 @@ The annotations defined in this library are:
  - `@GenerateValueMap()`: Requests the generation of an unmodifiable map `_$<ClassName>ValueMap` containing the enum values and const static instances.
  - `@GenerateFromJson()`: Requests the generation of the private function `_$<ClassName>FromJson`.
  - `@GenerateIdentifier()`: Requests the generation of the private function `_$<ClassName>Identifier`.
-    The function can be use to retrieve the identifier name as a `String` for each defined const generic enum instance.
+    The function can be use to retrieve the identifier of each defined const generic enum instance.
 
 **Important**: `@GenerateFromJson()` requires `@GenerateValueMap()` since the
 function `_$<ClassName>FromJson` uses the unmodifiable map `_$<ClassName>ValueMap` to retrieve generic
