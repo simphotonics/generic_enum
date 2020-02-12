@@ -11,6 +11,7 @@ class Vector<T extends num> {
 }
 
 /// Sample class used as test input in map_generator_test.dart.
+@GenerateIdentifier()
 @GenerateValueMap()
 class VectorEnum extends GenericEnum<Vector<double>> {
   const VectorEnum._(Vector value) : super(value);
