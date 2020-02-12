@@ -37,7 +37,7 @@ class Constraint extends GenericEnum<String> {
   static const Constraint UNIQUE = Constraint._('UNIQUE');
 
   static Map<String, Constraint> get valueMap => _$ConstraintValueMap;
-  Map<String, dynamic> toJson() => _$ConstraintToJson(this);
+  factory Constraint.fromJson(Map<String,dynamic> json) => _$ConstraintFromJson(json);
 
   bool get isPrimary => (this == PRIMARY_KEY);
   bool get isUnique => (this == UNIQUE);
