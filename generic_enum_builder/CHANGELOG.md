@@ -43,3 +43,7 @@ Used an unmodifiable map instead.
 
 Included dependency on latest versions of
 generic_enum and generic_enum_annotation.
+
+# 0.1.3
+
+Added class IdentifierGenerator.
