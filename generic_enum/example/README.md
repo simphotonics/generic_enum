@@ -28,7 +28,7 @@ import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 part 'constraint.g.dart';
 
 @GenerateValueMap()
-@GenerateToJson()
+@GenerateFromJson()
 class Constraint extends GenericEnum<String> {
   const Constraint._(String value) : super(value);
 
