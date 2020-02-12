@@ -40,4 +40,8 @@ Renamed annotation GenerateBuiltMap -> GenerateValueMap.
 
 # 0.1.3
 
-Amended docs. 
+Amended docs.
+
+# 0.1.4
+
+Added annotation GenerateIdentifier.
