@@ -6,7 +6,8 @@ import 'package:generic_enum/generic_enum.dart';
 import 'package:generic_enum_builder/src/class_element_visitor.dart';
 import 'package:generic_enum_builder/src/generic_enum_visitor.dart';
 import 'package:source_gen/source_gen.dart';
-import 'package:generic_enum_annotation/generic_enum_annotation.dart';
+import 'package:generic_enum_annotation/generic_enum_annotation.dart'
+    show GenerateFromJson;
 
 /// Souce code generator that builds _$<ClassName>FromJson function.
 /// Extends [GeneratorForAnnotation<GenerateFromJson>] and as such
