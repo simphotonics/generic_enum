@@ -11,12 +11,14 @@ These classes appear to the user like Dart [enumerated types] would.
 For example, generic enums can be used in `switch` statements, to initialize variables, or as default parameters in functions and constructors.
 
 The annotations defined in this library are:
- - `@GenerateValueMap()`: Requests the generation of an **unmodifiable** Dart map containing the enum values and
-    const static instances.
- - `@GenerateFromJson()`: Requests the generation of the method `fromJson`
+ - `@GenerateValueMap()`: Requests the generation of an unmodifiable map `_$<ClassName>ValueMap` containing the enum values and const static instances.
+ - `@GenerateFromJson()`: Requests the generation of the private function `_$<ClassName>FromJson`.
+ - `@GenerateIdentifier()`: Requests the generation of the private function `_$<ClassName>Identifier`.
+    The function can be use to retrieve the identifier name as `String` for each defined const generic enum instance.
 
-**Important**: `@GenerateFromJson()` requires `@GenerateValueMap()` since the `fromJson` function uses the `valueMap` to
-retrieve generic enum instances based on their value.
+**Important**: `@GenerateFromJson()` requires `@GenerateValueMap()` since the
+function `_$<ClassName>FromJson` uses the unmodifiable map `_$<ClassName>ValueMap` to retrieve generic
+enum instances based on their value.
 
 
 ## Usage
