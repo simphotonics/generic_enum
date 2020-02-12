@@ -17,13 +17,18 @@ The [main section](https://github.com/simphotonics/generic_enum) contains a step
 
 Since generic enums are normal classes they can contain
 methods and `final` fields in addition to the `value` field. The example below
-includes the getters `isPrimary,isUnique,isNotNull`.
+includes the getters `isPrimary`, `isUnique`, `isNotNull`.
 
 As an example, we could generate an annotation class, say `Constraint`, that helps users
 select a supported Sqlite constraint.
 ```Dart
 import 'package:generic_enum/generic_enum.dart';
+import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
+part 'constraint.g.dart';
+
+@GenerateValueMap()
+@GenerateToJson()
 class Constraint extends GenericEnum<String> {
   const Constraint._(String value) : super(value);
 
@@ -31,8 +36,8 @@ class Constraint extends GenericEnum<String> {
   static const Constraint PRIMARY_KEY = Constraint._('PRIMARY KEY');
   static const Constraint UNIQUE = Constraint._('UNIQUE');
 
-  static Map<String, Constraint> get valueMap => _valueMap;
-  Map<String, dynamic> toJson() => _toJson(this);
+  static Map<String, Constraint> get valueMap => _$ConstraintValueMap;
+  Map<String, dynamic> toJson() => _$ConstraintToJson(this);
 
   bool get isPrimary => (this == PRIMARY_KEY);
   bool get isUnique => (this == UNIQUE);
