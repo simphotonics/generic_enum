@@ -4,11 +4,11 @@ import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 ///   0. Add a part instruction pointing to generated file.
 part 'dpi_resolution.g.dart';
 
-///   1. Extend GenericEnum<T>
-@GenerateValueMap()
-
+/// 1. Extend GenericEnum<T>
 /// 2. Annotate class
+@GenerateValueMap()
 @GenerateFromJson()
+/// Sample generic_enum class supporting json-serialization.
 class DpiResolution extends GenericEnum<int> {
   /// 3. Define a private const constructor that calls the super constructor
   ///   and passes on the value of type int.

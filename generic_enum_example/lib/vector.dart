@@ -10,7 +10,7 @@ class Vector<T extends num> {
   final T a2;
 }
 
-/// Sample generic enum class providing access to the identifier of
+/// Sample generic enum class providing access to the identifier
 /// of each const instance that is defined.
 @GenerateValueMap()
 @GenerateIdentifier()

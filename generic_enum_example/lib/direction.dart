@@ -4,12 +4,13 @@ import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 ///   0. Add a part instruction pointing to generated file.
 part 'direction.g.dart';
 
-/// Sample generic enum class supporting json-serialization.
+
 /// 1. Annotate class
 @GenerateFromJson()
 @GenerateValueMap()
 
 /// 2. Extend GenericEnum<T>
+/// Sample generic enum class supporting json-serialization.
 class Direction extends GenericEnum<String> {
   /// 3. Define a private const constructor that calls the
   ///    super constructor and passes on the value of type String.
