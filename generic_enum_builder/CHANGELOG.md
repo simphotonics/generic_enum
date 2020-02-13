@@ -51,3 +51,7 @@ Added class IdentifierGenerator.
 # 0.1.4
 
 Added builder identifierBuilder.
+
+# 0.1.5
+
+Added Dart docs to generated variables and functions.
