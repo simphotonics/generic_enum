@@ -47,3 +47,7 @@ generic_enum and generic_enum_annotation.
 # 0.1.3
 
 Added class IdentifierGenerator.
+
+# 0.1.4
+
+Added builder identifierBuilder.
