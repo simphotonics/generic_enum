@@ -16,4 +16,8 @@ Removed dependency on built_collection.
 
 # 0.0.5
 
-Updated dependency on generic_enum. 
+Updated dependency on generic_enum.
+
+# 0.1.0
+
+Added generic enum example with function: identifier().
