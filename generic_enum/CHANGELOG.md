@@ -45,3 +45,7 @@ Amended #usage (prefix for gen. functions)
 # 0.1.5
 
 Amended documentation.
+
+# 0.1.6
+
+Upgraded dependencies.
