@@ -55,3 +55,7 @@ Added builder identifierBuilder.
 # 0.1.5
 
 Added Dart docs to generated variables and functions.
+
+# 0.1.6
+
+Upgraded dependencies.
