@@ -21,3 +21,7 @@ Updated dependency on generic_enum.
 # 0.1.0
 
 Added generic enum example with function: identifier().
+
+# 0.1.1
+
+Amended docs.
