@@ -36,8 +36,8 @@ maintained manually. When defining several generic enumeration classes it might 
 use a builder.
 
 4. Annotate the class with `@GenerateValueMap` and `@GenerateFromJson`.
-5. Define an accessor for the private variable `_valueMap`.
-6. Define a name factory constructor named `.fromJson` pointing to the function `fromJson`.
+5. Define an accessor for the private variable `_$DpiResolutionValueMap`.
+6. Define a name factory constructor named `.fromJson` pointing to the function `_$DpiResolutionFromJson`.
 
    ```Dart
    import 'package:generic_enum/generic_enum.dart';
