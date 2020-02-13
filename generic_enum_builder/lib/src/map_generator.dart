@@ -44,8 +44,18 @@ class MapGenerator extends GeneratorForAnnotation<GenerateValueMap> {
   /// Generates code defining [_valueMap], a private variable of type [Map].
   String _generateValueMap() {
     var buffer = StringBuffer();
+    // Dart doc.
+    buffer.writeln(
+      '/// Maps a value of type [${classVis.superTypeArg}] to an instance of [${classVis.thisType}].',
+    );
+    buffer.writeln('/// Add the following getter to your class definition: ');
+    buffer.writeln('/// ```');
+    buffer.writeln(
+      '/// static Map<${classVis.superTypeArg},${classVis.thisType}> get valueMap => _\$${classVis.thisType}ValueMap; ',
+    );
+    buffer.writeln('/// ```');
+
     // Map declaration
-    //buffer.writeln('/*');
     buffer.writeln(
         'final _\$${classVis.thisType}ValueMap = Map<${classVis.superTypeArg},'
         '${classVis.thisType}>.unmodifiable({');

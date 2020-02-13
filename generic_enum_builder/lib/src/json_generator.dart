@@ -53,6 +53,18 @@ class JsonGenerator extends GeneratorForAnnotation<GenerateFromJson> {
   /// Generates the function FromJson.
   String _generateFromJson() {
     var buffer = StringBuffer();
+    // Dart Doc.
+    buffer.writeln(
+      '/// Converts a map [Map<String, dynamic>] to an instance of [${classVis.thisType}].',
+    );
+    buffer.writeln(
+        '/// Add the following factory constructor to your class definition: ');
+    buffer.writeln('/// ```');
+    buffer.writeln(
+      '/// factory ${classVis.thisType}.fromJson(Map<String, dynamic> json) => ',
+    );
+    buffer.writeln('///   _\$${classVis.thisType}FromJson(json);');
+    buffer.writeln('/// ```');
     // Function declaration
     buffer.writeln(
       '${classVis.thisType} _\$${classVis.thisType}FromJson(Map<String, dynamic> json){',

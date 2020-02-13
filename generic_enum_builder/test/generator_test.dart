@@ -28,6 +28,11 @@ Future<void> main() async {
   String generatedMapDirection =
       await mapGenerator.generate(readerDirection, null);
   String expectedMapDirection =
+      '/// Maps a value of type [String] to an instance of [Direction].\n'
+      '/// Add the following getter to your class definition:\n'
+      '/// ```\n'
+      '/// static Map<String,Direction> get valueMap => _\$DirectionValueMap;\n'
+      '/// ```\n'
       'final _\$DirectionValueMap = Map<String, Direction>.unmodifiable({\n'
       '  Direction.NORTH.value: Direction.NORTH,\n'
       '  Direction.EAST.value: Direction.EAST,\n'
@@ -37,6 +42,11 @@ Future<void> main() async {
 
   String generatedMapVector = await mapGenerator.generate(readerVector, null);
   String expectedMapVector =
+      '/// Maps a value of type [Vector<double>] to an instance of [VectorEnum].\n'
+      '/// Add the following getter to your class definition:\n'
+      '/// ```\n'
+      '/// static Map<Vector<double>,VectorEnum> get valueMap => _\$VectorEnumValueMap;\n'
+      '/// ```\n'
       'final _\$VectorEnumValueMap = Map<Vector<double>, VectorEnum>.unmodifiable(\n'
       '    {VectorEnum.V1.value: VectorEnum.V1, VectorEnum.V2.value: VectorEnum.V2});';
 
@@ -44,6 +54,12 @@ Future<void> main() async {
   String generatedJsonDirection =
       await jsonGenerator.generate(readerDirection, null);
   String expectedJsonDirection =
+      '/// Converts a map [Map<String, dynamic>] to an instance of [Direction].\n'
+      '/// Add the following factory constructor to your class definition:\n'
+      '/// ```\n'
+      '/// factory Direction.fromJson(Map<String, dynamic> json) =>\n'
+      '///   _\$DirectionFromJson(json);\n'
+      '/// ```\n'
       'Direction _\$DirectionFromJson(Map<String, dynamic> json) {\n'
       '  String value = GenericEnum.fromJson(json).value;\n'
       '  Direction instance = Direction.valueMap[value];\n'
@@ -61,6 +77,12 @@ Future<void> main() async {
   String generatedIdentifierFct =
       await identifierGenerator.generate(readerVector, null);
   String expectedIdentifierFct =
+      '/// Returns the [String] identifier of an instance of [VectorEnum].\n'
+      '/// Add the following static function to your class definition:\n'
+      '/// ```\n'
+      '/// static String identifier(VectorEnum vectorEnum) =>\n'
+      '///   _\$VectorEnumIdentifier(vectorEnum);\n'
+      '/// ```\n'
       'String _\$VectorEnumIdentifier(VectorEnum vectorEnum) {\n'
       '  switch (vectorEnum) {\n'
       '    case VectorEnum.V1:\n'

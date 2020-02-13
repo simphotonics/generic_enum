@@ -46,6 +46,18 @@ class IdentifierGenerator extends GeneratorForAnnotation<GenerateIdentifier> {
     var buffer = StringBuffer();
     var input = classVis.thisType.toString();
     input = input.replaceRange(0, 1, input[0].toLowerCase());
+    // Dart Doc.
+    buffer.writeln(
+      '/// Returns the [String] identifier of an instance of [${classVis.thisType}].',
+    );
+    buffer.writeln(
+        '/// Add the following static function to your class definition: ');
+    buffer.writeln('/// ```');
+    buffer.writeln(
+      '/// static String identifier(${classVis.thisType} $input) => ',
+    );
+    buffer.writeln('///   _\$${classVis.thisType}Identifier($input);');
+    buffer.writeln('/// ```');
     // Function declaration
     buffer.writeln('String _\$${classVis.thisType}Identifier('
         '${classVis.thisType} $input){');
