@@ -17,6 +17,14 @@ builders:
     auto_apply: dependents
     build_to: cache
     applies_builders: ["source_gen|combining_builder"]
+  identifier_builder:
+    import: "package:generic_enum_builder/generic_enum_builder.dart"
+    builder_factories: ["identifierBuilder"]
+    build_extensions: {".dart": ["identifier_builder.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
+
 
 # Instructions:
 # When using this package, define the build targets in
@@ -38,6 +46,12 @@ builders:
 #         enabled: true
 #       # Configure the builder `pkg_name|builder_name`
 #       generic_enum_builder|json_builder:
+#         # Only run this builder on the specified input.
+#         generate_for:
+#           - lib/*.dart
+#         enabled: true
+#       Configure the builder `pkg_name|builder_name`
+#       generic_enum_builder|identifier_builder:
 #         # Only run this builder on the specified input.
 #         generate_for:
 #           - lib/*.dart
