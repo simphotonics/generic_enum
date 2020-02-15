@@ -45,3 +45,7 @@ Amended docs.
 # 0.1.4
 
 Added annotation GenerateIdentifier.
+
+# 0.1.5
+
+Amended README.md.
