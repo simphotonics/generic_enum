@@ -67,7 +67,7 @@ Future<void> main() async {
       '/// ```\n'
       'Direction _\$DirectionFromJson(Map<String, dynamic> json) {\n'
       '  String value = GenericEnum.fromJson(json).value;\n'
-      '  Direction instance = Direction.valueMap[value];\n'
+      '  Direction instance = _\$DirectionValueMap[value];\n'
       '  if (instance == null) {\n'
       '    throw GenericEnumException(\n'
       '      \'Could not find Direction instance with value: \$value.\',\n'

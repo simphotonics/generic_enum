@@ -78,7 +78,7 @@ class JsonGenerator extends GeneratorForAnnotation<GenerateFromJson> {
       '${classVis.superTypeArg} value = GenericEnum.fromJson(json).value;',
     );
     buffer.writeln(
-      '${classVis.thisType} instance = ${classVis.thisType}.valueMap[value];',
+      '${classVis.thisType} instance = _\$${classVis.thisType}ValueMap[value];',
     );
     buffer.writeln(
       'if( instance == null ) {',
