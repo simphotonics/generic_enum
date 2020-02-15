@@ -64,3 +64,7 @@ Upgraded dependencies.
 
 Annotating with @GenerateFromJson() now generates
 a fromJson function and a value-instance map.
+
+# 0.1.8
+
+Upgraded dependency on generic_enum.
