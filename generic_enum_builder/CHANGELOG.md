@@ -59,3 +59,8 @@ Added Dart docs to generated variables and functions.
 # 0.1.6
 
 Upgraded dependencies.
+
+# 0.1.7
+
+Annotating with @GenerateFromJson() now generates
+a fromJson function and a value-instance map.

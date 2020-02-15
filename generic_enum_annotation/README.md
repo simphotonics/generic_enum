@@ -12,14 +12,10 @@ For example, generic enums can be used in `switch` statements, to initialize var
 
 The annotations defined in this library are:
  - `@GenerateValueMap()`: Requests the generation of an unmodifiable map `_$<ClassName>ValueMap` containing the enum values and const static instances.
- - `@GenerateFromJson()`: Requests the generation of the private function `_$<ClassName>FromJson`.
+ - `@GenerateFromJson()`: Requests the generation of the private function `_$<ClassName>FromJson` and the generation of `_$<ClassName>ValueMap`.
+    Note: A `ToJson` function is already provided by the base class [generic_enum].
  - `@GenerateIdentifier()`: Requests the generation of the private function `_$<ClassName>Identifier`.
     The function can be use to retrieve the identifier of each defined const generic enum instance.
-
-**Important**: `@GenerateFromJson()` requires `@GenerateValueMap()` since the
-function `_$<ClassName>FromJson` uses the unmodifiable map `_$<ClassName>ValueMap` to retrieve generic
-enum instances based on their value.
-
 
 ## Usage
 
@@ -38,7 +34,7 @@ In principle, a map containing values and instances and serialization functions 
 maintained manually. When defining several generic enumeration classes it might be more convenient to
 use a builder.
 
-4. Annotate the class with `@GenerateValueMap` and `@GenerateFromJson`.
+4. Annotate the class with `@GenerateFromJson`.
 5. Define an accessor for the private variable `_$DpiResolutionValueMap`.
 6. Define a factory constructor named `fromJson` calling the private function `_$DpiResolutionFromJson`.
 
@@ -50,8 +46,7 @@ use a builder.
    part 'dpi_resolution.g.dart';
 
    //   1. Extend GenericEnum<T>
-   @GenerateValueMap()   //         <----------- 4. Annotate class
-   @GenerateFromJson()   //
+   @GenerateFromJson()   //         <----------- 4. Annotate class
    class DpiResolution extends GenericEnum<int> {
      // 2. Define a private const constructor that calls the super constructor
      //    and passes on the value of type int.

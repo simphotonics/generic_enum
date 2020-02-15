@@ -3,14 +3,13 @@
 /// [generic_enum].
 class GenerateFromJson {
   /// Annotation processed by GenericEnumGenerator.
-  /// Important: @GenerateFromJson() requires @GenerateValueMap().
   /// Usage:
   /// ```
   /// import 'package:generic_enum/generic_enum.dart';
   ///
   /// part valid_type.g.dart;
   ///
-  /// @GenerateValueMap() @GenerateFromJson // <--- Add annotations above class definition.
+  /// @GenerateFromJson // <--- Add annotations above class definition.
   /// ValidType extends GenericEnum<Type>{
   ///  const ValidType._(Type value) : super(value);
   ///
@@ -27,21 +26,6 @@ class GenerateFromJson {
   ///
   /// ```
   /// // **************************************************************************
-  /// // JsonGenerator
-  /// // **************************************************************************
-  ///
-  /// ValidType _$ValidTypeFromJson(Map<String, dynamic> json) {
-  ///   String value = GenericEnum.fromJson(json).value;
-  ///   ValidType instance = ValidType.valueMap[value];
-  ///   if (instance == null) {
-  ///     throw GenericEnumException('
-  ///       Could not find ValidType instance with value: $value.',
-  ///     );
-  ///   }
-  ///   return instance;
-  /// }
-  ///
-  /// // **************************************************************************
   /// // MapGenerator
   /// // **************************************************************************
   ///
@@ -50,6 +34,20 @@ class GenerateFromJson {
   ///   ValidType.BOOL.value: ValidType.BOOL
   /// });
   ///
+  /// // **************************************************************************
+  /// // JsonGenerator
+  /// // **************************************************************************
+  ///
+  /// ValidType _$ValidTypeFromJson(Map<String, dynamic> json) {
+  ///   String value = GenericEnum.fromJson(json).value;
+  ///   ValidType instance = _$ValidTypeValueMap[value];
+  ///   if (instance == null) {
+  ///     throw GenericEnumException('
+  ///       Could not find ValidType instance with value: $value.',
+  ///     );
+  ///   }
+  ///   return instance;
+  /// }
   /// ```
   ///
   const GenerateFromJson();

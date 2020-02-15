@@ -19,6 +19,10 @@ Future<void> main() async {
   final readerNumType =
       await initializeLibraryReaderForDirectory('test/src', 'num_type.dart');
 
+  /// Read library empty_generic_enum.dart.
+  final readerEmptyGenericEnum =
+      await initializeLibraryReaderForDirectory('test/src', 'num_type.dart');
+
   /// Instantiate generators:
   final mapGenerator = MapGenerator();
   final jsonGenerator = JsonGenerator();
@@ -27,18 +31,7 @@ Future<void> main() async {
   /// Run MapGenerator.
   String generatedMapDirection =
       await mapGenerator.generate(readerDirection, null);
-  String expectedMapDirection =
-      '/// Maps a value of type [String] to an instance of [Direction].\n'
-      '/// Add the following getter to your class definition:\n'
-      '/// ```\n'
-      '/// static Map<String,Direction> get valueMap => _\$DirectionValueMap;\n'
-      '/// ```\n'
-      'final _\$DirectionValueMap = Map<String, Direction>.unmodifiable({\n'
-      '  Direction.NORTH.value: Direction.NORTH,\n'
-      '  Direction.EAST.value: Direction.EAST,\n'
-      '  Direction.SOUTH.value: Direction.SOUTH,\n'
-      '  Direction.WEST.value: Direction.WEST\n'
-      '});';
+  String expectedMapDirection = '';
 
   String generatedMapVector = await mapGenerator.generate(readerVector, null);
   String expectedMapVector =
@@ -54,6 +47,18 @@ Future<void> main() async {
   String generatedJsonDirection =
       await jsonGenerator.generate(readerDirection, null);
   String expectedJsonDirection =
+      '/// Maps a value of type [String] to an instance of [Direction].\n'
+      '/// Add the following getter to your class definition:\n'
+      '/// ```\n'
+      '/// static Map<String,Direction> get valueMap => _\$DirectionValueMap;\n'
+      '/// ```\n'
+      'final _\$DirectionValueMap = Map<String, Direction>.unmodifiable({\n'
+      '  Direction.NORTH.value: Direction.NORTH,\n'
+      '  Direction.EAST.value: Direction.EAST,\n'
+      '  Direction.SOUTH.value: Direction.SOUTH,\n'
+      '  Direction.WEST.value: Direction.WEST\n'
+      '});\n'
+      '\n'
       '/// Converts a map [Map<String, dynamic>] to an instance of [Direction].\n'
       '/// Add the following factory constructor to your class definition:\n'
       '/// ```\n'
@@ -96,9 +101,21 @@ Future<void> main() async {
       '  }\n'
       '}';
 
+  String generatedJsonEmpty =
+      await jsonGenerator.generate(readerEmptyGenericEnum, null);
+  String expectedJsonEmpty = '';
+  String generatedEmptyIdentifier =
+      await identifierGenerator.generate(readerEmptyGenericEnum, null);
+  String expectedEmptyIdentifier = '';
+
   group('MapGenerator:', () {
     test('ValueMap for direction.dart.', () {
-      expect(generatedMapDirection, expectedMapDirection);
+      expect(
+        generatedMapDirection,
+        expectedMapDirection,
+        reason:
+            'MapGenerator returns \'\' if the class is annotated with GeneratorFromJson()',
+      );
     });
     test('ValueMap for vector.dart.', () {
       expect(generatedMapVector, expectedMapVector);
@@ -112,11 +129,17 @@ Future<void> main() async {
     test('FromJson for vector.dart.', () {
       expect(generatedJsonVector, expectedJsonVector);
     });
+    test('FromJson for empty_generic_enum.dart.', () {
+      expect(generatedJsonEmpty, expectedJsonEmpty);
+    });
   });
 
   group('IdentifierGenerator', () {
     test('Identifier for vector.dart.', () {
       expect(generatedIdentifierFct, expectedIdentifierFct);
+    });
+    test('Identifier for empty_generic_enum.dart.', () {
+      expect(generatedEmptyIdentifier, expectedEmptyIdentifier);
     });
   });
 

@@ -21,7 +21,7 @@ To use this library the following configuration steps are required:
 1. Include [generic_enum], [generic_enum_annotation] as dependencies in your pubspec.yaml file.
    Include [generic_enum_builder], [source_gen], [build_runner] as dev_dependencies.
 2. Create a class extending `GenericEnum`. See [generic_enum#boilerplate].
-3. Annotate the class with `@GenerateValueMap()` and `@GenerateFromJson()`.
+3. Annotate the class with `@GenerateValueMap()` or `@GenerateFromJson()`.
 4. Configure the build targets. Amend the generate_for entry to point to the
    folder containing your generic enum classes.
    In your local `build.yaml` file add the following builders:
