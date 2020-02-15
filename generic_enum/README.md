@@ -28,9 +28,11 @@ In principle, a map containing values and instances and serialization functions 
 maintained manually. When defining several generic enumeration classes it might be more convenient to
 use a builder.
 
-4. Annotate the class with `@GenerateValueMap` and `@GenerateFromJson`.
-5. Define an accessor for the private variable `_valueMap`.
-6. Define a name factory constructor named `.fromJson` pointing to the function `fromJson`.
+4. Annotate the class with `@GenerateValueMap` or `@GenerateFromJson`.
+   Note: Since [generic_enum_builder] version 0.1.7 `@GenerateFromJson` triggers the build of the value-instance map
+   as well as the `_$<ClassName>FromJson` function.
+5. Define an accessor for the private variable `_$<ClassName>ValueMap`.
+6. Define a name factory constructor named `.fromJson` pointing to the function `_$<ClassName>FromJson`.
 
    ```Dart
    import 'package:generic_enum/generic_enum.dart';

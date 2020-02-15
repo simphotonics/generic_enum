@@ -49,3 +49,7 @@ Amended documentation.
 # 0.1.6
 
 Upgraded dependencies.
+
+# 0.1.7
+
+Amended README.md.
