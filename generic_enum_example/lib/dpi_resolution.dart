@@ -8,6 +8,7 @@ part 'dpi_resolution.g.dart';
 /// 2. Annotate class
 @GenerateValueMap()
 @GenerateFromJson()
+
 /// Sample generic_enum class supporting json-serialization.
 class DpiResolution extends GenericEnum<int> {
   /// 3. Define a private const constructor that calls the super constructor

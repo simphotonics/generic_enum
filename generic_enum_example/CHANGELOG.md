@@ -25,3 +25,7 @@ Added generic enum example with function: identifier().
 # 0.1.1
 
 Amended docs.
+
+# 0.1.2
+
+Updated dependencies.

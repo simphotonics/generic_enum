@@ -35,7 +35,7 @@ In principle, a map containing values and instances and serialization functions 
 maintained manually. When defining several generic enumeration classes it might be more convenient to
 use a builder.
 
-4. Annotate the class with `@GenerateValueMap` and `@GenerateFromJson`.
+4. Annotate the class with `@GenerateValueMap` or `@GenerateFromJson`.
 5. Define an accessor for the private variable `_$DpiResolutionValueMap`.
 6. Define a name factory constructor named `.fromJson` pointing to the function `_$DpiResolutionFromJson`.
 
@@ -47,8 +47,7 @@ use a builder.
    part 'dpi_resolution.g.dart';
 
    //   1. Extend GenericEnum<T>
-   @GenerateValueMap()   //         <----------- 4. Annotate class
-   @GenerateFromJson()   //
+   @GenerateFromJson()    //         <----------- 4. Annotate class
    class DpiResolution extends GenericEnum<int> {
      // 2. Define a private const constructor that calls the super constructor
      //    and passes on the value of type int.
@@ -95,28 +94,40 @@ use a builder.
 
    The generated file `dpi_resolution.g.dart` should have the following content:
    ```Dart
-      // GENERATED CODE - DO NOT MODIFY BY HAND
+   // GENERATED CODE - DO NOT MODIFY BY HAND
+   part of 'dpi_resolution.dart';
 
-      part of 'dpi_resolution.dart';
+   // **************************************************************************
+   // JsonGenerator
+   // **************************************************************************
 
-      // **************************************************************************
-      // JsonGenerator
-      // **************************************************************************
+   /// Maps a value of type [int] to an instance of [DpiResolution].
+   /// Add the following getter to your class definition:
+   /// ```
+   /// static Map<int,DpiResolution> get valueMap => _$DpiResolutionValueMap;
+   /// ```
+   final _$DpiResolutionValueMap = Map<int, DpiResolution>.unmodifiable({
+     DpiResolution.LOW.value: DpiResolution.LOW,
+     DpiResolution.MEDIUM.value: DpiResolution.MEDIUM,
+     DpiResolution.HIGH.value: DpiResolution.HIGH
+   });
 
-      DpiResolution _$DpiResolutionFromJson(Map<String, dynamic> json) {
-        int value = GenericEnum.fromJson(json).value;
-        return DpiResolution.valueMap[value];
-      }
-
-      // **************************************************************************
-      // MapGenerator
-      // **************************************************************************
-
-      final _$DpiResolutionValueMap = Map<int, DpiResolution>.unmodifiable({
-        DpiResolution.LOW.value: DpiResolution.LOW,
-        DpiResolution.MEDIUM.value: DpiResolution.MEDIUM,
-        DpiResolution.HIGH.value: DpiResolution.HIGH
-      });
+   /// Converts a map [Map<String, dynamic>] to an instance of [DpiResolution].
+   /// Add the following factory constructor to your class definition:
+   /// ```
+   /// factory DpiResolution.fromJson(Map<String, dynamic> json) =>
+   ///   _$DpiResolutionFromJson(json);
+   /// ```
+   DpiResolution _$DpiResolutionFromJson(Map<String, dynamic> json) {
+     int value = GenericEnum.fromJson(json).value;
+     DpiResolution instance = _$DpiResolutionValueMap[value];
+     if (instance == null) {
+       throw GenericEnumException(
+         'Could not find DpiResolution instance with value: $value.',
+       );
+     }
+     return instance;
+   }
    ```
 
 ## Features and bugs
