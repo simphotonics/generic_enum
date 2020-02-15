@@ -50,8 +50,4 @@ dartanalyzer \
 echo
 echo -e "${CYAN}=== Testing $PWD...${RESET}"
 echo
-# Running tests
-echo
-echo -e "${CYAN}=== Testing $PWD...${RESET}"
-echo
 pub run test
