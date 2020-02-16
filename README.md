@@ -125,7 +125,7 @@ class ScannerSettings{
 Further examples on how to define and build generic enumeration classes can be found in the library [generic_enum_example].
 
 For details of how to use generic enums as annotations and how to retrieve their value
-using Dart's static [analyzer] package see [example].
+using Dart's static [analyzer] package see [generic_enum/example].
 
 ## Features and bugs
 
