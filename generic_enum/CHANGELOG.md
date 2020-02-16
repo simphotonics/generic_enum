@@ -57,3 +57,8 @@ Amended README.md.
 # 0.1.8
 
 Amended project homepage.
+
+# 0.1.9
+
+Amended project homepage to:
+[generic_enum](https://github.com/simphotonics/generic_enum/tree/master/generic_enum)
