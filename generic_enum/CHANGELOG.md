@@ -53,3 +53,7 @@ Upgraded dependencies.
 # 0.1.7
 
 Amended README.md.
+
+# 0.1.8
+
+Amended project homepage.
