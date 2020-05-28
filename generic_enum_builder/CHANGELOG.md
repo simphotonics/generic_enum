@@ -68,3 +68,7 @@ a fromJson function and a value-instance map.
 # 0.1.8
 
 Upgraded dependency on generic_enum.
+
+# 0.1.9
+
+Added collector and writer classes. 
