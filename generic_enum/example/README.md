@@ -2,7 +2,7 @@
 
 ## Introduction
 
-`GenericEnum` is a base class for creating enumeration classes with generic value type.
+[GenericEnum] is a base class for creating enumeration classes with generic value type.
 These classes appear to the user of the library much like a Dart `enum` would.
 For example, generic enums can be used in `switch` statements, to initialize variables, or as
 default parameters in functions and constructors.
@@ -13,13 +13,13 @@ The [main section](https://github.com/simphotonics/generic_enum) contains a step
 
 ## Generic Enums as Annotations
 
-`GenericEnum` classes have a constant constructor and as such can be used as *annotations*. Annotations are commonly found in source code generating libraries.
+[GenericEnum] classes have a constant constructor and as such can be used as *annotations*. Annotations are commonly found in source code generating libraries.
 
 Since generic enums are normal classes they can contain
 methods and `final` fields in addition to the `value` field. The example below
 includes the getters `isPrimary`, `isUnique`, `isNotNull`.
 
-As an example, we could generate an annotation class, say `Constraint`, that helps users
+As an example, we could generate an annotation class, say `Constraint`, that enables users to
 select a supported Sqlite constraint.
 ```Dart
 import 'package:generic_enum/generic_enum.dart';
@@ -44,7 +44,7 @@ class Constraint extends GenericEnum<String> {
 }
 ```
 
-The `Constraint` class could be used to annotate a field in the data class `User`.
+The `Constraint` class can be used to annotate a field in the data class `User`.
 ```Dart
 import 'constraint.dart';
 import 'table.dart';
@@ -64,62 +64,52 @@ class User{
 
 ### Retrieving Annotations of Type Generic Enum
 
-Using the package [analyzer], the data model `User` can be traversed with the help of a
-[SimpleElementVisitor](https://pub.dev/documentation/analyzer/latest/dart_element_visitor/SimpleElementVisitor-class.html).
+The recommended way of retrieving the value of an annotation of type [GenericEnum]
+by using the class [ConstantReader] provided by the package [source_gen].
+[ConstantReader] is a representation of a compile-time constant expression.
 
-When processing annotations (for example during source code generation: see method `_addConstraint` below),
-the recommended way of retrieving an annotation of type `GenericEnum`
-is via [source_gen]'s
-[ConstantReader](https://pub.dev/documentation/source_gen/latest/source_gen/ConstantReader-class.html).
+The following program demonstrates how to retrieve a constant of type `Constraint`.
+In the simple example below, the function [initializeLibraryReaderForDirectory] provided by [source_gen_test] is used to load the source code and initialize an object of type [LibraryReader].
 
-This is because the generic enum `value` field is located in the parent class and ConstantReader
-searches parent classes if a field is not found in the current class.
+In a standard setting this task is delegated to a [builder] that reads a builder configuration and loads the relevant assets.
+
 
 ```Dart
-import 'package:analyzer/dart/element/element.dart';
-import 'package:analyzer/dart/element/type.dart';
-import 'package:analyzer/dart/element/visitor.dart';
-import 'package:sqlite_entity/sqlite_entity.dart';
-import 'package:source_gen/source_gen.dart' show TypeChecker, ConstantReader, ;
-import 'package:sqlite_generator/src/type_utils.dart';
+import 'package:example/src/sqlite_type.dart' show Constraint;
+import 'package:generic_reader/generic_reader.dart';
+import 'package:source_gen/source_gen.dart' show ConstantReader;
+import 'package:source_gen_test/src/init_library_reader.dart';
 
-/// Sample visitor class used to traverse classed annotated with @Table
-class TableVisitor extends SimpleElementVisitor {
 
-  static var constraintChecker = TypeChecker.fromRuntime(Constraint);
+/// Demonstrates how to use [GenericReader] to read constants
+/// with parameterized type from a static representation
+/// of a compile-time constant expression
+/// represented by a [ConstantReader].
+Future<void> main() async {
+  /// Reading library.
+  final userLib = await initializeLibraryReaderForDirectory(
+    'lib/src',
+    'user.dart',
+  );
 
-  List<FieldElement> fields = [];
-  Map<String,Constraint> constraints = {};
+  /// Get constantReader representing the annotation:
+  final idCR = ConstantReader(userLib.classes.first.fields[0].
+    metadata[0].computeConstantValue(),
+  );
 
-  /// Mapping field name to constraint.
-  Map<String,List<Constraint>> constraints = {};
+  /// Reading the annotation value of type [String].
+  final value = cr.peek('value').stringValue;
 
-  @override
-  visitFieldElement(FieldElement element) {
-    fields.add(element);
-    _addConstraint(element);
-  }
+  /// Retrieving the [GenericEnum] instance.
+  final constraint = Constraint.valueMap[value];
 
-  _addConstraint(FieldElement element){
-    var annotation = element.metadata;
-
-    if (annotation == null) return;
-
-    // Check if annotation is of type Constraint.
-    if (!_constraintChecker.isAssignableFromType(annotation.type)) return;
-
-    // Read value of generic enum.
-    // Note: ConstantReader searches for the field name 'value' in a
-    // super class if it is not found in the annotation class.
-    String annotationValue = ConstantReader(
-      annotation.computeConstantValue(),
-    ).read('value').stringValue;
-
-    // Retrieve the Constraint instance.
-    var constraintInstance = Constraint.valueMap[annotationValue];
-    this.constraints.add({element.name: constraintInstance});
-  }
+  print('Retrieving an annotation of type [Constraint].');
+  print(constraint);
+  // Prints:
+  // Retrieving an annotation of type [Constraint].
+  // PRIMARY_KEY
 }
+
 ```
 For more information about source code generation see:
 [analyzer] and [source_gen].
@@ -134,7 +124,15 @@ For examples on how to create generic enums see:
 
 Please file feature requests and bugs at the [issue tracker].
 
-[issue tracker]: https://github.com/simphotonics/generic_enum/issues
 [analyzer]: https://pub.dev/packages/analyzer
-[source_gen]: https://pub.dev/packages/source_gen
+[ConstantReader]: https://pub.dev/documentation/source_gen/latest/source_gen/ConstantReader-class.html
+
+[GenericEnum]: https://pub.dev/packages/generic_enum
 [generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
+[issue tracker]: https://github.com/simphotonics/generic_enum/issues
+
+[source_gen]: https://pub.dev/packages/source_gen
+
+[initializeLibraryReaderForDirectory]: https://pub.dev/documentation/source_gen_test/latest/source_gen_test/initializeLibraryReaderForDirectory.html
+
+[LibraryReader]: https://pub.dev/documentation/source_gen/latest/source_gen/LibraryReader-class.html
