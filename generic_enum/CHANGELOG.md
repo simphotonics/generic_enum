@@ -62,3 +62,7 @@ Amended project homepage.
 
 Amended project homepage to:
 [generic_enum](https://github.com/simphotonics/generic_enum/tree/master/generic_enum)
+
+# 0.2.0
+
+Updated dependencies. 
