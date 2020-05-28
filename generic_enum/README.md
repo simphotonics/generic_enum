@@ -6,17 +6,16 @@
 Enumerations are ideal when we want to model *choosing* from a limited set of constant values.
 In Dart, the value of an `enum` resolves to a `String`.
 
-`GenericEnum` is a base class for creating enumeration classes with generic value type.
+[GenericEnum] is a base class for creating enumeration classes with generic value type.
 These classes appear to the user of the library much like a Dart `enum` would.
-For example, generic enums can be used in `switch` statements, to initialize variables, or as
-default parameters in functions and constructors.
+For example, generic enums can be used in `switch` statements, to initialize variables, or as default parameters in functions and constructors.
 
 ## Building a Generic Enum
 
-To use this library include [generic_enum] and [generic_enum_annotation] as dependency in your pubspec.yaml file.
+To use this library include [generic_enum] and [generic_enum_annotation] as dependencies in your `pubspec.yaml` file.
 Include [generic_enum_builder], [source_gen], and [build_runner] as dev_dependencies.
 
-To create the generic enum class, `DpiResolution` (shown below), the following steps are required:
+To build the generic enum class, `DpiResolution` (shown below), the following steps are required:
 <details> <summary> Click to show source coder. </summary>
 
   ```Dart
