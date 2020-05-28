@@ -65,4 +65,4 @@ Amended project homepage to:
 
 # 0.2.0
 
-Updated dependencies. 
+Updated dependencies and docs.
