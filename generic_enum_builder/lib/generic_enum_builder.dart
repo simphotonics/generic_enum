@@ -4,10 +4,10 @@
 library generic_enum_builder;
 
 import 'package:build/build.dart';
-import 'package:generic_enum_builder/src/identifier_generator.dart';
 import 'package:source_gen/source_gen.dart';
-import 'package:generic_enum_builder/src/json_generator.dart';
-import 'package:generic_enum_builder/src/map_generator.dart';
+import 'package:generic_enum_builder/src/generators/identifier_generator.dart';
+import 'package:generic_enum_builder/src/generators/json_generator.dart';
+import 'package:generic_enum_builder/src/generators/map_generator.dart';
 
 /// Builder calling the method [generate] on a [MapGenerator]
 /// instance.
