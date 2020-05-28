@@ -124,6 +124,8 @@ For examples on how to create generic enums see:
 Please file feature requests and bugs at the [issue tracker].
 
 [analyzer]: https://pub.dev/packages/analyzer
+[builder]: https://github.com/dart-lang/build
+
 [ConstantReader]: https://pub.dev/documentation/source_gen/latest/source_gen/ConstantReader-class.html
 
 [GenericEnum]: https://pub.dev/packages/generic_enum
