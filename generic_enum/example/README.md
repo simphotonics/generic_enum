@@ -70,7 +70,6 @@ by using the class [ConstantReader] provided by the package [source_gen].
 
 The following program demonstrates how to retrieve a constant of type `Constraint`.
 In the simple example below, the function [initializeLibraryReaderForDirectory] provided by [source_gen_test] is used to load the source code and initialize an object of type [LibraryReader].
-
 In a standard setting this task is delegated to a [builder] that reads a builder configuration and loads the relevant assets.
 
 
@@ -136,3 +135,5 @@ Please file feature requests and bugs at the [issue tracker].
 [initializeLibraryReaderForDirectory]: https://pub.dev/documentation/source_gen_test/latest/source_gen_test/initializeLibraryReaderForDirectory.html
 
 [LibraryReader]: https://pub.dev/documentation/source_gen/latest/source_gen/LibraryReader-class.html
+
+[source_gen_test]: https://pub.dev/packages/source_gen_test
