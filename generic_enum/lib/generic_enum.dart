@@ -15,7 +15,7 @@ part 'generic_enum.g.dart';
 /// import 'package:generic_enum/generic_enum.dart';
 /// import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 ///
-/// //   0. Add a part instruction pointing to generated file.
+/// //   0. Add a part instruction pointing to the generated file.
 /// part 'dpi_resolution.g.dart';
 ///
 /// // 1. Extend GenericEnum<T>
@@ -23,7 +23,7 @@ part 'generic_enum.g.dart';
 /// @GenerateFromJson() //
 /// class DpiResolution extends GenericEnum<int> {
 ///   // 3. Define a private const constructor that calls the super constructor
-///   //    and passes on the value of type int.
+///   //    and passes on the value.
 ///   const DpiResolution._(int value) : super(value);
 ///
 ///   // 4. Define static constant instances of type DpiResolution
@@ -43,10 +43,14 @@ part 'generic_enum.g.dart';
 /// In your pubspec.yaml file add (updated versions of) the
 /// following dependencies:
 /// ```
+/// dependencies:
+///   generic_enum_annotation: ^0.1.6
+///   generic_enum: ^0.2.0
+///
 /// dev_dependencies:
-///   build_runner: ^1.0.0
-///   source_gen: ^0.9.4+7
-///   generic_enum_builder: ^0.0.2
+///   build_runner: ^1.10.0
+///   source_gen: ^0.9.5
+///   generic_enum_builder: ^0.1.8
 ///
 /// ```
 /// In your local build.yaml file add and enable the following targets:
@@ -54,13 +58,11 @@ part 'generic_enum.g.dart';
 /// targets:
 ///  $default:
 ///    builders:
-///      # Configure the builder `pkg_name|builder_name`
 ///      generic_enum_builder|map_builder:
 ///        # Only run this builder on the specified input.
 ///        enabled: true
 ///        generate_for:
 ///          - lib/*.dart
-///      # Configure the builder `pkg_name|builder_name`
 ///      generic_enum_builder|json_builder:
 ///        # Only run this builder on the specified input.
 ///        enabled: true
@@ -73,9 +75,8 @@ part 'generic_enum.g.dart';
 /// ```
 @JsonSerializable()
 class GenericEnum<T> {
-  @_Converter()
-
   /// Generic value of enumeration class
+  @_Converter()
   final T value;
 
   /// Call this constructor when extending GenericEnum<T>:
