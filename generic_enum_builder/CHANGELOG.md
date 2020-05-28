@@ -71,4 +71,8 @@ Upgraded dependency on generic_enum.
 
 # 0.1.9
 
-Added collector and writer classes. 
+Added collector and writer classes.
+
+# 0.2.0
+
+Applied Dart style hints.
