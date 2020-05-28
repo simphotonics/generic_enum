@@ -3,21 +3,19 @@
 
 ## Introduction
 
-This library defines annotation classes (with const constructor). These are used to **annotate** classes that extend `GenericEnum`.
+This library defines annotations used to annotate classes that extend [GenericEnum].
 
-`GenericEnum` is a base class for creating generic classes with a fixed set of static constant instances.
+[GenericEnum] is a base class for creating generic classes with a fixed set of static constant instances.
 These classes appear to the user like a Dart `enum` would.
-For example, generic enums can be used in `switch` statements, to initialize variables, or as default parameters in functions and constructors.
+For example, generic enums can be used in `switch` statements, to initialize variables,
+or as default parameters in functions and constructors.
 
 The annotations defined in this library are:
- - `@GenerateValueMap()`: Requests the generation of an unmodifiable map `_$<ClassName>ValueMap` containing the enum values and const static instances.
+ - `@GenerateValueMap()`: Requests the generation of an unmodifiable map `_$<ClassName>ValueMap`
+    containing the enum values and const static instances.
  - `@GenerateFromJson()`: Requests the generation of the private function `_$<ClassName>FromJson`.
  - `@GenerateIdentifier()`: Requests the generation of the private function `_$<ClassName>Identifier`.
     The function can be use to retrieve the identifier of each defined const generic enum instance.
-
-**Important**: `@GenerateFromJson()` requires `@GenerateValueMap()` since the
-function `_$<ClassName>FromJson` uses the unmodifiable map `_$<ClassName>ValueMap` to retrieve generic
-enum instances based on their value.
 
 
 ## Examples
@@ -35,3 +33,4 @@ Please file feature requests and bugs at the [issue tracker].
 [analyzer]: https://pub.dev/packages/analyzer
 [source_gen]: https://pub.dev/packages/
 [generic_enum_example]: ../../generic_enum_example
+[GenericEnum]: https://pub.dev/packages/generic_enum
