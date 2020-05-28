@@ -66,3 +66,7 @@ Amended project homepage to:
 # 0.2.0
 
 Updated dependencies and docs.
+
+# 0.2.1
+
+Amended README.md.
