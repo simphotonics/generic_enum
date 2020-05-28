@@ -64,20 +64,21 @@ class GenericEnumCollector extends Collector<GenericEnum, FieldElement> {
     }
 
     // Throw if constructor is not const.
-    if (!element.isConst)
+    if (!element.isConst) {
       throw GenericEnumBuilderError(
           message: 'Non-const constructor found.',
           invalidState: 'Constructor ${element.name} is not const.',
           expectedState:
               'Try using the "const" modifier for this constructor.');
-
+    }
     // Throw if constructor is not private.
-    if (!element.isPrivate)
+    if (!element.isPrivate) {
       throw GenericEnumBuilderError(
         message:
             'Classes extending GenericEnum must have only private constructors.',
         expectedState:
             'All constructors are named and start with an underscore.',
       );
+    }
   }
 }
