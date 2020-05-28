@@ -16,7 +16,7 @@ To use this library include [generic_enum] and [generic_enum_annotation] as depe
 Include [generic_enum_builder], [source_gen], and [build_runner] as dev_dependencies.
 
 To build the generic enum class, `DpiResolution` (shown below), the following steps are required:
-<details> <summary> Click to show source coder. </summary>
+<details> <summary> Click to show source code. </summary>
 
   ```Dart
    import 'package:generic_enum/generic_enum.dart';
@@ -54,7 +54,7 @@ To build the generic enum class, `DpiResolution` (shown below), the following st
    In your local `build.yaml` file add configurations for the builders
    `map_builder` and `json_builder` provided by the package [generic_enum_builder].
 
-   <details>  <summary> Click to show file. </summary>
+   <details>  <summary> Click to show file content. </summary>
 
     ```sh
       targets:
@@ -83,7 +83,7 @@ To build the generic enum class, `DpiResolution` (shown below), the following st
    $ pub run build_runner build --delete-conflicting-outputs
    ```
 10. For the example presented here, the build process will generate the file `dpi_resolution.g.dart`.
-    <details>  <summary> Click to show file. </summary>
+    <details>  <summary> Click to show file content. </summary>
 
       ```Dart
       // GENERATED CODE - DO NOT MODIFY BY HAND
