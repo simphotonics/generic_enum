@@ -18,8 +18,8 @@ part 'generic_enum.g.dart';
 /// //   0. Add a part instruction pointing to generated file.
 /// part 'dpi_resolution.g.dart';
 ///
-/// //   1. Extend GenericEnum<T>
-/// @GenerateValueMap() // 2. Annotate class
+/// // 1. Extend GenericEnum<T>
+/// // 2. Annotate class
 /// @GenerateFromJson() //
 /// class DpiResolution extends GenericEnum<int> {
 ///   // 3. Define a private const constructor that calls the super constructor
