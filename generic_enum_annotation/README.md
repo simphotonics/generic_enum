@@ -39,6 +39,7 @@ Please file feature requests and bugs at the [issue tracker].
 [here]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum#building-a-generic-enum
 [source_gen]: https://pub.dev/packages/
 [generic_enum]: https://pub.dev/packages/generic_enum
+[GenericEnum]: https://pub.dev/packages/generic_enum
 [generic_enum_example]: ../generic_enum_example
 [source_gen]: https://pub.dev/packages/source_gen
 [generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
