@@ -1,7 +1,9 @@
+import 'package:generic_enum_annotation/src/generate_value_map.dart';
+
 /// Annotation processed by [generic_enum_builder] requesting
 /// the generation of a function that converts a json array to an instance of class that extends
 /// [generic_enum].
-class GenerateFromJson {
+class GenerateFromJson extends GenerateValueMap {
   /// Annotation processed by GenericEnumGenerator.
   /// Usage:
   /// ```
