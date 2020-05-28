@@ -34,5 +34,7 @@ String _$VectorEnumIdentifier(VectorEnum vectorEnum) {
 /// ```
 /// static Map<Vector<double>,VectorEnum> get valueMap => _$VectorEnumValueMap;
 /// ```
-final _$VectorEnumValueMap = Map<Vector<double>, VectorEnum>.unmodifiable(
-    {VectorEnum.V1.value: VectorEnum.V1, VectorEnum.V2.value: VectorEnum.V2});
+final _$VectorEnumValueMap = Map<Vector<double>, VectorEnum>.unmodifiable({
+  VectorEnum.V1.value: VectorEnum.V1,
+  VectorEnum.V2.value: VectorEnum.V2,
+});

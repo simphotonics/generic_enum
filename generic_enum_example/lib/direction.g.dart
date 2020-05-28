@@ -6,18 +6,6 @@ part of 'direction.dart';
 // JsonGenerator
 // **************************************************************************
 
-/// Maps a value of type [String] to an instance of [Direction].
-/// Add the following getter to your class definition:
-/// ```
-/// static Map<String,Direction> get valueMap => _$DirectionValueMap;
-/// ```
-final _$DirectionValueMap = Map<String, Direction>.unmodifiable({
-  Direction.NORTH.value: Direction.NORTH,
-  Direction.EAST.value: Direction.EAST,
-  Direction.SOUTH.value: Direction.SOUTH,
-  Direction.WEST.value: Direction.WEST
-});
-
 /// Converts a map [Map<String, dynamic>] to an instance of [Direction].
 /// Add the following factory constructor to your class definition:
 /// ```
@@ -34,3 +22,19 @@ Direction _$DirectionFromJson(Map<String, dynamic> json) {
   }
   return instance;
 }
+
+// **************************************************************************
+// MapGenerator
+// **************************************************************************
+
+/// Maps a value of type [String] to an instance of [Direction].
+/// Add the following getter to your class definition:
+/// ```
+/// static Map<String,Direction> get valueMap => _$DirectionValueMap;
+/// ```
+final _$DirectionValueMap = Map<String, Direction>.unmodifiable({
+  Direction.NORTH.value: Direction.NORTH,
+  Direction.EAST.value: Direction.EAST,
+  Direction.SOUTH.value: Direction.SOUTH,
+  Direction.WEST.value: Direction.WEST,
+});

@@ -6,17 +6,6 @@ part of 'dpi_resolution.dart';
 // JsonGenerator
 // **************************************************************************
 
-/// Maps a value of type [int] to an instance of [DpiResolution].
-/// Add the following getter to your class definition:
-/// ```
-/// static Map<int,DpiResolution> get valueMap => _$DpiResolutionValueMap;
-/// ```
-final _$DpiResolutionValueMap = Map<int, DpiResolution>.unmodifiable({
-  DpiResolution.LOW.value: DpiResolution.LOW,
-  DpiResolution.MEDIUM.value: DpiResolution.MEDIUM,
-  DpiResolution.HIGH.value: DpiResolution.HIGH
-});
-
 /// Converts a map [Map<String, dynamic>] to an instance of [DpiResolution].
 /// Add the following factory constructor to your class definition:
 /// ```
@@ -33,3 +22,18 @@ DpiResolution _$DpiResolutionFromJson(Map<String, dynamic> json) {
   }
   return instance;
 }
+
+// **************************************************************************
+// MapGenerator
+// **************************************************************************
+
+/// Maps a value of type [int] to an instance of [DpiResolution].
+/// Add the following getter to your class definition:
+/// ```
+/// static Map<int,DpiResolution> get valueMap => _$DpiResolutionValueMap;
+/// ```
+final _$DpiResolutionValueMap = Map<int, DpiResolution>.unmodifiable({
+  DpiResolution.LOW.value: DpiResolution.LOW,
+  DpiResolution.MEDIUM.value: DpiResolution.MEDIUM,
+  DpiResolution.HIGH.value: DpiResolution.HIGH,
+});
