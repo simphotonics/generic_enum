@@ -1,27 +1,36 @@
-import 'package:generic_enum_builder/src/generator_exception.dart';
-import 'package:generic_enum_builder/src/identifier_generator.dart';
-import 'package:generic_enum_builder/src/json_generator.dart';
+import 'package:dart_style/dart_style.dart';
 import 'package:test/test.dart';
 import 'package:source_gen_test/src/init_library_reader.dart';
-import 'package:generic_enum_builder/src/map_generator.dart';
+import 'package:generic_enum_builder/src/errors/generic_enum_builder_error.dart';
+import 'package:generic_enum_builder/src/generators/identifier_generator.dart';
+import 'package:generic_enum_builder/src/generators/json_generator.dart';
+import 'package:generic_enum_builder/src/generators/map_generator.dart';
 
 /// Testing MapGenerator and JsonGenerator.
 Future<void> main() async {
   /// Read library direction.dart.
-  final readerDirection =
-      await initializeLibraryReaderForDirectory('test/src', 'direction.dart');
+  final readerDirection = await initializeLibraryReaderForDirectory(
+    'test/src',
+    'direction.dart',
+  );
 
   /// Read library vector.dart.
-  final readerVector =
-      await initializeLibraryReaderForDirectory('test/src', 'vector.dart');
+  final readerVector = await initializeLibraryReaderForDirectory(
+    'test/src',
+    'vector.dart',
+  );
 
   /// Read library num_type.dart.
-  final readerNumType =
-      await initializeLibraryReaderForDirectory('test/src', 'num_type.dart');
+  final readerNumType = await initializeLibraryReaderForDirectory(
+    'test/src',
+    'num_type.dart',
+  );
 
   /// Read library empty_generic_enum.dart.
-  final readerEmptyGenericEnum =
-      await initializeLibraryReaderForDirectory('test/src', 'num_type.dart');
+  final readerEmptyGenericEnum = await initializeLibraryReaderForDirectory(
+    'test/src',
+    'empty_generic_enum.dart',
+  );
 
   /// Instantiate generators:
   final mapGenerator = MapGenerator();
@@ -31,22 +40,8 @@ Future<void> main() async {
   /// Run MapGenerator.
   String generatedMapDirection =
       await mapGenerator.generate(readerDirection, null);
-  String expectedMapDirection = '';
-
-  String generatedMapVector = await mapGenerator.generate(readerVector, null);
-  String expectedMapVector =
-      '/// Maps a value of type [Vector<double>] to an instance of [VectorEnum].\n'
-      '/// Add the following getter to your class definition:\n'
-      '/// ```\n'
-      '/// static Map<Vector<double>,VectorEnum> get valueMap => _\$VectorEnumValueMap;\n'
-      '/// ```\n'
-      'final _\$VectorEnumValueMap = Map<Vector<double>, VectorEnum>.unmodifiable(\n'
-      '    {VectorEnum.V1.value: VectorEnum.V1, VectorEnum.V2.value: VectorEnum.V2});';
-
-  /// Run Json Generator.
-  String generatedJsonDirection =
-      await jsonGenerator.generate(readerDirection, null);
-  String expectedJsonDirection =
+  generatedMapDirection = DartFormatter().format(generatedMapDirection);
+  String expectedMapDirection =
       '/// Maps a value of type [String] to an instance of [Direction].\n'
       '/// Add the following getter to your class definition:\n'
       '/// ```\n'
@@ -56,9 +51,30 @@ Future<void> main() async {
       '  Direction.NORTH.value: Direction.NORTH,\n'
       '  Direction.EAST.value: Direction.EAST,\n'
       '  Direction.SOUTH.value: Direction.SOUTH,\n'
-      '  Direction.WEST.value: Direction.WEST\n'
+      '  Direction.WEST.value: Direction.WEST,\n'
       '});\n'
-      '\n'
+      '';
+
+  String generatedMapVector = await mapGenerator.generate(readerVector, null);
+  generatedMapVector = DartFormatter().format(generatedMapVector);
+
+  String expectedMapVector =
+      '/// Maps a value of type [Vector<double>] to an instance of [VectorEnum].\n'
+      '/// Add the following getter to your class definition:\n'
+      '/// ```\n'
+      '/// static Map<Vector<double>,VectorEnum> get valueMap => _\$VectorEnumValueMap;\n'
+      '/// ```\n'
+      'final _\$VectorEnumValueMap = Map<Vector<double>, VectorEnum>.unmodifiable({\n'
+      '  VectorEnum.V1.value: VectorEnum.V1,\n'
+      '  VectorEnum.V2.value: VectorEnum.V2,\n'
+      '});\n'
+      '';
+
+  /// Run Json Generator.
+  String generatedJsonDirection =
+      await jsonGenerator.generate(readerDirection, null);
+  generatedJsonDirection = DartFormatter().format(generatedJsonDirection);
+  String expectedJsonDirection =
       '/// Converts a map [Map<String, dynamic>] to an instance of [Direction].\n'
       '/// Add the following factory constructor to your class definition:\n'
       '/// ```\n'
@@ -74,13 +90,15 @@ Future<void> main() async {
       '    );\n'
       '  }\n'
       '  return instance;\n'
-      '}';
+      '}\n'
+      '';
 
   String generatedJsonVector = await jsonGenerator.generate(readerVector, null);
   String expectedJsonVector = '';
 
   String generatedIdentifierFct =
       await identifierGenerator.generate(readerVector, null);
+  generatedIdentifierFct = DartFormatter().format(generatedIdentifierFct);
   String expectedIdentifierFct =
       '/// Returns the [String] identifier of an instance of [VectorEnum].\n'
       '/// Add the following static function to your class definition:\n'
@@ -99,7 +117,8 @@ Future<void> main() async {
       '    default:\n'
       '      return \'\';\n'
       '  }\n'
-      '}';
+      '}\n'
+      '';
 
   String generatedJsonEmpty =
       await jsonGenerator.generate(readerEmptyGenericEnum, null);
@@ -143,10 +162,13 @@ Future<void> main() async {
     });
   });
 
-  group('GeneratorException:', () {
+  group('GenericEnumBuilderError:', () {
     test('Non-const Constructor in num_type.dart', () {
-      expect(() async => await mapGenerator.generate(readerNumType, null),
-          throwsA(TypeMatcher<GeneratorException>()));
+      try {
+        () async => await mapGenerator.generate(readerNumType, null);
+      } catch (e) {
+        expect(e, isA<GenericEnumBuilderError>());
+      }
     });
   });
 }
