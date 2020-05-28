@@ -4,55 +4,23 @@
 
 ## Introduction
 
-`GenericEnumBuilder` contains source code generating classes
+[GenericEnumBuilder] contains source code generating classes
 based on [source_gen] and [analyzer].
-The provided builder can be configured to build *generic enumeration* classes
+
+The provided builders can be configured to build [GenericEnum] classes
 supporting json-serialization.
 
 *Generic enumeration* classes appear to the user like a Dart `enum` would.
 For example, generic enums can be used in `switch` statements, as annotations,
 to initialize variables, or as default parameters in functions and constructors.
 
+## Usage
 
-## Configuration
+To use this library include [generic_enum] and [generic_enum_annotation] as dependencies in your `pubspec.yaml` file.
+Include [generic_enum_builder], [source_gen], and [build_runner] as dev_dependencies.
 
-To use this library the following configuration steps are required:
+A step-by-step guide on how to build a generic enumeration is provided [here].
 
-1. Include [generic_enum], [generic_enum_annotation] as dependencies in your pubspec.yaml file.
-   Include [generic_enum_builder], [source_gen], [build_runner] as dev_dependencies.
-2. Create a class extending `GenericEnum`. See [generic_enum#boilerplate].
-3. Annotate the class with `@GenerateValueMap()` or `@GenerateFromJson()`.
-4. Configure the build targets. Amend the generate_for entry to point to the
-   folder containing your generic enum classes.
-   In your local `build.yaml` file add the following builders:
-   ```Shell
-   targets:
-     $default:
-       builders:
-         # Configure the builder `pkg_name|builder_name`
-         generic_enum_builder|map_builder:
-           # Only run this builder on the specified input.
-           enabled: true
-           generate_for:
-             - lib/*.dart
-         # Configure the builder `pkg_name|builder_name`
-         generic_enum_builder|json_builder:
-           # Only run this builder on the specified input.
-           enabled: true
-           generate_for:
-             - lib/*.dart
-    ```
-
-## Building
-
-If you are using Flutter, build the project by running the command:
-```Shell
-$ flutter packages pub run build_runner build --delete-conflicting-outputs
-```
-If you are using the Dart SDK use:
-```Shell
-$ pub run build_runner build --delete-conflicting-outputs
-```
 
 ## Examples
 
@@ -66,6 +34,8 @@ Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
 [generic_enum]: https://pub.dev/packages/generic_enum
+[GenericEnum]: https://pub.dev/packages/generic_enum
+[GenericEnumBuilder]: https://pub.dev/packages/generic_enum_builder
 [generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
 [generic_enum_builder]: https://pub.dev/packages/generic_enum_builder
 [analyzer]: https://pub.dev/packages/analyzer
@@ -73,3 +43,4 @@ Please file feature requests and bugs at the [issue tracker].
 [generic_enum_example]: ../generic_enum_example
 [generic_enum#boilerplate]: ../generic_enum#boilerplate
 [build_runner]: https://pub.dev/packages/build_runner
+[here]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum#building-a-generic-enum
