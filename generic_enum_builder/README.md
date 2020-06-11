@@ -5,9 +5,10 @@
 ## Introduction
 
 The package [`generic_enum_builder`][generic_enum_builder] contains builders and
-source code generating classes based on [source_gen] and [analyzer].
+source code generating classes based on [`source_gen`][source_gen]
+and [`analyzer`][analyzer].
 
-The provided builders can be configured to build [GenericEnum] classes
+The provided builders can be configured to build [`GenericEnum`][GenericEnum] classes
 supporting json-serialization.
 
 *Generic enumeration* classes appear to the user like a Dart `enum` would.

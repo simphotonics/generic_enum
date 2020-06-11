@@ -2,7 +2,7 @@
 
 ## Examples
 
-The package [generic_enum_example] provides complete examples on how to define and build
+The package [`generic_enum_example`][generic_enum_example] provides complete examples on how to define and build
 generic enumeration classes. As a starting point users could clone this repository, add
 their own generic enum classes to the folder `lib` and build the library.
 

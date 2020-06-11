@@ -84,3 +84,7 @@ Removed dependency on `generic_enum_annotation`.
 # 0.2.2
 
 Amended docs.
+
+# 0.2.3
+
+Amended format of hyperlinks. 

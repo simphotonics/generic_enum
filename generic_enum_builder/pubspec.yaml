@@ -4,7 +4,7 @@ description:
   Source code generator processing annotated generic_enum classes.
   Generates a value-instance map and a json-serialization  function.
 
-version: 0.2.2
+version: 0.2.3
 
 homepage: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_builder
 

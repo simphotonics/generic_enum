@@ -4,7 +4,7 @@
 
 ## Introduction
 
-[GenericEnum] is a base class for creating generic classes with a fixed set of static constant instances.
+[`GenericEnum`][GenericEnum] is a base class for creating generic classes with a fixed set of static constant instances.
 These classes appear to the user like a [Dart enum] would.
 For example, generic enums can be used in switch statements,
 to initialize variables, or as default parameters in functions and constructors.
@@ -20,9 +20,6 @@ are provided below.
 
 ## Usage
 
-To use this library include [generic_enum] and [generic_enum_annotation] as dependency in your pubspec.yaml file.
-Include [generic_enum_builder], [source_gen], [build_runner] as dev_dependencies.
-
 A step-by-step guide on how to build a generic enumeration is provided [here].
 
 ## Features and bugs
@@ -32,8 +29,11 @@ Please file feature requests and bugs at the [issue tracker].
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
 [analyzer]: https://pub.dev/packages/analyzer
 [source_gen]: https://pub.dev/packages/source_gen
-[GenericEnum]: ../generic_enum
+
+[GenericEnum]: https://pub.dev/documentation/generic_enum/latest/generic_enum/GenericEnum-class.html
+
 [here]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum#building-a-generic-enum
+
 [Dart enum]: https://dart.dev/guides/language/language-tour#enumerated-types
 [generic_enum]: https://pub.dev/packages/generic_enum
 [generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation

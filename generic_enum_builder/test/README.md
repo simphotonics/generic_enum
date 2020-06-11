@@ -3,7 +3,7 @@
 ## Introduction
 
 The package [`generic_enum_builder`][generic_enum_builder] provides source code generating classes
-based on [source_gen] and [analyzer].
+based on [`source_gen`][source_gen] and [`analyzer`][analyzer].
 
 This part of the library contains tests designed to verify
 that the source code generators [`MapGenerator`][MapGenerator], [`JsonGenerator`][JsonGenerator], and
@@ -16,7 +16,7 @@ The content of these files is accessed via a [`LibraryReader`][LibraryReader].
 ## Running the tests
 
 The tests may be run in a terminal by navigating to the base folder of a local copy of the library and using the command:
-```Shell
+```Console
 $ pub run test
 ```
 
@@ -34,7 +34,9 @@ Please file feature requests and bugs at the [issue tracker].
 [source_gen]: https://pub.dev/packages/source_gen
 [generic_enum_example]: ../../generic_enum_example
 [LibraryReader]: https://pub.dev/documentation/source_gen/latest/source_gen/LibraryReader-class.html
+
 [GenericEnum]: https://pub.dev/documentation/generic_enum/latest/generic_enum/GenericEnum-class.html
+
 [GenericEnumBuilder]: ../
 [MapGenerator]: ../lib/src/map_generator.dart
 [JsonGenerator]: ../lib/src/json_generator.dart
