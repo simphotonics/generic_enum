@@ -74,3 +74,7 @@ Amended README.md.
 # 0.2.2
 
 Removed dependency on `generic_enum_annotation`. The new location of the annotations is `lib\src\annotations`.
+
+# 0.2.3
+
+Amended Dart docs.

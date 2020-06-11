@@ -11,7 +11,6 @@ part 'generic_enum.g.dart';
 /// Usage:
 /// ```
 /// import 'package:generic_enum/generic_enum.dart';
-/// import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 ///
 /// //   0. Add a part instruction pointing to the generated file.
 /// part 'dpi_resolution.g.dart';
@@ -42,12 +41,10 @@ part 'generic_enum.g.dart';
 /// following dependencies:
 /// ```
 /// dependencies:
-///   generic_enum_annotation: ^0.1.6
-///   generic_enum: ^0.2.0
+///   generic_enum: ^0.2.2
 ///
 /// dev_dependencies:
 ///   build_runner: ^1.10.0
-///   source_gen: ^0.9.5
 ///   generic_enum_builder: ^0.1.8
 ///
 /// ```
