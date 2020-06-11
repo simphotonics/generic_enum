@@ -2,9 +2,9 @@ name: generic_enum_example
 
 description:
   Demonstrates how to define and build generic enumeration classes
-  using the packages `generic_enum` and `generic_enum_builder`.
+  using the packages generic_enum and generic_enum_builder.
 
-version: 0.1.4
+version: 0.1.5
 
 homepage: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
 
