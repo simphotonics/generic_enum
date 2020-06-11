@@ -4,8 +4,8 @@
 
 ## Update
 
-As of [`generic_enum version 0.2.2`][generic_enum], the package [`generic_enum_annotation`][generic_enum_annotation]
-is no longer required as a dependency when building a generic enum.
+As of [`generic_enum 0.2.2`][generic_enum],  the package [`generic_enum_annotation`][generic_enum_annotation]
+is no longer required as a dependency when defining or building a generic enum.
 
 ## Introduction
 
