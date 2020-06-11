@@ -70,3 +70,7 @@ Updated dependencies and docs.
 # 0.2.1
 
 Amended README.md.
+
+# 0.2.2
+
+Removed dependency on `generic_enum_annotation`. The new location of the annotations is `lib\src\annotations`.
