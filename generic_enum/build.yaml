@@ -18,4 +18,4 @@ targets:
           include_if_null: true
           nullable: true
         generate_for:
-          - lib/generic_enum.dart
+          - lib/src/enumerations/generic_enum.dart
