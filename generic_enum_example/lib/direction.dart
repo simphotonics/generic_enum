@@ -1,5 +1,4 @@
 import 'package:generic_enum/generic_enum.dart';
-import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
 ///   0. Add a part instruction pointing to generated file.
 part 'direction.g.dart';

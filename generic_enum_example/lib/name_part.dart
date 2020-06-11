@@ -1,5 +1,4 @@
 import 'package:generic_enum/generic_enum.dart';
-import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
 part 'name_part.g.dart';
 

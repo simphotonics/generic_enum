@@ -29,7 +29,7 @@
 // }
 
 import 'package:generic_enum/generic_enum.dart';
-import 'package:generic_enum_annotation/generic_enum_annotation.dart';
+
 //   1. Add a part statement pointing to the generated file.
 part 'dpi_resolution.g.dart';
 

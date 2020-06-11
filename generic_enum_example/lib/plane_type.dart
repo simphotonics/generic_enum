@@ -1,5 +1,4 @@
 import 'package:generic_enum/generic_enum.dart';
-import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
 part 'plane_type.g.dart';
 
