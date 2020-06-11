@@ -76,3 +76,7 @@ Added collector and writer classes.
 # 0.2.0
 
 Applied Dart style hints.
+
+# 0.2.1
+
+Removed dependency on `generic_enum_annotation`.
