@@ -53,3 +53,7 @@ Amended README.md.
 # 0.1.6
 
 Annotation [GenerateFromJson] now extends [GenerateValueMap].
+
+# 0.1.7
+
+Added 'discontinued' notification to docs.

@@ -10,7 +10,7 @@ is no longer required as a dependency when building a generic enum.
 
 ## Introduction
 
-This library defines annotations used to annotate classes that extend [GenericEnum].
+This library defines annotations used to annotate classes that extend [`GenericEnum`][GenericEnum].
 
 [GenericEnum] is a base class for creating generic classes with a fixed set of static constant instances.
 These classes appear to the user like a Dart enumeration.
@@ -26,14 +26,14 @@ The annotations defined in this library are:
 ## Usage
 
 To use this library include [generic_enum] and [generic_enum_annotation] as dependency in your pubspec.yaml file.
-Include [generic_enum_builder], [source_gen], [build_runner] as dev_dependencies.
+Include [`generic_enum_builder`][generic_enum_builder] and [`build_runner`][build_runner] as dev_dependencies.
 
 A step-by-step guide on how to build a generic enumeration is provided [here].
 
 
 ## Examples
 
-The package [generic_enum_example] provides a complete example on how to define and build
+The package [`generic_enum_example`][generic_enum_example] provides a complete example on how to define and build
 generic enumeration classes. As a starting point users could clone this repository, add
 their own generic enum classes to the folder `lib` and build the library.
 

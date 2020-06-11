@@ -1,26 +1,12 @@
 # Generic Enum Annotation
 
-
-## Introduction
-
-This library defines annotations used to annotate classes that extend [GenericEnum].
-
-[GenericEnum] is a base class for creating generic classes with a fixed set of static constant instances.
-These classes appear to the user like a Dart `enum` would.
-For example, generic enums can be used in `switch` statements, to initialize variables,
-or as default parameters in functions and constructors.
-
-The annotations defined in this library are:
- - `@GenerateValueMap()`: Requests the generation of an unmodifiable map `_$<ClassName>ValueMap`
-    containing the enum values and const static instances.
- - `@GenerateFromJson()`: Requests the generation of the private function `_$<ClassName>FromJson`.
- - `@GenerateIdentifier()`: Requests the generation of the private function `_$<ClassName>Identifier`.
-    The function can be use to retrieve the identifier of each defined const generic enum instance.
-
+## Update
+This package is discontinued. As of [`generic_enum 0.2.2`][generic_enum],  the package [`generic_enum_annotation`][generic_enum_annotation]
+is no longer required as a dependency when defining or building a generic enum.
 
 ## Examples
 
-The package [generic_enum_example] provides a complete example on how to define and build
+The package [`generic_enum_example`][generic_enum_example] provides a complete example on how to define and build
 generic enumeration classes. As a starting point users could clone this repository, add
 their own generic enum classes to the folder `lib` and build the library.
 
@@ -32,5 +18,7 @@ Please file feature requests and bugs at the [issue tracker].
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
 [analyzer]: https://pub.dev/packages/analyzer
 [source_gen]: https://pub.dev/packages/
+[generic_enum]: https://pub.dev/packages/generic_enum
+[generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
 [generic_enum_example]: ../../generic_enum_example
 [GenericEnum]: https://pub.dev/packages/generic_enum
