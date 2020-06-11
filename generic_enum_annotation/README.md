@@ -2,6 +2,12 @@
 [![Build Status](https://travis-ci.com/simphotonics/generic_enum.svg?branch=master)](https://travis-ci.com/simphotonics/generic_enum)
 
 
+## Update
+
+As of [`generic_enum version 0.2.2`][generic_enum], the package [`generic_enum_annotation`][generic_enum_annotation]
+is no longer required as a dependency when building a generic enum.
+
+
 ## Introduction
 
 This library defines annotations used to annotate classes that extend [GenericEnum].

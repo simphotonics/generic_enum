@@ -13,7 +13,8 @@ The [main section](https://github.com/simphotonics/generic_enum) contains a step
 
 ## Generic Enums as Annotations
 
-[GenericEnum] classes have a constant constructor and as such can be used as *annotations*. Annotations are commonly found in source code generating libraries.
+[GenericEnum] classes have a constant constructor and as such can be used as *annotations*.
+Annotations are commonly found in source code generating libraries.
 
 Since generic enums are normal classes they can contain
 methods and `final` fields in addition to the `value` field. The example below
@@ -23,7 +24,6 @@ As an example, we could generate an annotation class, say `Constraint`, that ena
 select a supported Sqlite constraint.
 ```Dart
 import 'package:generic_enum/generic_enum.dart';
-import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
 part 'constraint.g.dart';
 
@@ -69,8 +69,10 @@ by using the class [ConstantReader] provided by the package [source_gen].
 [ConstantReader] is a representation of a compile-time constant expression.
 
 The following program demonstrates how to retrieve a constant of type `Constraint`.
-In the simple example below, the function [initializeLibraryReaderForDirectory] provided by [source_gen_test] is used to load the source code and initialize an object of type [LibraryReader].
-In a standard setting this task is delegated to a [builder] that reads a builder configuration and loads the relevant assets.
+In the simple example below, the function [initializeLibraryReaderForDirectory]
+provided by [source_gen_test] is used to load the source code and initialize an object of type [LibraryReader].
+In a standard setting this task is delegated to a [builder] that reads a builder
+configuration and loads the relevant assets.
 
 
 ```Dart
