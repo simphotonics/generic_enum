@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/src/builder/build_step.dart';
-import 'package:generic_enum_builder/src/writers/json_writer.dart';
+import 'package:generic_enum/generic_enum.dart' show GenerateFromJson;
 import 'package:source_gen/source_gen.dart';
-import 'package:generic_enum_annotation/generic_enum_annotation.dart'
-    show GenerateFromJson;
+
+import 'package:generic_enum_builder/src/writers/json_writer.dart';
 
 /// Source code generator that builds the function [_$<ClassName>FromJson].
 /// Extends [GeneratorForAnnotation<GenerateFromJson>] and as such
