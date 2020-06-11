@@ -33,3 +33,7 @@ Updated dependencies.
 # 0.1.3
 
 Updated dependencies and docs.
+
+# 0.1.4
+
+Updated dependencies and docs.
