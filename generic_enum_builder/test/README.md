@@ -2,15 +2,15 @@
 
 ## Introduction
 
-[GenericEnumBuilder] provides source code generating classes
+The package [`generic_enum_builder`][generic_enum_builder] provides source code generating classes
 based on [source_gen] and [analyzer].
 
 This part of the library contains tests designed to verify
-that the source code generators [MapGenerator], [JsonGenerator], and
-[IdentifierGenerator] produce correct output.
+that the source code generators [`MapGenerator`][MapGenerator], [`JsonGenerator`][JsonGenerator], and
+[`IdentifierGenerator`][IdentifierGenerator] produce correct output.
 
-The folder [src](src) contains sample classes extending [GenericEnum].
-The content of these files is accessed via a [LibraryReader].
+The folder [src](src) contains sample classes extending [`GenericEnum`][GenericEnum].
+The content of these files is accessed via a [`LibraryReader`][LibraryReader].
 
 
 ## Running the tests

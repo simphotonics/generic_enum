@@ -4,8 +4,8 @@
 
 ## Introduction
 
-[GenericEnumBuilder] contains source code generating classes
-based on [source_gen] and [analyzer].
+The package [`generic_enum_builder`][generic_enum_builder] contains builders and
+source code generating classes based on [source_gen] and [analyzer].
 
 The provided builders can be configured to build [GenericEnum] classes
 supporting json-serialization.
@@ -16,15 +16,15 @@ to initialize variables, or as default parameters in functions and constructors.
 
 ## Usage
 
-To use this library include [generic_enum] and [generic_enum_annotation] as dependencies in your `pubspec.yaml` file.
-Include [generic_enum_builder], [source_gen], and [build_runner] as dev_dependencies.
+To use this library include [`generic_enum`][generic_enum] dependency in your `pubspec.yaml` file.
+Include [`generic_enum_builder`][generic_enum_builder] and [`build_runner`][build_runner] as dev_dependencies.
 
 A step-by-step guide on how to build a generic enumeration is provided [here].
 
 
 ## Examples
 
-The package [generic_enum_example] provides a complete example on how to define and build
+The package [`generic_enum_example`][generic_enum_example] provides a complete example on how to define and build
 generic enumeration classes. As a starting point users could clone this repository, add
 their own generic enum classes to the folder `lib` and build the library.
 
