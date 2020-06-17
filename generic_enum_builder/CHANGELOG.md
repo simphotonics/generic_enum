@@ -87,4 +87,8 @@ Amended docs.
 
 # 0.2.3
 
-Amended format of hyperlinks. 
+Amended format of hyperlinks.
+
+# 0.2.4
+
+Amended writers. Updated deps.
