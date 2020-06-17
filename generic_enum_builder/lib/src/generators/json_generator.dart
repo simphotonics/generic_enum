@@ -16,6 +16,6 @@ class JsonGenerator extends GeneratorForAnnotation<GenerateFromJson> {
     ConstantReader annotation,
     BuildStep buildStep,
   ) {
-    return JsonWriter(element).fromJson;
+    return JsonWriter(element).fromToJson;
   }
 }
