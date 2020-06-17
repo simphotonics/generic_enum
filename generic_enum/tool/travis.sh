@@ -20,17 +20,6 @@ pub get
 pub upgrade
 
 echo
-echo -e "${CYAN}=== Building $PWD...${RESET}"
-echo
-
-rm -rf .dart_tool/build/
-grep -q build_runner pubspec.yaml && \
-    pub run build_runner build \
-        --delete-conflicting-outputs \
-        --fail-on-severe
-
-
-echo
 echo -e "${PURPLE}=== Checking Source Code Formatting${RESET} $PWD..."
 echo
 # Overwrite files with formatted content: -w
