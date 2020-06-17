@@ -30,10 +30,13 @@ class MapWriter {
   /// defining [_${GenericEnumType}ValueMap], a private variable
   /// of type [Map<ValueType,GenericEnumType>].
   String get valueMap {
-    // Check if static const instances are defined.
-    if (instances.isEmpty) return null;
-
     var b = StringBuffer();
+    // Check if static const instances are defined.
+    if (instances.isEmpty) {
+      b.writeln('// No static const instances of [$type] found!');
+      b.writeln('// Skipped generating map _\$${type}ValueMap.');
+      return b.toString();
+    }
     // Dart docs.
     b.writeln(
       '/// Maps a value of type [${superTypeArg}] to an instance of [$type].',

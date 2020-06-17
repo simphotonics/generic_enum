@@ -27,12 +27,16 @@ class IdentifierWriter {
   /// name: _$<ClassName>Identifier that a returns the
   /// identifier of a [GenericEnum] instance as a [String].
   String get identifierFunction {
-    if (instances.isEmpty) return null;
-
+    final b = StringBuffer();
+    if (instances.isEmpty) {
+      b.writeln('// No static const instances of [$type] found!');
+      b.writeln('// Skipped generating function _\$${type}Identifier.');
+      b.writeln('');
+      return b.toString();
+    }
     String input = type.toString();
     input = input.substring(0, 1).toLowerCase() + input.substring(1);
 
-    final b = StringBuffer();
     // Dart Doc.
     b.writeln(
       '/// Returns the [String] identifier of an instance of [$type].',

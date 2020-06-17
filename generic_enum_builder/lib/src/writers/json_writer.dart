@@ -29,9 +29,15 @@ class JsonWriter {
   /// Returns a [String] representing the function [toJson] and [fromJson].
   String get fromToJson => toJson + fromJson;
 
-  /// Returns a [String] representing the function [_$${type}fromJson].
+  /// Returns a [String] representing the function [_$<ClassName>FromJson].
   String get fromJson {
     var b = StringBuffer();
+    if (instances.isEmpty) {
+      b.writeln('// No static const instances of [$type] found!');
+      b.writeln('// Skipped generating function _\$${type}FromJson.');
+      b.writeln('');
+      return b.toString();
+    }
     // Dart Doc.
     b.writeln(
       '/// Converts a map [Map<String, dynamic>] to an instance of [$type].',
@@ -73,9 +79,15 @@ class JsonWriter {
     return b.toString();
   }
 
-  /// Returns a [String] representing the function [_\$${type}toJson].
+  /// Returns a [String] representing the function [_$<ClassName>toJson].
   String get toJson {
     var b = StringBuffer();
+    if (instances.isEmpty) {
+      b.writeln('// No static const instances of [$type] found!');
+      b.writeln('// Skipped generating function _\$${type}ToJson.');
+      b.writeln('');
+      return b.toString();
+    }
     // Dart Doc.
     b.writeln(
       '/// Converts an instance of [$type] to a map [Map<String, dynamic>].',
