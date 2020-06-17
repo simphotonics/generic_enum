@@ -127,7 +127,7 @@ of the method `toJson`.
         DpiResolution instance = _$DpiResolutionValueMap.values.toList()[key];
         if (instance == null) {
           throw GenericEnumException(
-              '.fromJson constructor: Could not find amatching instance of type DpiResolution.');
+              '.fromJson constructor: Could not find a matching instance of type DpiResolution.');
         }
         return instance;
       }
