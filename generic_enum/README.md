@@ -22,7 +22,8 @@ To use this library include [generic_enum] as dependencies in your `pubspec.yaml
 Include [generic_enum_builder], and [build_runner] as dev_dependencies.
 
 The example below shows how to define the generic enum class `DpiResolution`, extending `GenericEnum<int>`.
-Note the use of `int` literals to specify the const value of the `DpiResolution` instances.
+Note the use of `int` literals to specify the const value of the `DpiResolution` instances. For user defined types,
+constant values are specified by calling a const constructor.
 <details> <summary> Click to show source code. </summary>
 
   ```Dart
