@@ -5,8 +5,8 @@ import 'package:generic_enum/generic_enum.dart';
 class NumType extends GenericEnum<Type> {
   const NumType._(Type value) : super(value);
 
-  // Non const constructor should throw [GeneratorException]
-  // in [GenericEnumVisitor]
+  // Non const constructor should throw [GenericEnumBuilderError]
+  // during build.
   NumType(Type value) : super(value);
 
   static const INTEGER = NumType._(int);
