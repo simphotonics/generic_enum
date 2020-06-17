@@ -2,41 +2,39 @@
 /// Usage:
 /// ```
 /// import 'package:generic_enum/generic_enum.dart';
-///
-/// //   0. Add a part instruction pointing to the generated file.
+/// 
+/// //   1. Add a part statement pointing to the generated file.
 /// part 'dpi_resolution.g.dart';
-///
-/// // 1. Extend GenericEnum<T>
-/// // 2. Annotate class
-/// @GenerateFromJson() //
+/// 
+/// //   2. Annotate with @GenerateFromJson()
+/// //   3. Extend GenericEnum<T>
+/// @GenerateFromJson()
 /// class DpiResolution extends GenericEnum<int> {
-///   // 3. Define a private const constructor that calls the super constructor
-///   //    and passes on the value.
+///   // 4. Define a private const constructor that calls the super constructor
+///   //    and passes on the value of type int.
 ///   const DpiResolution._(int value) : super(value);
-///
-///   // 4. Define static constant instances of type DpiResolution
+///   // 5. Define static constant instances of type DpiResolution
 ///   static const DpiResolution LOW = DpiResolution._(90);
 ///   static const DpiResolution MEDIUM = DpiResolution._(300);
 ///   static const DpiResolution HIGH = DpiResolution._(600);
-///
-///   // 5. Give access to _$DpiResolutionValueMap and
-///   //    $DpiResolutionFromJson.
+///   // 6. Give access to _valueMap and
 ///   static Map<int, DpiResolution> get valueMap => _$DpiResolutionValueMap;
-///
-///   // 6. Define a factory constructor named .fromJson.
+///   // 7. Define the named factory constructor .fromJson:
 ///   factory DpiResolution.fromJson(Map<String, dynamic> json) =>
-///     _$DpiResolutionFromJson(json);
+///       _$DpiResolutionFromJson(json);
+///   // 8. Define the method [toJson].
+///   Map<String, dynamic> toJson() => _$DpiResolutionToJson(this);
 /// }
 /// ```
 /// In your pubspec.yaml file add (updated versions of) the
 /// following dependencies:
 /// ```
 /// dependencies:
-///   generic_enum: ^0.2.2
+///   generic_enum: ^0.2.5
 ///
 /// dev_dependencies:
 ///   build_runner: ^1.10.0
-///   generic_enum_builder: ^0.1.8
+///   generic_enum_builder: ^0.2.4
 ///
 /// ```
 /// In your local build.yaml file add and enable the following targets:
