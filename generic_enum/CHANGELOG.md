@@ -78,3 +78,11 @@ Removed dependency on `generic_enum_annotation`. The new location of the annotat
 # 0.2.3
 
 Amended Dart docs.
+
+# 0.2.4
+
+Removed dep on `json_annotation`.
+
+# 0.2.5
+
+Amended docs.

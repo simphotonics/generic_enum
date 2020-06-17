@@ -4,14 +4,13 @@ description:
   switch statements, as annotations, or as constant parameters
   in constructors and functions.
 
-version: 0.2.4
+version: 0.2.5
 homepage: https://github.com/simphotonics/generic_enum/tree/master/generic_enum
 
 environment:
   sdk: '>=2.8.0 <3.0.0'
 
 dependencies:
-  json_annotation: ^3.0.1
 
 dev_dependencies:
   test: ^1.14.7
