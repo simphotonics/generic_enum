@@ -24,4 +24,7 @@ class Direction extends GenericEnum<String> {
   /// 6. Define the factory constructor .fromJson
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
+
+  /// 7. Define method [toJson].
+  Map<String, dynamic> toJson() => _$DirectionToJson(this);
 }

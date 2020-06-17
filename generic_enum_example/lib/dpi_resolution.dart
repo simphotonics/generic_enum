@@ -49,4 +49,6 @@ class DpiResolution extends GenericEnum<int> {
   // 7. Define the named factory constructor .fromJson:
   factory DpiResolution.fromJson(Map<String, dynamic> json) =>
       _$DpiResolutionFromJson(json);
+  // 8. Define the method [toJson].
+  Map<String, dynamic> toJson() => _$DpiResolutionToJson(this);
 }
