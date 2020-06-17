@@ -59,8 +59,10 @@ constant values are specified by calling a const constructor.
 5. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
 6. Define a getter to provide access the private variable `_$DpiResolutionValueMap`. Alternatively,
    copy-paste the getter definition from the docs generated in `dpi_resolution.g.dart`.
-7. Define a factory constructor named `.fromJson` redirecting to the function `_$DpiResolutionFromJson`.Alternatively, copy-paste the constructor definition from the generated documentation.
-8. Define (or copy-paste) the method `toJson`.
+7. Define a factory constructor named `.fromJson` redirecting to the function `_$DpiResolutionFromJson`.
+Alternatively, copy-paste the constructor definition from the generated documentation located above the function `_$DpiResolutionFromJson`.
+8. Define (or copy-paste) the method `toJson`. The documentation of the generated function `_$DpiResolutionToJson` contains the souce code
+of the method `toJson`.
 9. Configure the build targets (and amend the generate_for entry).
    In your local `build.yaml` file add configurations for the builders
    `map_builder` and `json_builder` provided by the package [generic_enum_builder].
