@@ -1,12 +1,3 @@
-// Json-serialization adapted from:
-//    https://github.com/dart-lang/json_serializable/blob/master/example/lib/json_converter_example.dart
-// License file:
-//    https://github.com/dart-lang/json_serializable/blob/master/LICENSE
-
-import 'package:json_annotation/json_annotation.dart';
-
-part 'generic_enum.g.dart';
-
 /// Enum-like class with generic value type.
 /// Usage:
 /// ```
@@ -68,15 +59,14 @@ part 'generic_enum.g.dart';
 /// ```
 /// $ pub run build_runner build --delete-conflicting-outputs
 /// ```
-@JsonSerializable()
+
 class GenericEnum<T> {
   /// Generic value of enumeration class
-  @_Converter()
   final T value;
 
   /// Call this constructor when extending GenericEnum<T>:
   /// ```
-  /// const MyGenericEnum(T value): super(value);
+  /// const MyGenericEnum._(T value): super(value);
   /// ```
   const GenericEnum(this.value);
 
@@ -84,33 +74,6 @@ class GenericEnum<T> {
   @override
   String toString() {
     return value.toString();
-  }
-
-  /// Converts a json map object to [GenericEnum].
-  factory GenericEnum.fromJson(Map<String, dynamic> json) =>
-      _$GenericEnumFromJson<T>(json);
-
-  /// Converts a [GenericEnum] instance to a json map object.
-  Map<String, dynamic> toJson() => _$GenericEnumToJson(this);
-}
-
-class _Converter<T> implements JsonConverter<T, Object> {
-  const _Converter();
-
-  @override
-  T fromJson(Object json) {
-    // This will only work if `json` is a native JSON type:
-    //   num, String, bool, null, etc
-    // *and* is assignable to `T`.
-    return json as T;
-  }
-
-  @override
-  Object toJson(T object) {
-    // This will only work if `object` is a native JSON type:
-    //   num, String, bool, null, etc
-    // Or if it has a `toJson()` function`.
-    return object;
   }
 }
 
