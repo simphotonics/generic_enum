@@ -42,7 +42,6 @@ final _$NamePartValueMap = Map<String, NamePart>.unmodifiable({
   NamePart.LAST_NAME.value: NamePart.LAST_NAME,
 });
 
-
 /// Sample GenericEnum Class used for testing.
 /// Note: The functions and variables above can be built automatically
 /// For details see the file: ../../README.md.

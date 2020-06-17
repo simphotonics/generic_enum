@@ -135,7 +135,7 @@ Future<void> main() async {
       '\n'
       '// No static const instances of [EmptyGenericEnum] found!\n'
       '// Skipped generating function _\$EmptyGenericEnumFromJson.';
-      
+
   String generatedEmptyIdentifier =
       await identifierGenerator.generate(readerEmptyGenericEnum, null);
   String expectedEmptyIdentifier =

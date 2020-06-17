@@ -71,7 +71,7 @@ void main() {
       );
     });
     test('GenericEnum<Complex>', () {
-        expect(
+      expect(
         ComplexConstant.i,
         ComplexConstant.fromJson(
           jsonDecode('{"key":0}'),
