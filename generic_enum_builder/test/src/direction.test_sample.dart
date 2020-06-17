@@ -6,6 +6,14 @@ part of 'direction.dart';
 // JsonGenerator
 // **************************************************************************
 
+/// Converts an instance of [Direction] to a map [Map<String, dynamic>].
+/// Add the following method to your class definition:
+/// ```
+///  (Map<String, dynamic> toJson() => _$DirectionToJson(this);
+/// ```
+Map<String, dynamic> _$DirectionToJson(Direction instance) =>
+    {'key': _$DirectionValueMap.values.toList().indexOf(instance)};
+
 /// Converts a map [Map<String, dynamic>] to an instance of [Direction].
 /// Add the following factory constructor to your class definition:
 /// ```
@@ -13,12 +21,11 @@ part of 'direction.dart';
 ///   _$DirectionFromJson(json);
 /// ```
 Direction _$DirectionFromJson(Map<String, dynamic> json) {
-  String value = GenericEnum.fromJson(json).value;
-  Direction instance = Direction.valueMap[value];
+  final key = (json['key']) as int;
+  Direction instance = _$DirectionValueMap.values.toList()[key];
   if (instance == null) {
     throw GenericEnumException(
-      'Could not find Direction instance with value: $value.',
-    );
+        '.fromJson constructor: Could not find matching instance of type Direction.');
   }
   return instance;
 }
@@ -36,5 +43,5 @@ final _$DirectionValueMap = Map<String, Direction>.unmodifiable({
   Direction.NORTH.value: Direction.NORTH,
   Direction.EAST.value: Direction.EAST,
   Direction.SOUTH.value: Direction.SOUTH,
-  Direction.WEST.value: Direction.WEST
+  Direction.WEST.value: Direction.WEST,
 });
