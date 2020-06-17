@@ -26,11 +26,11 @@ class JsonWriter {
   UnmodifiableListView<FieldElement> get instances =>
       instanceCollector.collectedItems;
 
-  /// Returns a [String] representing the function [_$<ClassName>fromJson].
-  String get fromJson {
-    // Check if static const instances are defined.
-    if (instances.isEmpty) return '';
+  /// Returns a [String] representing the function [toJson] and [fromJson].
+  String get fromToJson => toJson + fromJson;
 
+  /// Returns a [String] representing the function [_$${type}fromJson].
+  String get fromJson {
     var b = StringBuffer();
     // Dart Doc.
     b.writeln(
@@ -51,17 +51,17 @@ class JsonWriter {
 
     // Function body
     b.writeln(
-      '${superTypeArg} value = GenericEnum.fromJson(json).value;',
+      'final key = (json[\'key\']) as int;',
     );
     b.writeln(
-      '$type instance = _\$${type}ValueMap[value];',
+      '$type instance = _\$${type}ValueMap.values.toList()[key];',
     );
     b.writeln(
       'if( instance == null ) {',
     );
     b.writeln('throw GenericEnumException(');
     b.writeln(
-      '\'Could not find $type instance with value: \$value.\',',
+      '\'.fromJson constructor: Could not find a matching instance of type $type.\'',
     );
     b.writeln(');');
     b.writeln('}');
@@ -70,6 +70,26 @@ class JsonWriter {
     // Closing brackets
     b.writeln('}');
 
+    return b.toString();
+  }
+
+  /// Returns a [String] representing the function [_\$${type}toJson].
+  String get toJson {
+    var b = StringBuffer();
+    // Dart Doc.
+    b.writeln(
+      '/// Converts an instance of [$type] to a map [Map<String, dynamic>].',
+    );
+    b.writeln('/// Add the following method to your class definition: ');
+    b.writeln('/// ```');
+    b.writeln(
+      '///  Map<String, dynamic> toJson() => _\$${type}ToJson(this); ',
+    );
+    b.writeln('/// ```');
+    // Function declaration
+    b.writeln('Map<String, dynamic> _\$${type}ToJson($type instance) => ');
+    b.writeln(
+        '{\'key\': _\$${type}ValueMap.values.toList().indexOf(instance)};');
     return b.toString();
   }
 }
