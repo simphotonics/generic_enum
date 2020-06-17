@@ -1,5 +1,4 @@
 // import 'package:generic_enum/generic_enum.dart';
-// import 'package:generic_enum_annotation/generic_enum_annotation.dart';
 
 // ///   0. Add a part instruction pointing to generated file.
 // part 'dpi_resolution.g.dart';
@@ -26,6 +25,8 @@
 //   /// 6. Define factory constructor .fromJson.
 //   factory DpiResolution.fromJson(Map<String, dynamic> json) =>
 //       _$DpiResolutionFromJson(json);
+//   /// 7. Define the method [toJson].
+//   Map<String, dynamic> toJson() => _$DpiResolutionToJson(this);
 // }
 
 import 'package:generic_enum/generic_enum.dart';
