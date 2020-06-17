@@ -10,7 +10,7 @@ is no longer required as a dependency when defining or building a generic enum.
 ## Introduction
 
 Enumerations are ideal when we want to model *choosing* from a limited set of constant values.
-In Dart, the value of an `enum` resolves to a `String`.import 'package:generic_enum_annotation/generic_enum_annotation.dart';
+In Dart, the value of an `enum` resolves to a `String`.
 
 [GenericEnum] is a base class for creating enumeration classes with generic value type.
 These classes appear to the user of the library much like a Dart `enum` would.
@@ -21,7 +21,8 @@ For example, generic enums can be used in `switch` statements, to initialize var
 To use this library include [generic_enum] as dependencies in your `pubspec.yaml` file.
 Include [generic_enum_builder], and [build_runner] as dev_dependencies.
 
-To build the generic enum class, `DpiResolution` (shown below), the following steps are required:
+The example below shows how to define the generic enum class `DpiResolution`, extending `GenericEnum<int>`.
+Note the use of `int` literals to specify the const value of the `DpiResolution` instances.
 <details> <summary> Click to show source code. </summary>
 
   ```Dart
@@ -44,18 +45,22 @@ To build the generic enum class, `DpiResolution` (shown below), the following st
      // 7. Define the named factory constructor .fromJson:
      factory DpiResolution.fromJson(Map<String,dynamic> json)
          => _$DpiResolutionFromJson(json);
+     // 8. Define the method [toJson].
+     Map<String, dynamic> toJson() => _$DpiResolutionToJson(this);
    }
   ```
 </details>
 
 1. Add a part statement referencing the generated file `dpi_resolution.g.dart`.
 2. Annotate the class with `@GenerateFromJson`.
-3. Extend `GenericEnum<T>`. To use the serialization methods, the type parameter `T` should have `fromJson` and `toJson` methods.
+3. Extend `GenericEnum<T>`.
 4. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
 5. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.
-6. Define an accessor for the private variable `_$<ClassName>ValueMap`.
-7. Define a factory constructor named `.fromJson` pointing to the function `_$<ClassName>FromJson`.
-8. Configure the build targets (and amend the generate_for entry).
+6. Define a getter to provide access the private variable `_$DpiResolutionValueMap`. Alternatively,
+   copy-paste the getter definition from the docs generated in `dpi_resolution.g.dart`.
+7. Define a factory constructor named `.fromJson` redirecting to the function `_$DpiResolutionFromJson`.Alternatively, copy-paste the constructor definition from the generated documentation.
+8. Define (or copy-paste) the method `toJson`.
+9. Configure the build targets (and amend the generate_for entry).
    In your local `build.yaml` file add configurations for the builders
    `map_builder` and `json_builder` provided by the package [generic_enum_builder].
 
@@ -80,13 +85,15 @@ To build the generic enum class, `DpiResolution` (shown below), the following st
     ```
    </details>
 
-   Note: The file `dpi_resolution.dart` should be an asset that can be resolved by the builder. To limit the number of files scanned for annotationed classes during the build process one can use a `generate_for` statement in the builder configuration.
+   Note: The file `dpi_resolution.dart` should be an asset that can be resolved by the builder.
+   To limit the number of files scanned for annotationed classes during
+   the build process one can use a `generate_for` statement in the builder configuration.
 
-9. Build the project by running the command:
+10. Build the project by running the command:
    ```Console
    $ pub run build_runner build --delete-conflicting-outputs
    ```
-10. For the example presented here, the build process will generate the file `dpi_resolution.g.dart`.
+11. For the example presented here, the build process will generate the file `dpi_resolution.g.dart`.
     <details>  <summary> Click to show file content. </summary>
 
       ```Dart
@@ -98,6 +105,14 @@ To build the generic enum class, `DpiResolution` (shown below), the following st
       // JsonGenerator
       // **************************************************************************
 
+      /// Converts an instance of [DpiResolution] to a map [Map<String, dynamic>].
+      /// Add the following method to your class definition:
+      /// ```
+      ///  Map<String, dynamic> toJson() => _$DpiResolutionToJson(this);
+      /// ```
+      Map<String, dynamic> _$DpiResolutionToJson(DpiResolution instance) =>
+          {'key': _$DpiResolutionValueMap.values.toList().indexOf(instance)};
+
       /// Converts a map [Map<String, dynamic>] to an instance of [DpiResolution].
       /// Add the following factory constructor to your class definition:
       /// ```
@@ -105,12 +120,11 @@ To build the generic enum class, `DpiResolution` (shown below), the following st
       ///   _$DpiResolutionFromJson(json);
       /// ```
       DpiResolution _$DpiResolutionFromJson(Map<String, dynamic> json) {
-        int value = GenericEnum.fromJson(json).value;
-        DpiResolution instance = _$DpiResolutionValueMap[value];
+        final key = (json['key']) as int;
+        DpiResolution instance = _$DpiResolutionValueMap.values.toList()[key];
         if (instance == null) {
           throw GenericEnumException(
-            'Could not find DpiResolution instance with value: $value.',
-          );
+              '.fromJson constructor: Could not find amatching instance of type DpiResolution.');
         }
         return instance;
       }
