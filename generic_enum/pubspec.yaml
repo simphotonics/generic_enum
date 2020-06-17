@@ -4,7 +4,7 @@ description:
   switch statements, as annotations, or as constant parameters
   in constructors and functions.
 
-version: 0.2.3
+version: 0.2.4
 homepage: https://github.com/simphotonics/generic_enum/tree/master/generic_enum
 
 environment:
@@ -15,5 +15,3 @@ dependencies:
 
 dev_dependencies:
   test: ^1.14.7
-  build_runner: ^1.10.0
-  json_serializable: ^3.3.0
