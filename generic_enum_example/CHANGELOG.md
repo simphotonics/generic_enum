@@ -41,3 +41,7 @@ Updated dependencies and docs.
 # 0.1.5
 
 Amended package description.
+
+# 0.1.6
+
+Updated dependencies. Added example `complex.dart`.
