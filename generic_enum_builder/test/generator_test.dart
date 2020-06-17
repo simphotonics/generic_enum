@@ -75,6 +75,14 @@ Future<void> main() async {
       await jsonGenerator.generate(readerDirection, null);
   generatedJsonDirection = DartFormatter().format(generatedJsonDirection);
   String expectedJsonDirection =
+      '/// Converts an instance of [Direction] to a map [Map<String, dynamic>].\n'
+      '/// Add the following method to your class definition:\n'
+      '/// ```\n'
+      '///  Map<String, dynamic> toJson() => _\$DirectionToJson(this);\n'
+      '/// ```\n'
+      'Map<String, dynamic> _\$DirectionToJson(Direction instance) =>\n'
+      '    {\'key\': _\$DirectionValueMap.values.toList().indexOf(instance)};\n'
+      '\n'
       '/// Converts a map [Map<String, dynamic>] to an instance of [Direction].\n'
       '/// Add the following factory constructor to your class definition:\n'
       '/// ```\n'
@@ -82,12 +90,11 @@ Future<void> main() async {
       '///   _\$DirectionFromJson(json);\n'
       '/// ```\n'
       'Direction _\$DirectionFromJson(Map<String, dynamic> json) {\n'
-      '  String value = GenericEnum.fromJson(json).value;\n'
-      '  Direction instance = _\$DirectionValueMap[value];\n'
+      '  final key = (json[\'key\']) as int;\n'
+      '  Direction instance = _\$DirectionValueMap.values.toList()[key];\n'
       '  if (instance == null) {\n'
       '    throw GenericEnumException(\n'
-      '      \'Could not find Direction instance with value: \$value.\',\n'
-      '    );\n'
+      '        \'.fromJson constructor: Could not find a matching instance of type Direction.\');\n'
       '  }\n'
       '  return instance;\n'
       '}\n'
@@ -122,10 +129,18 @@ Future<void> main() async {
 
   String generatedJsonEmpty =
       await jsonGenerator.generate(readerEmptyGenericEnum, null);
-  String expectedJsonEmpty = '';
+  String expectedJsonEmpty =
+      '// No static const instances of [EmptyGenericEnum] found!\n'
+      '// Skipped generating function _\$EmptyGenericEnumToJson.\n'
+      '\n'
+      '// No static const instances of [EmptyGenericEnum] found!\n'
+      '// Skipped generating function _\$EmptyGenericEnumFromJson.';
+      
   String generatedEmptyIdentifier =
       await identifierGenerator.generate(readerEmptyGenericEnum, null);
-  String expectedEmptyIdentifier = '';
+  String expectedEmptyIdentifier =
+      '// No static const instances of [EmptyGenericEnum] found!\n'
+      '// Skipped generating function _\$EmptyGenericEnumIdentifier.';
 
   group('MapGenerator:', () {
     test('ValueMap for direction.dart.', () {
