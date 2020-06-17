@@ -25,7 +25,7 @@ ComplexConstant _$ComplexConstantFromJson(Map<String, dynamic> json) {
   ComplexConstant instance = _$ComplexConstantValueMap.values.toList()[key];
   if (instance == null) {
     throw GenericEnumException(
-        '.fromJson constructor: Could not find matching instance of type ComplexConstant.');
+        '.fromJson constructor: Could not find a matching instance of type ComplexConstant.');
   }
   return instance;
 }

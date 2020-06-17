@@ -6,6 +6,14 @@ part of 'dpi_resolution.dart';
 // JsonGenerator
 // **************************************************************************
 
+/// Converts an instance of [DpiResolution] to a map [Map<String, dynamic>].
+/// Add the following method to your class definition:
+/// ```
+///  Map<String, dynamic> toJson() => _$DpiResolutionToJson(this);
+/// ```
+Map<String, dynamic> _$DpiResolutionToJson(DpiResolution instance) =>
+    {'key': _$DpiResolutionValueMap.values.toList().indexOf(instance)};
+
 /// Converts a map [Map<String, dynamic>] to an instance of [DpiResolution].
 /// Add the following factory constructor to your class definition:
 /// ```
@@ -13,12 +21,11 @@ part of 'dpi_resolution.dart';
 ///   _$DpiResolutionFromJson(json);
 /// ```
 DpiResolution _$DpiResolutionFromJson(Map<String, dynamic> json) {
-  int value = GenericEnum.fromJson(json).value;
-  DpiResolution instance = _$DpiResolutionValueMap[value];
+  final key = (json['key']) as int;
+  DpiResolution instance = _$DpiResolutionValueMap.values.toList()[key];
   if (instance == null) {
     throw GenericEnumException(
-      'Could not find DpiResolution instance with value: $value.',
-    );
+        '.fromJson constructor: Could not find a matching instance of type DpiResolution.');
   }
   return instance;
 }

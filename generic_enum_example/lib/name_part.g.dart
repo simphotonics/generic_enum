@@ -6,6 +6,14 @@ part of 'name_part.dart';
 // JsonGenerator
 // **************************************************************************
 
+/// Converts an instance of [NamePart] to a map [Map<String, dynamic>].
+/// Add the following method to your class definition:
+/// ```
+///  Map<String, dynamic> toJson() => _$NamePartToJson(this);
+/// ```
+Map<String, dynamic> _$NamePartToJson(NamePart instance) =>
+    {'key': _$NamePartValueMap.values.toList().indexOf(instance)};
+
 /// Converts a map [Map<String, dynamic>] to an instance of [NamePart].
 /// Add the following factory constructor to your class definition:
 /// ```
@@ -13,12 +21,11 @@ part of 'name_part.dart';
 ///   _$NamePartFromJson(json);
 /// ```
 NamePart _$NamePartFromJson(Map<String, dynamic> json) {
-  String value = GenericEnum.fromJson(json).value;
-  NamePart instance = _$NamePartValueMap[value];
+  final key = (json['key']) as int;
+  NamePart instance = _$NamePartValueMap.values.toList()[key];
   if (instance == null) {
     throw GenericEnumException(
-      'Could not find NamePart instance with value: $value.',
-    );
+        '.fromJson constructor: Could not find a matching instance of type NamePart.');
   }
   return instance;
 }
