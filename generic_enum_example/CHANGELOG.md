@@ -49,3 +49,7 @@ Updated dependencies. Added example `complex.dart`.
 # 0.1.7
 
 Added method `toJson` to example generic enum classes.
+
+# 0.1.8
+
+Amended `README.md`.
