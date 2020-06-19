@@ -92,3 +92,7 @@ Amended format of hyperlinks.
 # 0.2.4
 
 Amended writers. Updated deps.
+
+# 0.2.5
+
+Amended generated docs of function `toJson` in `json_writer.dart`.

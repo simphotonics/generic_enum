@@ -94,6 +94,7 @@ class JsonWriter {
     );
     b.writeln('/// Add the following method to your class definition: ');
     b.writeln('/// ```');
+    b.writeln('///  @override');
     b.writeln(
       '///  Map<String, dynamic> toJson() => _\$${type}ToJson(this); ',
     );
