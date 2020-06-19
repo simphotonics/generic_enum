@@ -46,7 +46,8 @@ constant values are specified by calling a const constructor.
      // 7. Define the named factory constructor .fromJson:
      factory DpiResolution.fromJson(Map<String,dynamic> json)
          => _$DpiResolutionFromJson(json);
-     // 8. Define the method [toJson].
+     // 8. Override the method [toJson].
+     @override
      Map<String, dynamic> toJson() => _$DpiResolutionToJson(this);
    }
   ```
@@ -195,7 +196,7 @@ Please file feature requests and bugs at the [issue tracker].
 [generic_enum]: https://pub.dev/packages/generic_enum
 [GenericEnum]: https://pub.dev/packages/generic_enum
 [generic_enum_example]: ../generic_enum_example
-[example]: example
+[example]: generic_enum/example
 [generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
 [generic_enum_builder]: https://pub.dev/packages/generic_enum_builder
 [build_runner]: https://pub.dev/packages/build_runner

@@ -46,7 +46,8 @@ constant values are specified by calling a const constructor.
      // 7. Define the named factory constructor .fromJson:
      factory DpiResolution.fromJson(Map<String,dynamic> json)
          => _$DpiResolutionFromJson(json);
-     // 8. Define the method [toJson].
+     // 8. Override the method [toJson].
+     @override
      Map<String, dynamic> toJson() => _$DpiResolutionToJson(this);
    }
   ```
