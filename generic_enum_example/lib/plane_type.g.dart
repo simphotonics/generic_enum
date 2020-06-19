@@ -9,6 +9,7 @@ part of 'plane_type.dart';
 /// Converts an instance of [PlaneType] to a map [Map<String, dynamic>].
 /// Add the following method to your class definition:
 /// ```
+///  @override
 ///  Map<String, dynamic> toJson() => _$PlaneTypeToJson(this);
 /// ```
 Map<String, dynamic> _$PlaneTypeToJson(PlaneType instance) =>

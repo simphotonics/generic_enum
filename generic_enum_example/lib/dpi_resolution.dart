@@ -51,5 +51,6 @@ class DpiResolution extends GenericEnum<int> {
   factory DpiResolution.fromJson(Map<String, dynamic> json) =>
       _$DpiResolutionFromJson(json);
   // 8. Define the method [toJson].
+  @override
   Map<String, dynamic> toJson() => _$DpiResolutionToJson(this);
 }

@@ -9,6 +9,7 @@ part of 'complex.dart';
 /// Converts an instance of [ComplexConstant] to a map [Map<String, dynamic>].
 /// Add the following method to your class definition:
 /// ```
+///  @override
 ///  Map<String, dynamic> toJson() => _$ComplexConstantToJson(this);
 /// ```
 Map<String, dynamic> _$ComplexConstantToJson(ComplexConstant instance) =>

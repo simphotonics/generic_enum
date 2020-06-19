@@ -9,6 +9,7 @@ part of 'name_part.dart';
 /// Converts an instance of [NamePart] to a map [Map<String, dynamic>].
 /// Add the following method to your class definition:
 /// ```
+///  @override
 ///  Map<String, dynamic> toJson() => _$NamePartToJson(this);
 /// ```
 Map<String, dynamic> _$NamePartToJson(NamePart instance) =>

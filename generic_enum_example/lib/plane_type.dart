@@ -16,5 +16,6 @@ class PlaneType extends GenericEnum<int> {
   factory PlaneType.fromJson(Map<String, dynamic> json) =>
       _$PlaneTypeFromJson(json);
 
+  @override
   Map<String, dynamic> toJson() => _$PlaneTypeToJson(this);
 }

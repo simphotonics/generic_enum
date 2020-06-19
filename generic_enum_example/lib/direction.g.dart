@@ -9,6 +9,7 @@ part of 'direction.dart';
 /// Converts an instance of [Direction] to a map [Map<String, dynamic>].
 /// Add the following method to your class definition:
 /// ```
+///  @override
 ///  Map<String, dynamic> toJson() => _$DirectionToJson(this);
 /// ```
 Map<String, dynamic> _$DirectionToJson(Direction instance) =>

@@ -26,5 +26,6 @@ class Direction extends GenericEnum<String> {
       _$DirectionFromJson(json);
 
   /// 7. Define method [toJson].
+  @override
   Map<String, dynamic> toJson() => _$DirectionToJson(this);
 }

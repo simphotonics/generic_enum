@@ -23,4 +23,10 @@ class VectorEnum extends GenericEnum<Vector<double>> {
 
   static String identifier(VectorEnum vectorEnum) =>
       _$VectorEnumIdentifier(vectorEnum);
+
+  @override
+  Map<String, dynamic> toJson() {
+    // TODO: implement toJson
+    throw UnimplementedError();
+  }
 }

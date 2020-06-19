@@ -45,3 +45,7 @@ Amended package description.
 # 0.1.6
 
 Updated dependencies. Added example `complex.dart`.
+
+# 0.1.7
+
+Added method `toJson` to example generic enum classes.

@@ -17,5 +17,6 @@ class NamePart extends GenericEnum<String> {
   factory NamePart.fromJson(Map<String, dynamic> json) =>
       _$NamePartFromJson(json);
 
+  @override
   Map<String, dynamic> toJson() => _$NamePartToJson(this);
 }
