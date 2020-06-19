@@ -1,92 +1,96 @@
-# 0.0.1
+# 0.2.7
 
-Initial Version of the library.
+Reversed changelog order. 
 
-# 0.0.2
+# 0.2.6
 
-Library now depends on built_collection.
+Made `GenericEnum` abstract. Added method `toJson` and factory constructor `fromJson`.
 
-# 0.0.3
+# 0.2.5
 
-Changed GeneralizedEnum to GenericEnum.
+Amended docs.
 
-# 0.0.4
+# 0.2.4
 
-Amended library description.
+Removed dep on `json_annotation`.
 
-# 0.0.5
-
-Amended sample code in README.md.
-
-# 0.0.6
-
-Shortened library description.
-
-# 0.1.0
-
-Added json-serialization.
-
-# 0.1.1
-
-Added Dart docs.
-
-# 0.1.2
+# 0.2.3
 
 Amended Dart docs.
 
-# 0.1.3
+# 0.2.2
 
-Added serialization tests.
+Removed dependency on `generic_enum_annotation`. The new location of the annotations is `lib\src\annotations`.
 
-# 0.1.4
-
-Amended #usage (prefix for gen. functions)
-
-# 0.1.5
-
-Amended documentation.
-
-# 0.1.6
-
-Upgraded dependencies.
-
-# 0.1.7
+# 0.2.1
 
 Amended README.md.
 
-# 0.1.8
+# 0.2.0
 
-Amended project homepage.
+Updated dependencies and docs.
 
 # 0.1.9
 
 Amended project homepage to:
 [generic_enum](https://github.com/simphotonics/generic_enum/tree/master/generic_enum)
 
-# 0.2.0
+# 0.1.8
 
-Updated dependencies and docs.
+Amended project homepage.
 
-# 0.2.1
+# 0.1.7
 
 Amended README.md.
 
-# 0.2.2
+# 0.1.6
 
-Removed dependency on `generic_enum_annotation`. The new location of the annotations is `lib\src\annotations`.
+Upgraded dependencies.
 
-# 0.2.3
+# 0.1.5
+
+Amended documentation.
+
+# 0.1.4
+
+Amended #usage (prefix for gen. functions)
+
+# 0.1.3
+
+Added serialization tests.
+
+# 0.1.2
 
 Amended Dart docs.
 
-# 0.2.4
+# 0.1.1
 
-Removed dep on `json_annotation`.
+Added Dart docs.
 
-# 0.2.5
+# 0.1.0
 
-Amended docs.
+Added json-serialization.
 
-# 0.2.6
+# 0.0.6
 
-Made `GenericEnum` abstract. Added method `toJson` and factory constructor `fromJson`.
+Shortened library description.
+
+# 0.0.5
+
+Amended sample code in README.md.
+
+# 0.0.4
+
+Amended library description.
+
+# 0.0.3
+
+Changed GeneralizedEnum to GenericEnum.
+
+# 0.0.2
+
+Library now depends on built_collection.
+
+# 0.0.1
+
+Initial Version of the library.
