@@ -23,6 +23,7 @@
 ///   factory DpiResolution.fromJson(Map<String, dynamic> json) =>
 ///       _$DpiResolutionFromJson(json);
 ///   // 8. Define the method [toJson].
+///   @override
 ///   Map<String, dynamic> toJson() => _$DpiResolutionToJson(this);
 /// }
 /// ```
@@ -58,6 +59,7 @@
 /// $ pub run build_runner build --delete-conflicting-outputs
 /// ```
 
+/// Abstract base class [GenericEnum].
 abstract class GenericEnum<T> {
   /// Generic value of enumeration class
   final T value;
