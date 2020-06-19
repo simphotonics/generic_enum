@@ -58,7 +58,7 @@
 /// $ pub run build_runner build --delete-conflicting-outputs
 /// ```
 
-class GenericEnum<T> {
+abstract class GenericEnum<T> {
   /// Generic value of enumeration class
   final T value;
 
@@ -73,6 +73,15 @@ class GenericEnum<T> {
   String toString() {
     return value.toString();
   }
+
+  /// Converts [this] to [Map<String, dynamic].
+  /// Override this method in classes extending [GenericEnum].
+  Map<String, dynamic> toJson();
+
+  /// Converts a [Map<String, dynamic] to [GenericEnum].
+  /// Define a factory constructor named `fromJson` in
+  /// classes extending [GenericEnum].
+  factory GenericEnum.fromJson(Map<String, dynamic> json) => null;
 }
 
 class GenericEnumException implements Exception {

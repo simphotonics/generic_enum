@@ -86,3 +86,7 @@ Removed dep on `json_annotation`.
 # 0.2.5
 
 Amended docs.
+
+# 0.2.6
+
+Made `GenericEnum` abstract. Added method `toJson` and factory constructor `fromJson`.
