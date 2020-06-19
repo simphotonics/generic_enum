@@ -78,6 +78,7 @@ Future<void> main() async {
       '/// Converts an instance of [Direction] to a map [Map<String, dynamic>].\n'
       '/// Add the following method to your class definition:\n'
       '/// ```\n'
+      '///  @override\n'
       '///  Map<String, dynamic> toJson() => _\$DirectionToJson(this);\n'
       '/// ```\n'
       'Map<String, dynamic> _\$DirectionToJson(Direction instance) =>\n'
