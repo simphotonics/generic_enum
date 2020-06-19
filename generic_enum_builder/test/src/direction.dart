@@ -14,4 +14,7 @@ class Direction extends GenericEnum<String> {
 
   factory Direction.fromJson(Map<String, dynamic> json) =>
       _$DirectionFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$DirectionToJson(this);
 }

@@ -96,3 +96,7 @@ Amended writers. Updated deps.
 # 0.2.5
 
 Amended generated docs of function `toJson` in `json_writer.dart`.
+
+# 0.2.6
+
+Added method `toJson` to test generic enum classes.

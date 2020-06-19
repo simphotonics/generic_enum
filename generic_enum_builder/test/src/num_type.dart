@@ -11,4 +11,10 @@ class NumType extends GenericEnum<Type> {
 
   static const INTEGER = NumType._(int);
   static const DOUBEL = NumType._(double);
+
+  @override
+  Map<String, dynamic> toJson() {
+    // TODO: implement toJson
+    throw UnimplementedError();
+  }
 }

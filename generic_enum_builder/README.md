@@ -17,8 +17,8 @@ to initialize variables, or as default parameters in functions and constructors.
 
 ## Usage
 
-To use this library include [`generic_enum`][generic_enum] dependency in your `pubspec.yaml` file.
-Include [`generic_enum_builder`][generic_enum_builder] and [`build_runner`][build_runner] as dev_dependencies.
+To use this library include [`generic_enum`][generic_enum] as *dependency* in your `pubspec.yaml` file.
+Include [`generic_enum_builder`][generic_enum_builder] and [`build_runner`][build_runner] as *dev_dependencies*.
 
 A step-by-step guide on how to build a generic enumeration is provided [here].
 
