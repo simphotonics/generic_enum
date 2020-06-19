@@ -112,6 +112,7 @@ of the method `toJson`.
       /// Converts an instance of [DpiResolution] to a map [Map<String, dynamic>].
       /// Add the following method to your class definition:
       /// ```
+      ///  @override
       ///  Map<String, dynamic> toJson() => _$DpiResolutionToJson(this);
       /// ```
       Map<String, dynamic> _$DpiResolutionToJson(DpiResolution instance) =>
