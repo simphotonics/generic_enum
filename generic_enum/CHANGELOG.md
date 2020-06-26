@@ -1,3 +1,7 @@
+# 0.2.9
+
+Updated Dart docs.
+
 # 0.2.8
 
 Renamed annotation `GenerateFromJson`. It is now called `GenerateFromToJson` indicating that in fact the
