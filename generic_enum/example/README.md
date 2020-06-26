@@ -27,7 +27,7 @@ import 'package:generic_enum/generic_enum.dart';
 
 part 'constraint.g.dart';
 
-@GenerateFromJson()
+@GenerateFromToJson()
 class Constraint extends GenericEnum<String> {
   const Constraint._(String value) : super(value);
 
@@ -37,6 +37,7 @@ class Constraint extends GenericEnum<String> {
 
   static Map<String, Constraint> get valueMap => _$ConstraintValueMap;
   factory Constraint.fromJson(Map<String,dynamic> json) => _$ConstraintFromJson(json);
+  Map<String, dynamic> toJson() => _$ConstraintToJson(this);
 
   bool get isPrimary => (this == PRIMARY_KEY);
   bool get isUnique => (this == UNIQUE);
