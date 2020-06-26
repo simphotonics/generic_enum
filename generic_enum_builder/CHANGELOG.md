@@ -1,3 +1,7 @@
+# 0.2.7
+
+Update dependencies. 
+
 # 0.2.6
 
 Added method `toJson` to test generic enum classes.
