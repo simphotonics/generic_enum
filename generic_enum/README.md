@@ -5,7 +5,7 @@
 ## Update
 
 As of [`generic_enum 0.2.2`][generic_enum],  the package [`generic_enum_annotation`][generic_enum_annotation]
-is no longer required as a dependency when defining or building a generic enum.
+is no longer required as a dependency when building a generic enum.
 
 ## Introduction
 
@@ -30,9 +30,9 @@ constant values are specified by calling a const constructor.
    import 'package:generic_enum/generic_enum.dart';
    //   1. Add a part statement pointing to the generated file.
    part 'dpi_resolution.g.dart';
-   //   2. Annotate with @GenerateFromJson()
+   //   2. Annotate with @GenerateFromToJson()
    //   3. Extend GenericEnum<T>
-   @GenerateFromJson()
+   @GenerateFromToJson()
    class DpiResolution extends GenericEnum<int> {
      // 4. Define a private const constructor that calls the super constructor
      //    and passes on the value of type int.
@@ -54,7 +54,7 @@ constant values are specified by calling a const constructor.
 </details>
 
 1. Add a part statement referencing the generated file `dpi_resolution.g.dart`.
-2. Annotate the class with `@GenerateFromJson`.
+2. Annotate the class with `@GenerateFromToJson`.
 3. Extend `GenericEnum<T>`.
 4. Define a private `const` constructor that calls the super constructor and passes on the value of type `T`.
 5. Define the static const instances of `DpiResolution`. You may capitalize instance names to mark them as constants.

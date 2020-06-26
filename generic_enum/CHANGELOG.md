@@ -1,6 +1,11 @@
+# 0.2.8
+
+Renamed annotation `GenerateFromJson`. It is now called `GenerateFromToJson` indicating that in fact the
+builder generates two functions:`fromJson` and `toJson`.
+
 # 0.2.7
 
-Reversed changelog order. 
+Reversed changelog order.
 
 # 0.2.6
 
