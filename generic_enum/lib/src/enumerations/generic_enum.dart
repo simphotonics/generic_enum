@@ -6,7 +6,7 @@
 /// //   1. Add a part statement pointing to the generated file.
 /// part 'dpi_resolution.g.dart';
 ///
-/// //   2. Annotate with @GenerateFromJson()
+/// //   2. Annotate with @GenerateFromToJson()
 /// //   3. Extend GenericEnum<T>
 /// @GenerateFromJson()
 /// class DpiResolution extends GenericEnum<int> {
