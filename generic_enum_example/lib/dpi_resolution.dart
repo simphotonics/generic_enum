@@ -36,7 +36,7 @@ part 'dpi_resolution.g.dart';
 
 //   2. Annotate with @GenerateFromJson()
 //   3. Extend GenericEnum<T>
-@GenerateFromJson()
+@GenerateFromToJson()
 class DpiResolution extends GenericEnum<int> {
   // 4. Define a private const constructor that calls the super constructor
   //    and passes on the value of type int.

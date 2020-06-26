@@ -1,6 +1,10 @@
+# 0.2.0
+
+Updated dependencies.
+
 # 0.1.9
 
-Reversed changelog order. 
+Reversed changelog order.
 
 # 0.1.8
 

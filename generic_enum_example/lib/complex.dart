@@ -20,7 +20,7 @@ class Complex {
       Complex(json['real'], json['imag']);
 }
 
-@GenerateFromJson()
+@GenerateFromToJson()
 class ComplexConstant extends GenericEnum<Complex> {
   const ComplexConstant._(Complex value) : super(value);
 

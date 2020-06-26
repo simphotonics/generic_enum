@@ -4,7 +4,7 @@ part 'name_part.g.dart';
 
 /// Sample generic enum class supporting json-serialization.
 @GenerateValueMap()
-@GenerateFromJson()
+@GenerateFromToJson()
 class NamePart extends GenericEnum<String> {
   const NamePart._(String value) : super(value);
 

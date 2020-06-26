@@ -4,7 +4,7 @@ part 'plane_type.g.dart';
 
 /// Sample generic enum class supporting json-serialization.
 @GenerateValueMap()
-@GenerateFromJson()
+@GenerateFromToJson()
 class PlaneType extends GenericEnum<int> {
   const PlaneType._(int value) : super(value);
 
