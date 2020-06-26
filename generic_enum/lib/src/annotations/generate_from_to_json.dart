@@ -77,7 +77,7 @@ class GenerateFromToJson extends GenerateValueMap {
   /// /// Add the following getter to your class definition:
   /// ///
   /// /// static Map<int,DpiResolution> get valueMap => _$DpiResolutionValueMap;
-  /// /// 
+  /// ///
   /// final _$DpiResolutionValueMap = Map<int, DpiResolution>.unmodifiable({
   ///   DpiResolution.LOW.value: DpiResolution.LOW,
   ///   DpiResolution.MEDIUM.value: DpiResolution.MEDIUM,
