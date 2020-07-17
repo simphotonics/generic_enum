@@ -143,6 +143,7 @@ Further examples on how to define and build generic enumeration classes can be f
 Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
+
 [analyzer]: https://pub.dev/packages/analyzer
 [build_runner]: https://pub.dev/packages/build_runner
 [extension-methods]: https://dart.dev/guides/language/extension-methods
