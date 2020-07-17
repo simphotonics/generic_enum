@@ -1,77 +1,60 @@
-import 'dart:collection';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
-import 'package:generic_enum_builder/src/collectors/generic_enum_collector.dart';
 
-/// Writes source code representing a function with
-/// name: _$<ClassName>Identifier that a returns the
-/// identifier of a [GenericEnum] instance as a [String].
+/// Writes source code representing an extension on an enumeration.
+/// The extension provides the functions: `fromJson` and `toJson`.
 class JsonWriter {
-  JsonWriter(ClassElement element)
-      : type = element.thisType,
-        superTypeArg = element.supertype.typeArguments?.first,
-        instanceCollector = GenericEnumCollector(element);
+  JsonWriter(ClassElement element) : enumType = element.thisType;
 
-  /// Type of [element].
-  final DartType type;
+  final InterfaceType enumType;
 
-  /// Type argument of superType of [element].
-  final DartType superTypeArg;
+  /// Returns a `String` representation of the extension `<EnumName>Json`.
+  String get jsonExtension {
+    final b = StringBuffer();
+    b.writeln('/// Extension providing the functions `fromJson` and `toJson`.');
+    b.writeln('extension To${enumType} on ${enumType}{');
+    b.writeln(fromJson);
+    b.writeln(toJson);
+    b.writeln(jsonEncoded);
+    b.writeln('}');
+    return b.toString();
+  }
 
-  /// Collects static const instances of a class extending [GenericEnum].
-  final GenericEnumCollector instanceCollector;
-
-  /// Return a list of [FieldElement]s representing static instances of
-  /// the class extending [GenericEnum].
-  UnmodifiableListView<FieldElement> get instances =>
-      instanceCollector.collectedItems;
-
-  /// Returns a [String] representing the function [toJson] and [fromJson].
-  String get fromToJson => toJson + fromJson;
-
-  /// Returns a [String] representing the function [_$<ClassName>FromJson].
+  /// Returns a `String` representing the static function `fromJson`.
   String get fromJson {
-    var b = StringBuffer();
-    if (instances.isEmpty) {
-      b.writeln('// No static const instances of [$type] found!');
-      b.writeln('// Skipped generating function _\$${type}FromJson.');
-      b.writeln('');
-      return b.toString();
-    }
+    final b = StringBuffer();
     // Dart Doc.
     b.writeln(
-      '/// Converts a map [Map<String, dynamic>] to an instance of [$type].',
+      '/// Converts [json] to an instance of `${enumType}`.',
     );
-    b.writeln(
-        '/// Add the following factory constructor to your class definition: ');
-    b.writeln('/// ```');
-    b.writeln(
-      '/// factory $type.fromJson(Map<String, dynamic> json) => ',
-    );
-    b.writeln('///   _\$${type}FromJson(json);');
-    b.writeln('/// ```');
     // Function declaration
     b.writeln(
-      '$type _\$${type}FromJson(Map<String, dynamic> json){',
+      'static ${enumType} fromJson(Map<String, dynamic> json){',
     );
 
     // Function body
     b.writeln(
-      'final key = (json[\'key\']) as int;',
+      'final index = (json[\'index\']) as int;',
     );
+    // Checking if index is null.
+    b.writeln('if (index == null){');
+    b.writeln('throw ErrorOf<$enumType>(');
+    b.writeln('message: \'Error deserializing json to $enumType.\',');
     b.writeln(
-      '$type instance = _\$${type}ValueMap.values.toList()[key];',
-    );
-    b.writeln(
-      'if( instance == null ) {',
-    );
-    b.writeln('throw GenericEnumException(');
-    b.writeln(
-      '\'.fromJson constructor: Could not find a matching instance of type $type.\'',
-    );
+        'invalidState: \'json[index] returned null.\',');
+    b.writeln('expectedState: \'A map entry: {index: int value}.\'');
+    b.writeln(');}');
+    // Checking if index is out of bounds.
+    b.writeln('if( index >= 0 && index < ${enumType}.values.length ) {');
+    b.writeln('return ${enumType}.values[index];');
+    b.writeln('} else {');
+    b.writeln('throw ErrorOf<${enumType}>(');
+    b.writeln('message: '
+        '\'Function fromJson could not find \'\'an instance of type ${enumType}.\',');
+    b.writeln('invalidState: '
+        ' \'${enumType}.values[\$index] out of bounds.\'');
     b.writeln(');');
     b.writeln('}');
-    b.writeln('return instance;');
 
     // Closing brackets
     b.writeln('}');
@@ -79,30 +62,29 @@ class JsonWriter {
     return b.toString();
   }
 
-  /// Returns a [String] representing the function [_$<ClassName>toJson].
+  /// Returns a `String` representing the function `toJson()`.
   String get toJson {
     var b = StringBuffer();
-    if (instances.isEmpty) {
-      b.writeln('// No static const instances of [$type] found!');
-      b.writeln('// Skipped generating function _\$${type}ToJson.');
-      b.writeln('');
-      return b.toString();
-    }
     // Dart Doc.
     b.writeln(
-      '/// Converts an instance of [$type] to a map [Map<String, dynamic>].',
+      '/// Converts `this` to a map `Map<String, dynamic>`.',
     );
-    b.writeln('/// Add the following method to your class definition: ');
-    b.writeln('/// ```');
-    b.writeln('///  @override');
-    b.writeln(
-      '///  Map<String, dynamic> toJson() => _\$${type}ToJson(this); ',
-    );
-    b.writeln('/// ```');
+
     // Function declaration
-    b.writeln('Map<String, dynamic> _\$${type}ToJson($type instance) => ');
-    b.writeln(
-        '{\'key\': _\$${type}ValueMap.values.toList().indexOf(instance)};');
+    b.writeln('Map<String, dynamic> toJson() => ');
+    b.writeln('{\'index\': ${enumType}.values.indexOf(this)};');
+    return b.toString();
+  }
+
+  /// Returns a `String` representing the function `toJsonEncoded()`.
+  String get jsonEncoded {
+    var b = StringBuffer();
+    // Dart Doc.
+    b.writeln('/// Converts `this` to a json encoded `String`.');
+
+    // Function declaration
+    b.writeln('String get jsonEncoded => ');
+    b.writeln('\'{\"index\":\${${enumType}.values.indexOf(this)}}\';');
     return b.toString();
   }
 }
