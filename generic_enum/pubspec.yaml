@@ -1,10 +1,10 @@
 name: generic_enum
 description:
-  Enumeration classes with generic value type. Can be used in
-  switch statements, as annotations, or as constant parameters
-  in constructors and functions.
+  Extensions on Dart enums adding json-serialization and
+  a mapping of enum instances to a constant with arbitrary value type.
+  Works with generic_enum_builder.
 
-version: 0.2.9
+version: 0.3.0
 homepage: https://github.com/simphotonics/generic_enum/tree/master/generic_enum
 
 environment:
