@@ -4,10 +4,13 @@
 
 ## Update
 
-As of [`generic_enum 0.3.0`][generic_enum] it is not longer required to extend `GenericEnum`. Instead, it is recommended to define a standard Dart enumeration and an extension that provides the mapping of enumeration instance to a value of arbitrary data-type. For updated instruction see below.
+As of [`generic_enum 0.3.0`][generic_enum] it is not longer required to extend `GenericEnum`. In fact, this class have been removed.
+The package uses [`extension-methods`][extension-methods], a change that greatly simplifies the code-generation
+process and reduces the required boiler-plate.
 
-As of [`generic_enum 0.2.2`][generic_enum],  the package [`generic_enum_annotation`][generic_enum_annotation]
-is no longer required as a dependency when building a generic enum.
+It is recommended to define a standard Dart enumeration and an extension that provides a
+mapping of each enumeration instance to a value of arbitrary data-type. For updated instructions see below.
+
 
 ## Introduction
 
