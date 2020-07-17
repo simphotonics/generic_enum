@@ -6,42 +6,31 @@ part of 'dpi_resolution.dart';
 // JsonGenerator
 // **************************************************************************
 
-/// Converts an instance of [DpiResolution] to a map [Map<String, dynamic>].
-/// Add the following method to your class definition:
-/// ```
-///  @override
-///  Map<String, dynamic> toJson() => _$DpiResolutionToJson(this);
-/// ```
-Map<String, dynamic> _$DpiResolutionToJson(DpiResolution instance) =>
-    {'key': _$DpiResolutionValueMap.values.toList().indexOf(instance)};
-
-/// Converts a map [Map<String, dynamic>] to an instance of [DpiResolution].
-/// Add the following factory constructor to your class definition:
-/// ```
-/// factory DpiResolution.fromJson(Map<String, dynamic> json) =>
-///   _$DpiResolutionFromJson(json);
-/// ```
-DpiResolution _$DpiResolutionFromJson(Map<String, dynamic> json) {
-  final key = (json['key']) as int;
-  DpiResolution instance = _$DpiResolutionValueMap.values.toList()[key];
-  if (instance == null) {
-    throw GenericEnumException(
-        '.fromJson constructor: Could not find a matching instance of type DpiResolution.');
+/// Extension providing the functions `fromJson` and `toJson`.
+extension ToDpiResolution on DpiResolution {
+  /// Converts [json] to an instance of `DpiResolution`.
+  static DpiResolution fromJson(Map<String, dynamic> json) {
+    final index = (json['index']) as int;
+    if (index == null) {
+      throw ErrorOf<DpiResolution>(
+          message: 'Error deserializing json to DpiResolution.',
+          invalidState: 'json[index] returned null.',
+          expectedState: 'A map entry: {index: int value}.');
+    }
+    if (index >= 0 && index < DpiResolution.values.length) {
+      return DpiResolution.values[index];
+    } else {
+      throw ErrorOf<DpiResolution>(
+          message: 'Function fromJson could not find '
+              'an instance of type DpiResolution.',
+          invalidState: 'DpiResolution.values[$index] out of bounds.');
+    }
   }
-  return instance;
+
+  /// Converts `this` to a map `Map<String, dynamic>`.
+  Map<String, dynamic> toJson() =>
+      {'index': DpiResolution.values.indexOf(this)};
+
+  /// Converts `this` to a json encoded `String`.
+  String get jsonEncoded => '{"index":${DpiResolution.values.indexOf(this)}}';
 }
-
-// **************************************************************************
-// MapGenerator
-// **************************************************************************
-
-/// Maps a value of type [int] to an instance of [DpiResolution].
-/// Add the following getter to your class definition:
-/// ```
-/// static Map<int,DpiResolution> get valueMap => _$DpiResolutionValueMap;
-/// ```
-final _$DpiResolutionValueMap = Map<int, DpiResolution>.unmodifiable({
-  DpiResolution.LOW.value: DpiResolution.LOW,
-  DpiResolution.MEDIUM.value: DpiResolution.MEDIUM,
-  DpiResolution.HIGH.value: DpiResolution.HIGH,
-});

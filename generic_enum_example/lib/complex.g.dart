@@ -6,40 +6,31 @@ part of 'complex.dart';
 // JsonGenerator
 // **************************************************************************
 
-/// Converts an instance of [ComplexConstant] to a map [Map<String, dynamic>].
-/// Add the following method to your class definition:
-/// ```
-///  @override
-///  Map<String, dynamic> toJson() => _$ComplexConstantToJson(this);
-/// ```
-Map<String, dynamic> _$ComplexConstantToJson(ComplexConstant instance) =>
-    {'key': _$ComplexConstantValueMap.values.toList().indexOf(instance)};
-
-/// Converts a map [Map<String, dynamic>] to an instance of [ComplexConstant].
-/// Add the following factory constructor to your class definition:
-/// ```
-/// factory ComplexConstant.fromJson(Map<String, dynamic> json) =>
-///   _$ComplexConstantFromJson(json);
-/// ```
-ComplexConstant _$ComplexConstantFromJson(Map<String, dynamic> json) {
-  final key = (json['key']) as int;
-  ComplexConstant instance = _$ComplexConstantValueMap.values.toList()[key];
-  if (instance == null) {
-    throw GenericEnumException(
-        '.fromJson constructor: Could not find a matching instance of type ComplexConstant.');
+/// Extension providing the functions `fromJson` and `toJson`.
+extension ToComplexConstant on ComplexConstant {
+  /// Converts [json] to an instance of `ComplexConstant`.
+  static ComplexConstant fromJson(Map<String, dynamic> json) {
+    final index = (json['index']) as int;
+    if (index == null) {
+      throw ErrorOf<ComplexConstant>(
+          message: 'Error deserializing json to ComplexConstant.',
+          invalidState: 'json[index] returned null.',
+          expectedState: 'A map entry: {index: int value}.');
+    }
+    if (index >= 0 && index < ComplexConstant.values.length) {
+      return ComplexConstant.values[index];
+    } else {
+      throw ErrorOf<ComplexConstant>(
+          message: 'Function fromJson could not find '
+              'an instance of type ComplexConstant.',
+          invalidState: 'ComplexConstant.values[$index] out of bounds.');
+    }
   }
-  return instance;
+
+  /// Converts `this` to a map `Map<String, dynamic>`.
+  Map<String, dynamic> toJson() =>
+      {'index': ComplexConstant.values.indexOf(this)};
+
+  /// Converts `this` to a json encoded `String`.
+  String get jsonEncoded => '{"index":${ComplexConstant.values.indexOf(this)}}';
 }
-
-// **************************************************************************
-// MapGenerator
-// **************************************************************************
-
-/// Maps a value of type [Complex] to an instance of [ComplexConstant].
-/// Add the following getter to your class definition:
-/// ```
-/// static Map<Complex,ComplexConstant> get valueMap => _$ComplexConstantValueMap;
-/// ```
-final _$ComplexConstantValueMap = Map<Complex, ComplexConstant>.unmodifiable({
-  ComplexConstant.i.value: ComplexConstant.i,
-});

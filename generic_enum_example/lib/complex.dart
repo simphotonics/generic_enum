@@ -1,4 +1,5 @@
 import 'package:generic_enum/generic_enum.dart';
+import 'package:exception_templates/exception_templates.dart';
 
 part 'complex.g.dart';
 
@@ -12,28 +13,29 @@ class Complex {
     return '$real + ${imag}i';
   }
 
-  Map<String, dynamic> toJson() {
-    return {'real': real, 'imag': imag};
-  }
-
-  factory Complex.fromJson(Map<String, dynamic> json) =>
-      Complex(json['real'], json['imag']);
-}
-
-@GenerateFromToJson()
-class ComplexConstant extends GenericEnum<Complex> {
-  const ComplexConstant._(Complex value) : super(value);
-
-  static const i = ComplexConstant._(Complex(0, 1));
-
-  /// 5. Provide access to the map _$DirectionValueMap.
-  static Map<Complex, ComplexConstant> get valueMap =>
-      _$ComplexConstantValueMap;
-
-  /// 6. Define the factory constructor .fromJson
-  factory ComplexConstant.fromJson(Map<String, dynamic> json) =>
-      _$ComplexConstantFromJson(json);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Complex &&
+          runtimeType == other.runtimeType &&
+          this.real == other.real &&
+          this.imag == other.imag;
 
   @override
-  Map<String, dynamic> toJson() => _$ComplexConstantToJson(this);
+  int get hashCode => real.hashCode ^ imag.hashCode;
+}
+
+@GenerateJsonExtension()
+enum ComplexConstant {
+  zero,
+  i,
+}
+
+extension ComplexConstantValue on ComplexConstant {
+  Complex get value {
+    return const {
+      ComplexConstant.zero: Complex(0, 0),
+      ComplexConstant.i: Complex(0, 1),
+    }[this];
+  }
 }
