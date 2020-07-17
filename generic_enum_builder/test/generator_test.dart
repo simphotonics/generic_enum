@@ -18,10 +18,16 @@ Future<void> main() async {
   generatedJsonVector = DartFormatter().format(generatedJsonVector);
   String expectedJsonVector =
       '/// Extension providing the functions `fromJson` and `toJson`.\n'
-      'extension VectorJson on Vector {\n'
+      'extension ToVector on Vector {\n'
       '  /// Converts [json] to an instance of `Vector`.\n'
       '  static Vector fromJson(Map<String, dynamic> json) {\n'
       '    final index = (json[\'index\']) as int;\n'
+      '    if (index == null) {\n'
+      '      throw ErrorOf<Vector>(\n'
+      '          message: \'Error deserializing json to Vector.\',\n'
+      '          invalidState: \'json[index] returned null.\',\n'
+      '          expectedState: \'A map entry: {index: int value}.\');\n'
+      '    }\n'
       '    if (index >= 0 && index < Vector.values.length) {\n'
       '      return Vector.values[index];\n'
       '    } else {\n'
@@ -33,7 +39,10 @@ Future<void> main() async {
       '  }\n'
       '\n'
       '  /// Converts `this` to a map `Map<String, dynamic>`.\n'
-      '  Map<String, dynamic> toJson() => {\'key\': Vector.values.indexOf(this)};\n'
+      '  Map<String, dynamic> toJson() => {\'index\': Vector.values.indexOf(this)};\n'
+      '\n'
+      '  /// Converts `this` to a json encoded `String`.\n'
+      '  String get jsonEncoded => \'{"index":\${Vector.values.indexOf(this)}}\';\n'
       '}\n'
       '';
 
