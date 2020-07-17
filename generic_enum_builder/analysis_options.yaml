@@ -1,0 +1,7 @@
+include:
+
+analyzer:
+  # enable-experiment:
+  #   - extension-methods
+
+linter:
