@@ -4,8 +4,8 @@
 
 ## Introduction
 
-This library serves as a demonstrator on how to create [`GenericEnum`][GenericEnum] classes with features
-like json-serialization, a value-instance map, and access to instance identifiers.
+The package [`generic_enum_example`][generic_enum_example] serves as a demonstrator on how to create generic enumeration classes by adding extensions that offer json-serialization and a mapping of enum instances to generic base values.
+
 
 ## Starting Point
 
@@ -22,8 +22,7 @@ As a starting point, users could follow these steps:
 Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
-[GenericEnum]: https://pub.dev/documentation/generic_enum/latest/generic_enum/GenericEnum-class.html
 
 [generic_enum]: https://pub.dev/packages/generic_enum
-[generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
 [generic_enum_builder]: https://pub.dev/packages/generic_enum_builder
+[generic_enum_example]: https://pub.dev/packages/generic_enum_example
