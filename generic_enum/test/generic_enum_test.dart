@@ -1,82 +1,87 @@
 import 'dart:convert';
-
+import 'package:exception_templates/exception_templates.dart';
 import 'package:test/test.dart';
+
 import 'src/complex.dart';
-import 'src/name_part.dart';
-import 'src/plane_type.dart';
+import 'src/dpi_resolution.dart';
 
 void main() {
-  group('Get value of enum:', () {
-    test('Get String value', () {
-      expect(NamePart.FIRST_NAME.value, 'FIRST_NAME');
+  group('Base value:', () {
+    test('complex', () {
+      expect(ComplexConstant.i.value, Complex(0, 1));
     });
-    test('Get int value', () {
-      expect(PlaneType.AB707.value, 707);
-    });
-  });
-
-  group('Testing valueMap getter:', () {
-    test('Retrieve instance of NamePart', () {
-      expect(NamePart.FIRST_NAME, NamePart.valueMap[NamePart.FIRST_NAME.value]);
-    });
-    test('Retrieve instance of PlaneType', () {
-      expect(PlaneType.AB707, PlaneType.valueMap[PlaneType.AB707.value]);
+    test('double', () {
+      expect(DpiResolution.HIGH.value, 600.0);
     });
   });
 
   group('toJson():', () {
-    test('String value', () {
-      expect(NamePart.FIRST_NAME.toJson(), {'key': 0});
+    test('complex', () {
+      expect(ComplexConstant.i.toJson(), {'index': 1});
     });
-    test('Int value', () {
-      expect(PlaneType.AB747.toJson(), {'key': 1});
-    });
-    test('Complex value', () {
-      expect(ComplexConstant.i.toJson(), {'key': 0});
+    test('double', () {
+      expect(DpiResolution.LOW.toJson(), {'index': 0});
     });
   });
 
   group('fromJson():', () {
-    test('String value', () {
+    test('complex', () {
       expect(
-        NamePart.LAST_NAME,
-        NamePart.fromJson({'key': 1}),
+        ComplexConstant.i,
+        ToComplexConstant.fromJson({'index': 1}),
       );
     });
-    test('Int value', () {
+    test('double', () {
       expect(
-        PlaneType.AB707,
-        PlaneType.fromJson({'key': 0}),
+        DpiResolution.HIGH,
+        ToDpiResolution.fromJson({'index': 2}),
       );
-    });
-    test('Complex value', () {
-      expect(ComplexConstant.i, ComplexConstant.fromJson({'key': 0}));
     });
   });
   group('Serialization:', () {
-    test('GenericEnum<Int>', () {
-      expect(jsonEncode(PlaneType.AB707), '{"key":0}');
+    test('ComplexConstant', () {
+      expect(ComplexConstant.i.jsonEncoded, '{"index":1}');
     });
-    test('GenericEnum<Complex>', () {
-      expect(jsonEncode(ComplexConstant.i), '{"key":0}');
+    test('DpiResolution', () {
+      expect(DpiResolution.MEDIUM.jsonEncoded, '{"index":1}');
     });
   });
   group('De-Serialization:', () {
-    test('GenericEnum<Int>', () {
+    test('ComplexConstant', () {
       expect(
-        PlaneType.AB707,
-        PlaneType.fromJson(
-          jsonDecode('{"key":0}'),
+        ComplexConstant.i,
+        ToComplexConstant.fromJson(
+          jsonDecode('{"index":1}'),
         ),
       );
     });
-    test('GenericEnum<Complex>', () {
+    test('DpiResolution', () {
       expect(
-        ComplexConstant.i,
-        ComplexConstant.fromJson(
-          jsonDecode('{"key":0}'),
+        DpiResolution.MEDIUM,
+        ToDpiResolution.fromJson(
+          jsonDecode('{"index":1}'),
         ),
       );
+    });
+  });
+  group('Error:', () {
+    test('invalid json: missing index', () {
+      try {
+        ToDpiResolution.fromJson({'index': null});
+      } on ErrorOf<DpiResolution> catch (e) {
+        expect(e, isA<ErrorOf<DpiResolution>>());
+      } catch (e) {
+        expect(e, null, reason: 'Error should have been caught above.');
+      }
+    });
+    test('invalid json: index out of bounds', () {
+      try {
+        ToDpiResolution.fromJson({'index': 5});
+      } on ErrorOf<DpiResolution> catch (e) {
+        expect(e, isA<ErrorOf<DpiResolution>>());
+      } catch (e) {
+        expect(e, null, reason: 'Error should have been caught above.');
+      }
     });
   });
 }
