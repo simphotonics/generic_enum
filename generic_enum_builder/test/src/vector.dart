@@ -1,30 +1,14 @@
 import 'package:generic_enum/generic_enum.dart';
+import 'package:exception_templates/exception_templates.dart';
 
-part 'vector.test_sample.dart';
+part 'vector.g.dart';
 
-class Vector<T extends num> {
-  const Vector(this.a1, this.a2);
+@GenerateJsonExtension()
+enum Vector { alpha, beta }
 
-  final T a1;
-  final T a2;
-}
-
-/// Sample class used as test input in map_generator_test.dart.
-@GenerateIdentifier()
-@GenerateValueMap()
-class VectorEnum extends GenericEnum<Vector<double>> {
-  const VectorEnum._(Vector value) : super(value);
-
-  static const V1 = VectorEnum._(Vector<double>(1.0, 0.0));
-  static const V2 = VectorEnum._(Vector<double>(0.0, 1.0));
-
-  static Map<Vector<double>, VectorEnum> get valueMap => _$VectorEnumValueMap;
-  static String identifier(VectorEnum vectorEnum) =>
-      _$VectorEnumIdentifier(vectorEnum);
-
-  @override
-  Map<String, dynamic> toJson() {
-    // TODO: implement toJson
-    throw UnimplementedError();
-  }
+extension VectorValue on Vector {
+  double get value => {
+        Vector.alpha: 3.14,
+        Vector.beta: 6.98,
+      }[this];
 }
