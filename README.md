@@ -5,7 +5,7 @@
 ## Update
 
 As of [`generic_enum 0.3.0`][generic_enum] it is not longer required to extend `GenericEnum`. In fact, this class have been removed.
-The package uses [`extension-methods`][extension-methods], a change that greatly simplifies the code-generation
+The package now uses [`extension-methods`][extension-methods], a change that greatly simplifies the code-generation
 process and reduces the required boiler-plate.
 
 It is recommended to define a standard Dart enumeration and an extension that provides a
