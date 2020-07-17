@@ -13,7 +13,8 @@ class GenerateJsonExtension {
   /// part 'dpi_resolution.g.dart';
   ///
   /// // 2. Define an enumeration.
-  /// //    and annotate it with @GenerateJsonExtension().
+  /// //    and annotate it with
+  /// @GenerateJsonExtension().
   /// enum DpiResolution { LOW, MEDIUM, HIGH }
   ///
   /// // 3. Define an extension on the enumeration

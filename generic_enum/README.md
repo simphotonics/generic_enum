@@ -38,10 +38,10 @@ The example below shows how to define the enumeration `DpiResolution` where the 
 
    // 2. Define an enumeration.
    //    and annotate it with @GenerateJsonExtension().
+   @GenerateJsonExtension()
    enum DpiResolution { LOW, MEDIUM, HIGH }
 
    // 3. Define an extension on the enumeration.
-   @GenerateJsonExtension()
    extension DpiResolutionValue on DpiResolution {
    // 4. Define a getter mapping each instance of the enum to its base value.
      double get value => const {
