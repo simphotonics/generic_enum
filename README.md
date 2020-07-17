@@ -143,7 +143,6 @@ Please file feature requests and bugs at the [issue tracker].
 [analyzer]: https://pub.dev/packages/analyzer
 [source_gen]: https://pub.dev/packages/source_gen
 [generic_enum]: https://pub.dev/packages/generic_enum
-[generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
 [generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
 [generic_enum_builder]: https://pub.dev/packages/generic_enum_builder
 [build_runner]: https://pub.dev/packages/build_runner
