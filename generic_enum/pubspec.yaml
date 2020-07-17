@@ -11,6 +11,7 @@ environment:
   sdk: '>=2.8.0 <3.0.0'
 
 dependencies:
+  exception_templates: ^0.0.3
 
 dev_dependencies:
   test: ^1.15.1
