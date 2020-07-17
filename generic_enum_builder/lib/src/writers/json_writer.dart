@@ -40,8 +40,7 @@ class JsonWriter {
     b.writeln('if (index == null){');
     b.writeln('throw ErrorOf<$enumType>(');
     b.writeln('message: \'Error deserializing json to $enumType.\',');
-    b.writeln(
-        'invalidState: \'json[index] returned null.\',');
+    b.writeln('invalidState: \'json[index] returned null.\',');
     b.writeln('expectedState: \'A map entry: {index: int value}.\'');
     b.writeln(');}');
     // Checking if index is out of bounds.

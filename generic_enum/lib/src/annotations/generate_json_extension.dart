@@ -1,4 +1,3 @@
-
 /// Annotation requesting the generation of an extension
 /// containing the functions `toJson` and `fromJson`.
 class GenerateJsonExtension {
@@ -67,5 +66,5 @@ class GenerateJsonExtension {
   ///   String get jsonEncoded => '{"index":${DpiResolution.values.indexOf(this)}}';
   /// }
   /// ```
-     const GenerateJsonExtension();
-  }
+  const GenerateJsonExtension();
+}
