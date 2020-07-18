@@ -141,7 +141,7 @@ where the value of each enum instance is mapped to a value of type `double`.
 
 Because of this [issue] it is not possible to pass an instance of `enum`
 to the function `jsonEncode(Object object)` (provided by `dart:convert`)
-even is the functions `toJson()` is defined in an extension of the `enum`.
+even if the function `toJson()` is defined in an extension of the `enum`.
 
 Alternative ways to serialize an instance of enum are:
 * Use the getter `toJsonEncoded` to retrieve a json encoded `String`.
