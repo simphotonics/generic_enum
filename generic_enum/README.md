@@ -4,12 +4,14 @@
 
 ## Update
 
-As of [`generic_enum 0.3.0`][generic_enum] it is not longer required to extend `GenericEnum`. In fact, this class have been removed.
-The package now uses [`extension-methods`][extension-methods], a change that greatly simplifies the code-generation
-process and reduces the required boiler-plate.
+As of [`generic_enum 0.3.0`][generic_enum] it is not longer required to extend `GenericEnum`.
+In fact, this class have been removed.
+The package now uses [`extension-methods`][extension-methods]. This change greatly
+simplifies the complexity of [`generic_enum_builder`][generic_enum_builder]
+and reduces the required boiler-plate (generated methods are automatically available).
 
-It is recommended to define a standard Dart enumeration and an extension that provides a
-mapping of each enumeration instance to a value of arbitrary data-type. For updated instructions see below.
+The added benefit is that standard **Dart enums** can be made "generic" by mapping
+each enumeration instance to a constant value of arbitrary data-type.
 
 
 ## Introduction
@@ -28,7 +30,8 @@ can be mapped to an arbitrary data-type.
 To use this library include [`generic_enum`][generic_enum] as dependencies in your `pubspec.yaml` file.
 Include [`generic_enum_builder`][generic_enum_builder], and [`build_runner`][build_runner] as dev_dependencies.
 
-The example below shows how to define the enumeration `DpiResolution` where the value of each enum instance is mapped to a value of type `double`.
+The example below shows how to define the enumeration `DpiResolution`
+where the value of each enum instance is mapped to a value of type `double`.
 <details> <summary> Click to show source code. </summary>
 
   ```Dart
@@ -58,9 +61,11 @@ The example below shows how to define the enumeration `DpiResolution` where the 
 
 0. Add the import directives shown above.
 1. Add a part statement referencing the generated file `dpi_resolution.g.dart`.
-2. Define an enumeration.
-3. Define an extension on the enumeration and annotate with @GenerateJsonExtension().
-4. Define a getter mapping each instance of the enum to its base value.
+2. Define an enumeration and annotate it with @GenerateJsonExtension().
+3. Define a public extension on the enumeration.
+4. Define a getter mapping each instance of the enum to a unique const value with arbitrary data-type.
+ (Inspired by this [issue comment]).
+
 5. Configure the build targets (and amend the generate_for entry).
    In your local `build.yaml` file add configurations for the builder
    `json_builder` provided by the package [generic_enum_builder].
@@ -71,7 +76,7 @@ The example below shows how to define the enumeration `DpiResolution` where the 
       targets:
         $default:
           builders:
-            # Configure the builder `pkg_name|builder_name`
+            # Configure the builder `pkg_name|buil, provided by `dart:convert`.der_name`
             generic_enum_builder|json_builder:
               # Only run this builder on the specified input.
               enabled: true
@@ -132,6 +137,18 @@ The example below shows how to define the enumeration `DpiResolution` where the 
       ```
      </details>
 
+## Limitations
+
+Because of this [issue] it is not possible to pass an instance of `enum`
+to the function `jsonEncode(Object object)` (provided by `dart:convert`)
+even if the function `toJson()` is defined in an extension of the `enum`.
+
+Alternative ways to serialize an instance of enum are:
+* Use the getter `toJsonEncoded` to retrieve a json encoded `String`.
+* Pass the result of `toJson()` to `jsonEncode`.
+* Use a full blown serialization approach like [`json_serializable`][json_serializable].
+This is recommended if your project already uses [`json_serializable`][json_serializable].
+
 
 ## Examples
 
@@ -151,4 +168,7 @@ Please file feature requests and bugs at the [issue tracker].
 [generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
 [generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
 [generic_enum_builder]: https://pub.dev/packages/generic_enum_builder
+[json_serializable]: https://pub.dev/packages/json_serializable
 [source_gen]: https://pub.dev/packages/source_gen
+[issue]: https://github.com/dart-lang/sdk/issues/42742
+[issue comment]: https://github.com/dart-lang/language/issues/158#issuecomment-603967738
