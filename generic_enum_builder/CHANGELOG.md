@@ -1,3 +1,7 @@
+## 0.3.1
+
+Removed `src/collectors`.
+
 ## 0.3.0
 
 Generates an extensions for each annotated Dart enum.
