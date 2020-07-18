@@ -76,7 +76,7 @@ where the value of each enum instance is mapped to a value of type `double`.
       targets:
         $default:
           builders:
-            # Configure the builder `pkg_name|builder_name`
+            # Configure the builder `pkg_name|buil, provided by `dart:convert`.der_name`
             generic_enum_builder|json_builder:
               # Only run this builder on the specified input.
               enabled: true
@@ -137,6 +137,17 @@ where the value of each enum instance is mapped to a value of type `double`.
       ```
      </details>
 
+## Limitations
+
+Because of this issue it is not possible to pass an instance of `enum`
+to the function `jsonEncode(Object object)` even is the functions `toJson` is
+defined in an extension.
+
+Alternative ways to serialize an instance of enum are:
+* Use the getter `toJsonEncoded` to retrieve a json encoded `String`.
+* Pass the result of `toJson()` to `jsonEncode`.
+* Use a full blown serialization approach like [`json_serializable`][json_serializable].
+
 
 ## Examples
 
@@ -156,5 +167,6 @@ Please file feature requests and bugs at the [issue tracker].
 [generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
 [generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
 [generic_enum_builder]: https://pub.dev/packages/generic_enum_builder
+[json_serializable]: https://pub.dev/packages/json_serializable
 [source_gen]: https://pub.dev/packages/source_gen
 [issue comment]: https://github.com/dart-lang/language/issues/158#issuecomment-603967738
