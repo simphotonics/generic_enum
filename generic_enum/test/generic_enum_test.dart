@@ -45,6 +45,11 @@ void main() {
     test('DpiResolution', () {
       expect(DpiResolution.MEDIUM.jsonEncoded, '{"index":1}');
     });
+     test('jsonEncode()', () {
+      expect(jsonEncode(DpiResolution.LOW.toJson()), '{"index":0}');
+    });
+
+
   });
   group('De-Serialization:', () {
     test('ComplexConstant', () {
