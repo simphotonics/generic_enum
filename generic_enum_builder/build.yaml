@@ -1,7 +1,7 @@
 # Builders defined by this package:
 builders:
   json_builder:
-    import: "package:generic_enum_builder/builder.dart"
+    import: "package:generic_enum_builder/generic_enum_builder.dart"
     builder_factories: ["jsonBuilder"]
     build_extensions: {".dart": ["json_builder.g.part"]}
     auto_apply: dependents
