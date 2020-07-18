@@ -4,8 +4,9 @@
 
 ## Introduction
 
-This package [`generic_enum_example`][generic_enum_example] demonstrates how to define and build generic enumeration classes
+This package [`generic_enum_example`][generic_enum_example] demonstrates how to define and build extentions on Dart enums
 with the help of [`generic_enum`][generic_enum] and [`generic_enum_builder`][generic_enum_builder].
+
 
 
 ## Starting Point
@@ -16,7 +17,9 @@ their own generic enum classes to the folder `lib` and build the library.
 
 ## Usage
 
-A step-by-step guide on how to build generic enumeration classes is provided [here].
+A step-by-step guide on how to configure the builder is provided at
+[https://pub.dev/packages/generic_enum#usage](https://pub.dev/packages/generic_enum#usage).
+
 
 ## Features and bugs
 
