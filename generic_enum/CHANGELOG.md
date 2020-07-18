@@ -1,7 +1,7 @@
 ## 0.3.0
 
-Breaking change. Removed class `GenericEnum`. Using extension-methods
-it is now possible to add methods to a standard Dart enum.
+Breaking change. Removed class `GenericEnum`. Using [extension-methods]
+it is now possible to add json-methods to a standard Dart enum.
 See README.md for update usage instructions.
 
 ## 0.2.9
@@ -109,3 +109,5 @@ Library now depends on built_collection.
 ## 0.0.1
 
 Initial Version of the library.
+
+[extension-methods]: https://dart.dev/guides/language/extension-methods
