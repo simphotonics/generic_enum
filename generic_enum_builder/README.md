@@ -18,14 +18,15 @@ To use this library include [`generic_enum`][generic_enum] as *dependency* in yo
 
 Include [`generic_enum_builder`][generic_enum_builder] and [`build_runner`][build_runner] as *dev_dependencies*.
 
-A step-by-step guide on how to configure the builder is provided at [https://pub.dev/packages/generic_enum#usage](https://pub.dev/packages/generic_enum#usage).
+A step-by-step guide on how to configure the builder is provided at
+[https://pub.dev/packages/generic_enum#usage](https://pub.dev/packages/generic_enum#usage).
 
 
 ## Examples
 
 The package [`generic_enum_example`][generic_enum_example] provides a complete example on how to define and build
 generic enumeration classes. As a starting point users could clone this repository, add
-their own generic enum classes to the folder `lib` and build the library.
+their own annotated enumerations to the folder `lib` and build the library.
 
 
 ## Features and bugs
