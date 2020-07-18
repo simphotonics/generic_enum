@@ -7,7 +7,7 @@
 As of [`generic_enum 0.3.0`][generic_enum] it is not longer required to extend `GenericEnum`.
 In fact, this class have been removed.
 The package now uses [`extension-methods`][extension-methods]. This change greatly
-simplifies the complexity of [`generic_enum_builder`][`generic_enum_builder`]
+simplifies the complexity of [`generic_enum_builder`][generic_enum_builder]
 and reduces the required boiler-plate (generated methods are automatically available).
 
 The added benefit is that standard **Dart enums** can be made "generic" by mapping
@@ -62,10 +62,10 @@ where the value of each enum instance is mapped to a value of type `double`.
 0. Add the import directives shown above.
 1. Add a part statement referencing the generated file `dpi_resolution.g.dart`.
 2. Define an enumeration.
-3. Define a public extension on the enumeration that maps each enum instance to a
-const value with arbitrary data-type. (Inspired by this [issue comment]).
-Annotate the extension with @GenerateJsonExtension().
-4. Define a getter mapping each instance of the enum to its base value.
+3. Define a public extension on the enumeration and annotate it with @GenerateJsonExtension().
+4. Define a getter mapping each instance of the enum to a unique const value with arbitrary data-type.
+ (Inspired by this [issue comment]).
+
 5. Configure the build targets (and amend the generate_for entry).
    In your local `build.yaml` file add configurations for the builder
    `json_builder` provided by the package [generic_enum_builder].
