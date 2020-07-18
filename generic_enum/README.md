@@ -5,7 +5,7 @@
 ## Update
 
 As of [`generic_enum 0.3.0`][generic_enum] it is not longer required to extend `GenericEnum`.
-In fact, this class have been removed.
+In fact, this class has been removed.
 The package now uses [`extension-methods`][extension-methods]. This change greatly
 simplifies the complexity of [`generic_enum_builder`][generic_enum_builder]
 and reduces the required boiler-plate (generated methods are automatically available).
@@ -141,13 +141,39 @@ where the value of each enum instance is mapped to a value of type `double`.
 
 Because of this [issue] it is not possible to pass an instance of `enum`
 to the function `jsonEncode(Object object)` (provided by `dart:convert`)
-even if the function `toJson()` is defined in an extension of the `enum`.
+even if the function `toJson()` is defined in an extension on the `enum`.
 
 Alternative ways to serialize an instance of enum are:
 * Use the getter `toJsonEncoded` to retrieve a json encoded `String`.
 * Pass the result of `toJson()` to `jsonEncode`.
 * Use a full blown serialization approach like [`json_serializable`][json_serializable].
 This is recommended if your project already uses [`json_serializable`][json_serializable].
+
+
+When it comes to deserialization, the usual approach is to define a factory constructor named `fromJson`.
+This is not possible since extensions do not support constructors. Moreover, static extension-methods
+are accessed by specifying the extension name,
+
+To keep the notation similar to the "usual approach", the extension containing the static method `fromJson`
+is named **To** + **Enum Name**, see example below.
+```Dart
+import 'dpi_resolution.dart';
+import 'package:test/test.dart';
+
+final low = DpiResolution.LOW;
+
+// Encoding:
+Map<String, dynamic> json = low.toJson();
+
+// String jsonEncoded0 = jsonEncode(low); Throws! Extensions not available for dynamic types.
+String jsonEncoded1 = jsonEncode(json)
+String jsonEncoded2 = low.jsonEncoded;
+expect(jsonEncode1, jsonEncode2);
+
+// Decoding (notice the prefix "To").
+expect(ToDpiResolution.fromJson(json), low);
+expect(ToDpiResolution.fromJson(jsonDecode(jsonEncoded)), low);
+```
 
 
 ## Examples

@@ -1,3 +1,7 @@
+## 0.3.1
+
+Amended `README.md`, added section limitations.
+
 ## 0.3.0
 
 Breaking change. Removed class `GenericEnum`. Using [extension-methods]
