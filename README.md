@@ -61,8 +61,8 @@ where the value of each enum instance is mapped to a value of type `double`.
 
 0. Add the import directives shown above.
 1. Add a part statement referencing the generated file `dpi_resolution.g.dart`.
-2. Define an enumeration.
-3. Define a public extension on the enumeration and annotate it with @GenerateJsonExtension().
+2. Define an enumeration and annotate it with @GenerateJsonExtension().
+3. Define a public extension on the enumeration.
 4. Define a getter mapping each instance of the enum to a unique const value with arbitrary data-type.
  (Inspired by this [issue comment]).
 
@@ -139,14 +139,15 @@ where the value of each enum instance is mapped to a value of type `double`.
 
 ## Limitations
 
-Because of this issue it is not possible to pass an instance of `enum`
-to the function `jsonEncode(Object object)` even is the functions `toJson` is
-defined in an extension.
+Because of this [issue] it is not possible to pass an instance of `enum`
+to the function `jsonEncode(Object object)` (provided by `dart:convert`)
+even is the functions `toJson()` is defined in an extension of the `enum`.
 
 Alternative ways to serialize an instance of enum are:
 * Use the getter `toJsonEncoded` to retrieve a json encoded `String`.
 * Pass the result of `toJson()` to `jsonEncode`.
 * Use a full blown serialization approach like [`json_serializable`][json_serializable].
+This is recommended if your project already uses [`json_serializable`][json_serializable].
 
 
 ## Examples
@@ -169,4 +170,5 @@ Please file feature requests and bugs at the [issue tracker].
 [generic_enum_builder]: https://pub.dev/packages/generic_enum_builder
 [json_serializable]: https://pub.dev/packages/json_serializable
 [source_gen]: https://pub.dev/packages/source_gen
+[issue]: https://github.com/dart-lang/sdk/issues/42742
 [issue comment]: https://github.com/dart-lang/language/issues/158#issuecomment-603967738
