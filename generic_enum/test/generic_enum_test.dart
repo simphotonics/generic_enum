@@ -6,12 +6,20 @@ import 'src/complex.dart';
 import 'src/dpi_resolution.dart';
 
 void main() {
-  group('Base value:', () {
+  group('Mapped value:', () {
     test('complex', () {
       expect(ComplexConstant.i.value, Complex(0, 1));
     });
     test('double', () {
       expect(DpiResolution.HIGH.value, 600.0);
+    });
+  });
+  group('String value:', () {
+    test('Complex', () {
+      expect(ComplexConstant.i.stringValue, 'i');
+    });
+    test('DpiResolution', () {
+      expect(DpiResolution.HIGH.stringValue, 'HIGH');
     });
   });
 
