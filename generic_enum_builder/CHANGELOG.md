@@ -1,3 +1,14 @@
+## 0.3.2
+
+Changed builder factory name from `jsonBuilder` to `extensionBuilder`.
+Changed builder name to `extension_builder`.
+Added classes `ValueGenerator` and `ValueWriter` to enable the generation
+of an extension mapping enum instances to a `String` value and to a mapped
+value of arbitrary data-type.
+For updated instructions on how to configure the builder see:
+[https://pub.dev/packages/generic_enum#usage](https://pub.dev/packages/generic_enum#usage).
+
+
 ## 0.3.1
 
 Removed `src/collectors`.
@@ -6,8 +17,6 @@ Removed `src/collectors`.
 
 Generates an extensions for each annotated Dart enum.
 Retained only the builder `json_builder`.
-For updated instructions on how to configure the builder see:
-[https://pub.dev/packages/generic_enum#usage](https://pub.dev/packages/generic_enum#usage).
 
 ## 0.2.7
 
