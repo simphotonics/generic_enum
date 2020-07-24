@@ -83,7 +83,8 @@ where the value of each enum instance is mapped to a value of type `Complex`.
   ```
 </details>
 
-The required steps are detailed below.
+The required steps are detailed below:
+
 0. Add the import directives shown above.
 1. Add a part statement referencing the generated file `complex.g.dart`.
 2. Define an enumeration and annotate it with:
