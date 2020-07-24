@@ -54,8 +54,8 @@ Future<void> main() async {
       '';
 
   String expectedValueVector =
-      '/// Extension providing the getter `stringValue`.\n'
-      'extension VectorStringValue on Vector {\n'
+      '/// Extension on `Vector` providing value-getters.\n'
+      'extension VectorValue on Vector {\n'
       '  /// Returns the mapped double value of\n'
       '  /// an instance of `Vector`.\n'
       '  double get value => const <Vector, double>{\n'
