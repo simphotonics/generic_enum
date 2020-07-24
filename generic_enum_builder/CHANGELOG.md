@@ -1,3 +1,7 @@
+## 0.3.3
+
+Amended generated Dart docs of extension `<EnumName>Value`.
+
 ## 0.3.2
 
 Changed builder factory name from `jsonBuilder` to `extensionBuilder`.
