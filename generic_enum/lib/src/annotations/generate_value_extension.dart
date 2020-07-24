@@ -1,7 +1,6 @@
-/// Annotation requesting the generation of the extension <EnumName>Value.
+/// Annotation requesting the generation of the extension `<EnumName>Value`.
 class GenerateValueExtension {
-  /// Annotation requesting the generation of the extension <EnumName>Value.
-  /// * [getterName] must be a valid Dart identifier.
+  /// Annotation requesting the generation of the extension `<EnumName>Value`.
   const GenerateValueExtension({
     this.getterName = 'stringValue',
     this.mappedGetterName = 'value',
@@ -14,7 +13,7 @@ class GenerateValueExtension {
   /// * Name must be a valid Dart identifier.
   final String getterName;
 
-  /// Name of returning a mapped enum value.
+  /// Name of getter returning a mapped enum value.
   /// * Default name: "value".
   /// * Name must be a valid Dart identifier.
   final String mappedGetterName;
@@ -28,7 +27,8 @@ class GenerateValueExtension {
   /// ```
   final ValueType mappedValueType;
 
-  /// Const values of type `T` encoded as a `String`, where `mappedValueType: ValueType<T>`.
+  /// Const values of type `T` encoded as a `String`,
+  /// where `mappedValueType: ValueType<T>`.
   /// * Entries are copied verbatim to the getter:
   /// ```
   /// T get value =>
