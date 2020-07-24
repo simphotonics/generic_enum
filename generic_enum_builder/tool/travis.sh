@@ -44,7 +44,7 @@ dartanalyzer \
     --fatal-warnings \
     --fatal-infos \
     --packages="$PWD/.packages" \
-    $(find bin lib -name \*.dart 2>/dev/null)
+    $(find bin lib example test -name \*.dart 2>/dev/null)
 
 # Running tests
 echo
