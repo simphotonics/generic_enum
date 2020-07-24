@@ -11,7 +11,9 @@ class JsonWriter {
   /// Returns a `String` representation of the extension `<EnumName>Json`.
   String get jsonExtension {
     final b = StringBuffer();
-    b.writeln('/// Extension providing the functions `fromJson` and `toJson`.');
+    b.writeln(
+        '/// Extension providing the functions `fromJson()`, `toJson()`,');
+    b.writeln('/// and the getter `jsonEncoded`.');
     b.writeln('extension To${enumType} on ${enumType}{');
     b.writeln(fromJson);
     b.writeln(toJson);
