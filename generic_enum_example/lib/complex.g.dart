@@ -20,6 +20,12 @@ extension ComplexConstantValue on ComplexConstant {
         ComplexConstant.zero: 'zero',
         ComplexConstant.i: 'i',
       }[this];
+
+  /// Returns a mapping of instance name to enum instance.
+  Map<String, ComplexConstant> get valueMap => const <String, ComplexConstant>{
+        'zero': ComplexConstant.zero,
+        'i': ComplexConstant.i,
+      };
 }
 
 // **************************************************************************

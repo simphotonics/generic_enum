@@ -22,6 +22,13 @@ extension DpiResolutionValue on DpiResolution {
         DpiResolution.MEDIUM: 'MEDIUM',
         DpiResolution.HIGH: 'HIGH',
       }[this];
+
+  /// Returns a mapping of instance name to enum instance.
+  Map<String, DpiResolution> get valueMap => const <String, DpiResolution>{
+        'LOW': DpiResolution.LOW,
+        'MEDIUM': DpiResolution.MEDIUM,
+        'HIGH': DpiResolution.HIGH,
+      };
 }
 
 // **************************************************************************
