@@ -69,6 +69,12 @@ Future<void> main() async {
       '        Vector.alpha: \'alpha\',\n'
       '        Vector.beta: \'beta\',\n'
       '      }[this];\n'
+      '\n'
+      '  /// Returns a mapping of instance name to enum instance.\n'
+      '  Map<String, Vector> get valueMap => const <String, Vector>{\n'
+      '        \'alpha\': Vector.alpha,\n'
+      '        \'beta\': Vector.beta,\n'
+      '      };\n'
       '}\n'
       '';
 
