@@ -24,7 +24,8 @@ Future<void> main() async {
   generatedValueVector = DartFormatter().format(generatedValueVector);
 
   String expectedJsonVector =
-      '/// Extension providing the functions `fromJson` and `toJson`.\n'
+      '/// Extension providing the functions `fromJson()`, `toJson()`,\n'
+      '/// and the getter `jsonEncoded`.\n'
       'extension ToVector on Vector {\n'
       '  /// Converts [json] to an instance of `Vector`.\n'
       '  static Vector fromJson(Map<String, dynamic> json) {\n'
