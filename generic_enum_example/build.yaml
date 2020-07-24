@@ -2,7 +2,7 @@ targets:
   $default:
     builders:
       # Configure the builder `pkg_name|builder_name`
-      generic_enum_builder|json_builder:
+      generic_enum_builder|extension_builder:
         enabled: true
         # Only run this builder on the specified input.
         generate_for:

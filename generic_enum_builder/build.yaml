@@ -1,9 +1,9 @@
 # Builders defined by this package:
 builders:
-  json_builder:
+  extension_builder:
     import: "package:generic_enum_builder/generic_enum_builder.dart"
-    builder_factories: ["jsonBuilder"]
-    build_extensions: {".dart": ["json_builder.g.part"]}
+    builder_factories: ["extensionBuilder"]
+    build_extensions: {".dart": ["extension_builder.g.part"]}
     auto_apply: dependents
     build_to: cache
     applies_builders: ["source_gen|combining_builder"]
