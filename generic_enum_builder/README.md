@@ -8,8 +8,8 @@ The package [`generic_enum_builder`][generic_enum_builder] contains a builder an
 source code generating classes based on [`source_gen`][source_gen]
 and [`analyzer`][analyzer].
 
-The provided builder can be configured to generate a custom extension containing json-serialization methods
-for each annotated Dart `enum`.
+The provided builder can be configured to generate custom extensions containing value-mapping
+and json-serialization methods for each annotated Dart `enum`.
 
 
 ## Usage
