@@ -1,3 +1,9 @@
+## 0.3.2
+
+Added extension `@GenerateValueExtension`. It is used to request the
+generation of an extension providing getters for accessing the
+enum instance `String` value and (optionally) a mapped value of arbitrary data-type.
+
 ## 0.3.1
 
 Amended `README.md`, added section limitations.
