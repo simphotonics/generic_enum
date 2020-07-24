@@ -25,17 +25,15 @@ class Complex {
   int get hashCode => real.hashCode ^ imag.hashCode;
 }
 
+@GenerateValueExtension(
+  mappedValueType: ValueType<Complex>(),
+  mappedValues: const {
+    'Complex(0, 0)',
+    'Complex(0, 1)',
+  },
+)
 @GenerateJsonExtension()
 enum ComplexConstant {
   zero,
   i,
-}
-
-extension ComplexConstantValue on ComplexConstant {
-  Complex get value {
-    return const {
-      ComplexConstant.zero: Complex(0, 0),
-      ComplexConstant.i: Complex(0, 1),
-    }[this];
-  }
 }

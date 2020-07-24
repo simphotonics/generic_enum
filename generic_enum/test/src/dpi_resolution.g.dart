@@ -3,6 +3,28 @@
 part of 'dpi_resolution.dart';
 
 // **************************************************************************
+// ValueGenerator
+// **************************************************************************
+
+/// Extension providing the getter `stringValue`.
+extension DpiResolutionStringValue on DpiResolution {
+  /// Returns the mapped double value of
+  /// an instance of `DpiResolution`.
+  double get value => const <DpiResolution, double>{
+        DpiResolution.LOW: 90.0,
+        DpiResolution.MEDIUM: 300.0,
+        DpiResolution.HIGH: 600.0,
+      }[this];
+
+  /// Returns the String identifier of an instance of `DpiResolution`.
+  String get stringValue => const <DpiResolution, String>{
+        DpiResolution.LOW: 'LOW',
+        DpiResolution.MEDIUM: 'MEDIUM',
+        DpiResolution.HIGH: 'HIGH',
+      }[this];
+}
+
+// **************************************************************************
 // JsonGenerator
 // **************************************************************************
 

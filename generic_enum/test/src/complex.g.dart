@@ -3,6 +3,26 @@
 part of 'complex.dart';
 
 // **************************************************************************
+// ValueGenerator
+// **************************************************************************
+
+/// Extension providing the getter `stringValue`.
+extension ComplexConstantStringValue on ComplexConstant {
+  /// Returns the mapped Complex value of
+  /// an instance of `ComplexConstant`.
+  Complex get value => const <ComplexConstant, Complex>{
+        ComplexConstant.zero: Complex(0, 0),
+        ComplexConstant.i: Complex(0, 1),
+      }[this];
+
+  /// Returns the String identifier of an instance of `ComplexConstant`.
+  String get stringValue => const <ComplexConstant, String>{
+        ComplexConstant.zero: 'zero',
+        ComplexConstant.i: 'i',
+      }[this];
+}
+
+// **************************************************************************
 // JsonGenerator
 // **************************************************************************
 

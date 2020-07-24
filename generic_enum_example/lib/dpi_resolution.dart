@@ -7,15 +7,9 @@ part 'dpi_resolution.g.dart';
 
 // 2. Define an enumeration
 //    and annotate it with @GenerateJsonExtension().
+@GenerateValueExtension(
+  mappedValueType: ValueType<double>(),
+  mappedValues: const {'90.0', '300.0', '600.0'},
+)
 @GenerateJsonExtension()
 enum DpiResolution { LOW, MEDIUM, HIGH }
-
-// 3. Define an extension on the enumeration
-extension DpiResolutionValue on DpiResolution {
-// 4. Define a getter mapping each instance of the enum to its base value.
-  double get value => const {
-        DpiResolution.LOW: 90.0,
-        DpiResolution.MEDIUM: 300.0,
-        DpiResolution.HIGH: 600.0,
-      }[this];
-}
