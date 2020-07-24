@@ -130,8 +130,8 @@ The required steps are detailed below:
        // ValueGenerator
        // **************************************************************************
 
-       /// Extension providing the getter `stringValue`.
-       extension ComplexConstantStringValue on ComplexConstant {
+       /// Extension on `ComplexConstant` providing value-getters.
+       extension ComplexConstantValue on ComplexConstant {
          /// Returns the mapped Complex value of
          /// an instance of `ComplexConstant`.
          Complex get value => const <ComplexConstant, Complex>{
@@ -150,7 +150,8 @@ The required steps are detailed below:
        // JsonGenerator
        // **************************************************************************
 
-       /// Extension providing the functions `fromJson` and `toJson`.
+       /// Extension providing the functions `fromJson()`, `toJson()`,
+       /// and the getter `jsonEncoded`.
        extension ToComplexConstant on ComplexConstant {
          /// Converts [json] to an instance of `ComplexConstant`.
          static ComplexConstant fromJson(Map<String, dynamic> json) {
@@ -183,7 +184,7 @@ The required steps are detailed below:
 
 ## Enum - Value Mapping
 
-The annotation [`@GenerateValueExtension`][] takes the following optional parameters:
+The annotation [`@GenerateValueExtension`][GenerateValueExtension] takes the following optional parameters:
 
 * `mappedValueType`, an instance of `ValueType<T>`. The type parameter `T` is used to specify
 the data-type of the mapped enum values.
@@ -193,6 +194,18 @@ by the value extension generator and must represent valid instances of data-type
 identifier and can be used to configure the name of the getter returning the enum `String` value.
 * `mappedGetterName`, a `String` which defaults to `value`. It must be a valid Dart
 identifier and can be used to configure the name of the getter returning the mapped enum value.
+
+In order to generate a getter that maps each enum instance to a constant value of data-type `T`
+one must provide an argument for the parameters `mappedValueType` and `mappedValues`.
+
+Alternatively, it is possible to manually write a separate extension along the lines of:
+```Dart
+ extension MappedValue on ComplexConstant {
+   Complex get value => const <ComplexConstant, Complex>{
+         ComplexConstant.zero: Complex(0, 0),
+         ComplexConstant.i: Complex(0, 1),
+       }[this];
+```
 
 ## Limitations
 
@@ -249,6 +262,7 @@ Please file feature requests and bugs at the [issue tracker].
 [analyzer]: https://pub.dev/packages/analyzer
 [build_runner]: https://pub.dev/packages/build_runner
 [extension-methods]: https://dart.dev/guides/language/extension-methods
+[GenerateValueExtension]: https://pub.dev/documentation/generic_enum/latest/generic_enum/GenerateValueExtension-class.html
 [generic_enum]: https://pub.dev/packages/generic_enum
 [generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
 [generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
