@@ -6,8 +6,8 @@ part of 'complex.dart';
 // ValueGenerator
 // **************************************************************************
 
-/// Extension providing the getter `stringValue`.
-extension ComplexConstantStringValue on ComplexConstant {
+/// Extension on `ComplexConstant` providing value-getters.
+extension ComplexConstantValue on ComplexConstant {
   /// Returns the mapped Complex value of
   /// an instance of `ComplexConstant`.
   Complex get value => const <ComplexConstant, Complex>{
@@ -26,7 +26,8 @@ extension ComplexConstantStringValue on ComplexConstant {
 // JsonGenerator
 // **************************************************************************
 
-/// Extension providing the functions `fromJson` and `toJson`.
+/// Extension providing the functions `fromJson()`, `toJson()`,
+/// and the getter `jsonEncoded`.
 extension ToComplexConstant on ComplexConstant {
   /// Converts [json] to an instance of `ComplexConstant`.
   static ComplexConstant fromJson(Map<String, dynamic> json) {
