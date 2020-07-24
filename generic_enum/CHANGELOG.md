@@ -1,3 +1,7 @@
+## 0.3.3
+
+Amended docs.
+
 ## 0.3.2
 
 Added extension `@GenerateValueExtension`. It is used to request the
