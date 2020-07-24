@@ -1,5 +1,6 @@
 import 'package:dart_style/dart_style.dart';
 import 'package:generic_enum_builder/src/generators/json_generator.dart';
+import 'package:generic_enum_builder/src/generators/value_generator.dart';
 import 'package:test/test.dart';
 import 'package:source_gen_test/src/init_library_reader.dart';
 
@@ -13,9 +14,15 @@ Future<void> main() async {
 
   /// Instantiate generators:
   final jsonGenerator = JsonGenerator();
+  final valueGenerator = ValueGenerator();
 
   String generatedJsonVector = await jsonGenerator.generate(readerVector, null);
   generatedJsonVector = DartFormatter().format(generatedJsonVector);
+
+  String generatedValueVector =
+      await valueGenerator.generate(readerVector, null);
+  generatedValueVector = DartFormatter().format(generatedValueVector);
+
   String expectedJsonVector =
       '/// Extension providing the functions `fromJson` and `toJson`.\n'
       'extension ToVector on Vector {\n'
@@ -46,9 +53,32 @@ Future<void> main() async {
       '}\n'
       '';
 
+  String expectedValueVector =
+      '/// Extension providing the getter `stringValue`.\n'
+      'extension VectorStringValue on Vector {\n'
+      '  /// Returns the mapped double value of\n'
+      '  /// an instance of `Vector`.\n'
+      '  double get value => const <Vector, double>{\n'
+      '        Vector.alpha: 3.14,\n'
+      '        Vector.beta: 6.98,\n'
+      '      }[this];\n'
+      '\n'
+      '  /// Returns the String identifier of an instance of `Vector`.\n'
+      '  String get stringValue => const <Vector, String>{\n'
+      '        Vector.alpha: \'alpha\',\n'
+      '        Vector.beta: \'beta\',\n'
+      '      }[this];\n'
+      '}\n'
+      '';
+
   group('JsonGenerator:', () {
-    test('FromJson for vector.dart.', () {
+    test('JsonExtension for vector.dart.', () {
       expect(generatedJsonVector, expectedJsonVector);
+    });
+  });
+  group('VectorGenerator:', () {
+    test('ValueExtension for vector.dart.', () {
+      expect(generatedValueVector, expectedValueVector);
     });
   });
 }
