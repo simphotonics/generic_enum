@@ -6,8 +6,8 @@ part of 'dpi_resolution.dart';
 // ValueGenerator
 // **************************************************************************
 
-/// Extension providing the getter `stringValue`.
-extension DpiResolutionStringValue on DpiResolution {
+/// Extension on `DpiResolution` providing value-getters.
+extension DpiResolutionValue on DpiResolution {
   /// Returns the mapped double value of
   /// an instance of `DpiResolution`.
   double get value => const <DpiResolution, double>{
@@ -28,7 +28,8 @@ extension DpiResolutionStringValue on DpiResolution {
 // JsonGenerator
 // **************************************************************************
 
-/// Extension providing the functions `fromJson` and `toJson`.
+/// Extension providing the functions `fromJson()`, `toJson()`,
+/// and the getter `jsonEncoded`.
 extension ToDpiResolution on DpiResolution {
   /// Converts [json] to an instance of `DpiResolution`.
   static DpiResolution fromJson(Map<String, dynamic> json) {
