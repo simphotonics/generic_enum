@@ -183,7 +183,7 @@ The required steps are detailed below:
 
 ## Enum - Value Mapping
 
-The annotation [`@GenerateValueExtension`][] takes the following optional parameters:
+The annotation [`@GenerateValueExtension`][GenerateValueExtension] takes the following optional parameters:
 
 * `mappedValueType`, an instance of `ValueType<T>`. The type parameter `T` is used to specify
 the data-type of the mapped enum values.
@@ -249,6 +249,7 @@ Please file feature requests and bugs at the [issue tracker].
 [analyzer]: https://pub.dev/packages/analyzer
 [build_runner]: https://pub.dev/packages/build_runner
 [extension-methods]: https://dart.dev/guides/language/extension-methods
+[GenerateValueExtension]: https://pub.dev/documentation/generic_enum/latest/generic_enum/GenerateValueExtension-class.html
 [generic_enum]: https://pub.dev/packages/generic_enum
 [generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
 [generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
