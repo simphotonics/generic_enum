@@ -60,6 +60,7 @@ class ValueWriter {
     b.writeln('extension ${enumType}Value on $enumType{');
     b.writeln(mappedValue);
     b.writeln(stringValue);
+    b.writeln(valueMap);
     b.writeln('}');
     return b.toString();
   }
@@ -87,6 +88,27 @@ class ValueWriter {
     }
     b.writeln('}[this];');
     // Function body
+    return b.toString();
+  }
+
+  /// Returns a `String` representing the getter `valueMap`.
+  String get valueMap {
+    final b = StringBuffer();
+    // Dart Doc.
+    b.writeln(
+      '/// Returns a mapping of instance name to enum instance.',
+    );
+    // Function declaration
+    b.writeln(
+      'Map<String, $enumType> get valueMap => const <String, $enumType>{',
+    );
+    // Function body
+    for (final name in names ?? <String>[]) {
+      b.writeQ(name);
+      b.write(':$enumType.$name');
+      b.write(',');
+    }
+    b.writeln('};');
     return b.toString();
   }
 
