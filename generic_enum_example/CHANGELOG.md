@@ -1,3 +1,7 @@
+## 0.3.3
+
+Updated dependencies.
+
 ## 0.3.2
 
 Project now uses the latest generic enum builder: `extension_builder`.
