@@ -56,8 +56,8 @@ class ValueWriter {
   /// Returns a `String` representation of the extension `<EnumName>Value`.
   String get valueExtension {
     final b = StringBuffer();
-    b.writeln('/// Extension providing the getter `$getterName`.');
-    b.writeln('extension ${enumType}StringValue on $enumType{');
+    b.writeln('/// Extension on `$enumType` providing value-getters.');
+    b.writeln('extension ${enumType}Value on $enumType{');
     b.writeln(mappedValue);
     b.writeln(stringValue);
     b.writeln('}');
