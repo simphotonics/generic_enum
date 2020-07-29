@@ -1,3 +1,7 @@
+## 0.3.4
+
+Added library docs.
+
 ## 0.3.3
 
 Amended generated Dart docs of extension `<EnumName>Value`.

@@ -11,4 +11,5 @@ their own generic enum classes to the folder `lib` and build the library.
 Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
-[generic_enum_example]: ../../generic_enum_example
+
+[generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
