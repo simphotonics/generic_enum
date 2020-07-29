@@ -5,14 +5,14 @@ description:
   json-serialization and a mapping of each enum instance
   to a const value with arbitrary data-type.
 
-version: 0.3.4
+version: 0.3.5
+
 homepage: https://github.com/simphotonics/generic_enum/tree/master/generic_enum
 
 environment:
   sdk: '>=2.8.0 <3.0.0'
 
 dependencies:
-  meta: ^1.2.2
 
 dev_dependencies:
   exception_templates: ^0.0.6

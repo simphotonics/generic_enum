@@ -1,3 +1,7 @@
+## 0.3.5
+
+Removed dep on `meta`.
+
 ## 0.3.4
 
 Moved dependency on `exception_templates` to dev_dependency.
