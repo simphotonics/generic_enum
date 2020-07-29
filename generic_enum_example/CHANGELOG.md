@@ -1,3 +1,7 @@
+## 0.3.5
+
+Now supports latest version of `generic_enum_builder`.
+
 ## 0.3.4
 
 Updated dependencies.
