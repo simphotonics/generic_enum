@@ -1,6 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
-import 'package:generic_enum_builder/src/utils/string_utils.dart';
+import 'package:exception_templates/exception_templates.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:quote_buffer/quote_buffer.dart';
 

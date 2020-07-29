@@ -1,3 +1,7 @@
+## 0.3.5
+
+Applied pedantic lints. Removed folder `utils`.
+
 ## 0.3.4
 
 Added library docs.
