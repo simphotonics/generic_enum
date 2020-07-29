@@ -16,8 +16,7 @@ dependencies:
   build: ^1.3.0
   dart_style: ^1.3.6
   exception_templates: ^0.0.6
-  generic_enum: ^0.3.4
-  meta: ^1.1.8
+  generic_enum: ^0.3.5
   quote_buffer: ^0.1.5
   source_gen: ^0.9.6
 
