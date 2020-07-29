@@ -1,3 +1,7 @@
+## 0.3.4
+
+Moved dependency on `exception_templates` to dev_dependency.
+
 ## 0.3.3
 
 Amended docs.
