@@ -14,8 +14,7 @@ class ValueGenerator extends GeneratorForAnnotation<GenerateValueExtension> {
     ConstantReader annotation,
     BuildStep buildStep,
   ) {
-    if (element is! ClassElement) return '';
-    if ((element as ClassElement).isEnum) {
+    if (element is ClassElement && element.isEnum) {
       return ValueWriter(element, annotation).valueExtension;
     } else {
       return '';

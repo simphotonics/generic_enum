@@ -14,8 +14,7 @@ class JsonGenerator extends GeneratorForAnnotation<GenerateJsonExtension> {
     ConstantReader annotation,
     BuildStep buildStep,
   ) {
-    if (element is! ClassElement) return '';
-    if ((element as ClassElement).isEnum) {
+    if (element is ClassElement && element.isEnum) {
       return JsonWriter(element).jsonExtension;
     } else {
       return '';
