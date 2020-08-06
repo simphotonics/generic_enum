@@ -14,14 +14,14 @@ extension DpiResolutionValue on DpiResolution {
         DpiResolution.LOW: 90.0,
         DpiResolution.MEDIUM: 300.0,
         DpiResolution.HIGH: 600.0,
-      }[this];
+      }[this]!;
 
   /// Returns the String identifier of an instance of `DpiResolution`.
   String get stringValue => const <DpiResolution, String>{
         DpiResolution.LOW: 'LOW',
         DpiResolution.MEDIUM: 'MEDIUM',
         DpiResolution.HIGH: 'HIGH',
-      }[this];
+      }[this]!;
 }
 
 // **************************************************************************
@@ -33,7 +33,7 @@ extension DpiResolutionValue on DpiResolution {
 extension ToDpiResolution on DpiResolution {
   /// Converts [json] to an instance of `DpiResolution`.
   static DpiResolution fromJson(Map<String, dynamic> json) {
-    final index = (json['index']) as int;
+    final index = (json['index']) as int?;
     if (index == null) {
       throw ErrorOf<DpiResolution>(
           message: 'Error deserializing json to DpiResolution.',

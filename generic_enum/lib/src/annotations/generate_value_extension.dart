@@ -4,8 +4,8 @@ class GenerateValueExtension {
   const GenerateValueExtension({
     this.getterName = 'stringValue',
     this.mappedGetterName = 'value',
-    this.mappedValueType,
-    this.mappedValues,
+    this.mappedValueType = const ValueType<Never>(),
+    this.mappedValues = const <String>{},
   });
 
   /// Name of getter returning the `String` enum value.
