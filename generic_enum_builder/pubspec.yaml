@@ -4,7 +4,7 @@ description:
   Source code generator for package generic_enum.  Builds extensions
   containing value-mapping and json-serialization methods for each annotated Dart enum.
 
-version: 0.3.5
+version: 0.4.0-nnbd
 
 homepage: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_builder
 
