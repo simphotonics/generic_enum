@@ -36,7 +36,7 @@ class JsonWriter {
 
     // Function body
     b.writeln(
-      'final index = (json[\'index\']) as int;',
+      'final index = (json[\'index\']) as int?;',
     );
     // Checking if index is null.
     b.writeln('if (index == null){');

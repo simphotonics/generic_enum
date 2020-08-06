@@ -12,19 +12,19 @@ class ValueWriter {
     ClassElement element,
     ConstantReader annotation,
   )   : enumType = element.thisType,
-        getterName = annotation.peek('getterName')?.stringValue,
-        mappedGetterName = annotation.peek('mappedGetterName')?.stringValue,
+        getterName = annotation.peek('getterName').stringValue,
+        mappedGetterName = annotation.peek('mappedGetterName').stringValue,
         mappedValueType = annotation
             .peek('mappedValueType')
-            ?.objectValue
-            ?.type
-            ?.typeArguments
-            ?.first,
+            .objectValue
+            .type
+            .typeArguments
+            .first,
         mappedValues = annotation
             .peek('mappedValues')
-            ?.setValue
-            ?.map((item) => item?.toStringValue())
-            ?.toList() {
+            .setValue
+            .map((item) => item.toStringValue())
+            .toList() {
     // Retrieve accessors returning enum instances.
     // The names `index` and `values` are used by Dart.
     for (final accessor in element.accessors) {
@@ -81,12 +81,12 @@ class ValueWriter {
     b.writeln(
       'String get $getterName => const <$enumType, String>{',
     );
-    for (final name in names ?? <String>[]) {
+    for (final name in names) {
       b.write('$enumType.$name:');
       b.writeQ(name);
       b.write(',');
     }
-    b.writeln('}[this];');
+    b.writeln('}[this]!;');
     // Function body
     return b.toString();
   }
@@ -103,7 +103,7 @@ class ValueWriter {
       'Map<String, $enumType> get valueMap => const <String, $enumType>{',
     );
     // Function body
-    for (final name in names ?? <String>[]) {
+    for (final name in names) {
       b.writeQ(name);
       b.write(':$enumType.$name');
       b.write(',');
@@ -115,13 +115,11 @@ class ValueWriter {
   /// Returns a `String` representing the getter `mappedGetterName`.
   String get mappedValue {
     final b = StringBuffer();
-    final message = validateInput();
+    final validationMessage = validateInput();
     // Validate input:
-    if (message != null) {
-      if (message.isNotEmpty) {
-        b.writeln(message);
-        b.writeln('// Skipped writing getter: $mappedGetterName.');
-      }
+    if (validationMessage.isNotEmpty) {
+      b.writeln(validationMessage);
+      b.writeln('// Skipped writing getter: $mappedGetterName.');
       return b.toString();
     }
     // Dart Docs.
@@ -137,7 +135,7 @@ class ValueWriter {
       b.write(mappedValues[i]);
       b.write(',');
     }
-    b.writeln('}[this];');
+    b.writeln('}[this]!;');
     return b.toString();
   }
 
@@ -150,20 +148,25 @@ class ValueWriter {
   /// Returns an empty `String` if `mappedValueType`
   /// and `mappedValues` are both null.
   String validateInput() {
-    if (mappedValueType == null && mappedValues == null) {
+    if (mappedValueType == Never && mappedValues == <String>{}) {
+      // Ok. User does not want to generate a mappedValue getter.
       return '';
     }
-    if (mappedValueType == null) {
-      return '// Found mappedValueType == null. ';
+    if (mappedValueType == Never) {
+      // Fail. User forgot to pass the data-type.
+      return '// Found the default mappedValueType: Never.';
     }
     if (mappedValues == null) {
-      return '// Found mappedValues == null. ';
+      // Fail. User forgot to provide the mapped values.
+      return '// Found mappedValues: {}. ';
     } else if (mappedValues.length != names.length) {
+      // Fail. User did not provide a one-to-one mapping of enum to enum value.
       return '// Can\'t map $names to $mappedValues.';
     }
     if (!isValidIdentifier(mappedGetterName)) {
+      // Fail. User did not specify a valid getter name.
       return '// Found mappedGetterName == $mappedGetterName.';
     }
-    return null;
+    return '';
   }
 }
