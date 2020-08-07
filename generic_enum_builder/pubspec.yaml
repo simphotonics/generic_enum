@@ -22,7 +22,10 @@ dependencies:
 
 dependency_overrides:
   generic_enum:
-    path: ../generic_enum
+    git:
+      url: https://github.com/simphotonics/generic_enum.git
+      ref: nnbd
+      path: generic_enum
 
 dev_dependencies:
   build_runner: ^1.10.0
