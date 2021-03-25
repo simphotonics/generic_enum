@@ -11,7 +11,7 @@ void main() {
       expect(ComplexConstant.i.value, Complex(0, 1));
     });
     test('double', () {
-      expect(DpiResolution.HIGH.value, 600.0);
+      expect(DpiResolution.high.value, 600.0);
     });
   });
   group('String value:', () {
@@ -19,7 +19,7 @@ void main() {
       expect(ComplexConstant.i.stringValue, 'i');
     });
     test('DpiResolution', () {
-      expect(DpiResolution.HIGH.stringValue, 'HIGH');
+      expect(DpiResolution.high.stringValue, 'high');
     });
   });
 
@@ -28,7 +28,7 @@ void main() {
       expect(ComplexConstant.i.toJson(), {'index': 1});
     });
     test('double', () {
-      expect(DpiResolution.LOW.toJson(), {'index': 0});
+      expect(DpiResolution.low.toJson(), {'index': 0});
     });
   });
 
@@ -41,7 +41,7 @@ void main() {
     });
     test('double', () {
       expect(
-        DpiResolution.HIGH,
+        DpiResolution.high,
         ToDpiResolution.fromJson({'index': 2}),
       );
     });
@@ -51,10 +51,10 @@ void main() {
       expect(ComplexConstant.i.jsonEncoded, '{"index":1}');
     });
     test('DpiResolution', () {
-      expect(DpiResolution.MEDIUM.jsonEncoded, '{"index":1}');
+      expect(DpiResolution.medium.jsonEncoded, '{"index":1}');
     });
     test('jsonEncode()', () {
-      expect(jsonEncode(DpiResolution.LOW.toJson()), '{"index":0}');
+      expect(jsonEncode(DpiResolution.low.toJson()), '{"index":0}');
     });
   });
   group('De-Serialization:', () {
@@ -68,7 +68,7 @@ void main() {
     });
     test('DpiResolution', () {
       expect(
-        DpiResolution.MEDIUM,
+        DpiResolution.medium,
         ToDpiResolution.fromJson(
           jsonDecode('{"index":1}'),
         ),
