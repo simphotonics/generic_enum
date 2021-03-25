@@ -1,13 +1,10 @@
 # Generic Enum Example
-[![Build Status](https://travis-ci.com/simphotonics/generic_enum.svg?branch=master)](https://travis-ci.com/simphotonics/generic_enum)
+[![Build Status](https://travis-ci.com/simphotonics/generic_enum.svg?branch=main)](https://travis-ci.com/simphotonics/generic_enum)
 
 
 ## Introduction
 
-This package [`generic_enum_example`][generic_enum_example] demonstrates how to define and build extentions on Dart enums
-with the help of [`generic_enum`][generic_enum] and [`generic_enum_builder`][generic_enum_builder].
-
-
+The package [`generic_enum_example`][generic_enum_example] demonstrates how to define and build extentions on Dart enums with the help of [`generic_enum`][generic_enum] and [`generic_enum_builder`][generic_enum_builder].
 
 ## Starting Point
 
@@ -27,7 +24,7 @@ Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
 
-[here]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum#building-a-generic-enum
+[here]: https://github.com/simphotonics/generic_enum/tree/main/generic_enum#building-a-generic-enum
 
 [Dart enum]: https://dart.dev/guides/language/language-tour#enumerated-types
 [generic_enum]: https://pub.dev/packages/generic_enum
