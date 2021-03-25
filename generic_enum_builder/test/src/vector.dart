@@ -5,7 +5,7 @@ part 'vector.g.dart';
 
 @GenerateJsonExtension()
 @GenerateValueExtension(
-  mappedValueType: ValueType<double>(),
-  mappedValues: const <String>{'3.14', '6.98'},
+  valueType: double,
+  values: const <String>{'3.14', '6.98'},
 )
 enum Vector { alpha, beta }
