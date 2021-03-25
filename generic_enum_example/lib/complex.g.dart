@@ -8,18 +8,18 @@ part of 'complex.dart';
 
 /// Extension on `ComplexConstant` providing value-getters.
 extension ComplexConstantValue on ComplexConstant {
-  /// Returns the mapped Complex value of
+  /// Returns value of type <Complex> mapped to
   /// an instance of `ComplexConstant`.
   Complex get value => const <ComplexConstant, Complex>{
         ComplexConstant.zero: Complex(0, 0),
         ComplexConstant.i: Complex(0, 1),
-      }[this];
+      }[this]!;
 
   /// Returns the String identifier of an instance of `ComplexConstant`.
   String get stringValue => const <ComplexConstant, String>{
         ComplexConstant.zero: 'zero',
         ComplexConstant.i: 'i',
-      }[this];
+      }[this]!;
 
   /// Returns a mapping of instance name to enum instance.
   Map<String, ComplexConstant> get valueMap => const <String, ComplexConstant>{
@@ -37,7 +37,7 @@ extension ComplexConstantValue on ComplexConstant {
 extension ToComplexConstant on ComplexConstant {
   /// Converts [json] to an instance of `ComplexConstant`.
   static ComplexConstant fromJson(Map<String, dynamic> json) {
-    final index = (json['index']) as int;
+    final index = (json['index']) as int?;
     if (index == null) {
       throw ErrorOf<ComplexConstant>(
           message: 'Error deserializing json to ComplexConstant.',
