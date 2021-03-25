@@ -1,10 +1,13 @@
 # Generic Enum Example
-[![Build Status](https://travis-ci.com/simphotonics/generic_enum.svg?branch=master)](https://travis-ci.com/simphotonics/generic_enum)
+[![Build Status](https://travis-ci.com/simphotonics/generic_enum.svg?branch=main)](https://travis-ci.com/simphotonics/generic_enum)
 
 
 ## Introduction
 
-The package [`generic_enum_example`][generic_enum_example] serves as a demonstrator on how to create generic enumeration classes by adding extensions that offer json-serialization and a mapping of enum instances to generic base values.
+The package [`generic_enum_example`][generic_enum_example]
+serves as a demonstrator on how to create generic enumeration classes by
+adding extensions that offer json-serialization and a mapping of enum instances
+to values with arbitray type.
 
 
 ## Starting Point
@@ -24,5 +27,7 @@ Please file feature requests and bugs at the [issue tracker].
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
 
 [generic_enum]: https://pub.dev/packages/generic_enum
+
 [generic_enum_builder]: https://pub.dev/packages/generic_enum_builder
+
 [generic_enum_example]: https://pub.dev/packages/generic_enum_example
