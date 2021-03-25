@@ -1,60 +1,46 @@
+/// Returns the type `T`.
+///
+/// Enables passing parameterized types where a variable of type `Type`
+/// is expected.
+Type getType<T>() => T;
+
 /// Annotation requesting the generation of the extension `<EnumName>Value`.
 class GenerateValueExtension {
   /// Annotation requesting the generation of the extension `<EnumName>Value`.
+  /// * `valueType`: The type of the mapped enum values.
+  ///   Use the function `getType<T>()` to pass a parameterized type
+  ///   e.g. `valueType: getType<List<int>>()`.
+  /// * `values`: The enum values of type `valueType` encoded as a `String`.
+  ///
+  /// ---
+  /// Note: Value entries are copied *verbatim* to the getter.
+  /// The values must represent a *literal* or a *constant value*.
+  /// The number of entries must match the number of enum instances.
+  ///
+  /// Values of type `String` must be enclosed with escaped quotation marks!
+  /// Examples:
+  /// - Integer: {'0', '1', '2',}
+  /// - String: {'\\'zero\\'', '\\'one\\'', '\\'two\\'',}
+  /// - class A: {'const A(3.0)', 'const A(4.0)',}
   const GenerateValueExtension({
-    this.getterName = 'stringValue',
-    this.mappedGetterName = 'value',
-    this.mappedValueType,
-    this.mappedValues,
+    required this.valueType,
+    required this.values,
   });
 
-  /// Name of getter returning the `String` enum value.
-  /// * Default name: "stringValue".
-  /// * Name must be a valid Dart identifier.
-  final String getterName;
+  /// The enum values of type `T` encoded as a `String`.
+  /// * Entries are copied verbatim to the getter.
+  /// * The number of entries must match the number of enum instances.
+  /// * Values of type `String` must be enclosed with escaped quotation marks!
+  /// * Examples:
+  ///   - Integer: {'0', '1', '2',}
+  ///   - String: {'\\'zero\\'', '\\'one\\'', '\\'two\\'',}
+  ///   - class A: {'const A(3.0)', 'const A(4.0)',}
+  final Set<String> values;
 
-  /// Name of getter returning a mapped enum value.
-  /// * Default name: "value".
-  /// * Name must be a valid Dart identifier.
-  final String mappedGetterName;
-
-  /// An instance of `ValueType`. The type parameters
-  /// specifies the return-type of the mapped value getter.
-  /// Example:
-  /// ```
-  /// @GenerateValueExtension(
-  /// mappedValueType: ValueType<List<int>>().
-  /// ```
-  final ValueType mappedValueType;
-
-  /// Const values of type `T` encoded as a `String`,
-  /// where `mappedValueType: ValueType<T>`.
-  /// * Entries are copied verbatim to the getter:
-  /// ```
-  /// T get value =>
-  ///   const <enumType, T>{
-  ///      enum.values[0]: mappedValues[0],
-  ///      enum.values[1]: mappedValues[1],
-  ///   }[this];
-  /// ```
+  /// The type of the mapped enum values.
+  /// Use the function `getType<T>()` to pass a parameterized type.
   ///
-  /// Examples:
-  /// * Integer: {'0', '1', '2',}
-  /// * String: {'\\'zero\\'', '\\'one\\'', '\\'two\\'',}
-  /// * class A: {'const A(3.0)', 'const A(4.0)',}
-  final Set<String> mappedValues;
-}
-
-/// Parameterized class used to specify the mapped value type `T`.
-/// * Has a const constructor and can be used a parameter
-/// in annotations.
-/// * Is used instead of `Type` to be able to specify
-/// complex parameterized types e.g. `Map<String, dynamic>`.
-class ValueType<T> {
-  /// Const constructor creating an instance of `ValueType<T>`.
-  /// The parameterized class is used to specify the mapped enum value type `T`.
-  const ValueType();
-
-  // Returns the type parameter.
-  Type get type => T;
+  /// Example: To specify the type `List<int>` use
+  /// `valueType: getType<List<int>>()`.
+  final Type valueType;
 }
