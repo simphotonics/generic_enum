@@ -1,3 +1,7 @@
+## 0.4.0
+
+Migrated to null-safety.
+
 ## 0.3.5
 
 Applied pedantic lints. Removed folder `utils`.
