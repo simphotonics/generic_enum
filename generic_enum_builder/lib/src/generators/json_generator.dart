@@ -15,7 +15,7 @@ class JsonGenerator extends GeneratorForAnnotation<GenerateJsonExtension> {
     BuildStep buildStep,
   ) {
     if (element is! ClassElement) return '';
-    if ((element as ClassElement).isEnum) {
+    if (element.isEnum) {
       return JsonWriter(element).jsonExtension;
     } else {
       return '';
