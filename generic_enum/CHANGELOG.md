@@ -1,3 +1,7 @@
+## 0.4.0
+
+Migrated to null safety.
+
 ## 0.3.5
 
 Removed dep on `meta`.
@@ -70,7 +74,7 @@ Updated dependencies and docs.
 ## 0.1.9
 
 Amended project homepage to:
-[generic_enum](https://github.com/simphotonics/generic_enum/tree/master/generic_enum)
+[generic_enum](https://github.com/simphotonics/generic_enum/tree/main/generic_enum)
 
 ## 0.1.8
 
