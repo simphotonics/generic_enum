@@ -16,74 +16,60 @@ import 'package:generic_enum_builder/src/generators/value_generator.dart';
 class MockBuildStep extends BuildStep {
   @override
   Future<bool> canRead(AssetId id) {
-    // TODO: implement canRead
     throw UnimplementedError();
   }
 
   @override
   Future<Digest> digest(AssetId id) {
-    // TODO: implement digest
     throw UnimplementedError();
   }
 
   @override
   Future<T> fetchResource<T>(Resource<T> resource) {
-    // TODO: implement fetchResource
     throw UnimplementedError();
   }
 
   @override
   Stream<AssetId> findAssets(Glob glob) {
-    // TODO: implement findAssets
     throw UnimplementedError();
   }
 
   @override
-  // TODO: implement inputId
   AssetId get inputId => throw UnimplementedError();
 
   @override
-  // TODO: implement inputLibrary
   Future<LibraryElement> get inputLibrary => throw UnimplementedError();
 
   @override
   Future<List<int>> readAsBytes(AssetId id) {
-    // TODO: implement readAsBytes
     throw UnimplementedError();
   }
 
   @override
   Future<String> readAsString(AssetId id, {Encoding encoding = utf8}) {
-    // TODO: implement readAsString
     throw UnimplementedError();
   }
 
   @override
-  void reportUnusedAssets(Iterable<AssetId> ids) {
-    // TODO: implement reportUnusedAssets
-  }
+  void reportUnusedAssets(Iterable<AssetId> ids) {}
 
   @override
-  // TODO: implement resolver
   Resolver get resolver => throw UnimplementedError();
 
   @override
   T trackStage<T>(String label, T Function() action,
       {bool isExternal = false}) {
-    // TODO: implement trackStage
     throw UnimplementedError();
   }
 
   @override
   Future<void> writeAsBytes(AssetId id, FutureOr<List<int>> bytes) {
-    // TODO: implement writeAsBytes
     throw UnimplementedError();
   }
 
   @override
   Future<void> writeAsString(AssetId id, FutureOr<String> contents,
       {Encoding encoding = utf8}) {
-    // TODO: implement writeAsString
     throw UnimplementedError();
   }
 }
@@ -93,7 +79,7 @@ Future<void> main() async {
   /// Read library vector.dart.
   final readerVector = await initializeLibraryReaderForDirectory(
     'test/src',
-    'vector.dart',
+    'dpi_resolution.dart',
   );
 
   /// Instantiate generators:
@@ -111,53 +97,58 @@ Future<void> main() async {
   String expectedJsonVector =
       '/// Extension providing the functions `fromJson()`, `toJson()`,\n'
       '/// and the getter `jsonEncoded`.\n'
-      'extension ToVector on Vector {\n'
-      '  /// Converts [json] to an instance of `Vector`.\n'
-      '  static Vector fromJson(Map<String, dynamic> json) {\n'
+      'extension ToDpiResolution on DpiResolution {\n'
+      '  /// Converts [json] to an instance of `DpiResolution`.\n'
+      '  static DpiResolution fromJson(Map<String, dynamic> json) {\n'
       '    final index = (json[\'index\']) as int?;\n'
       '    if (index == null) {\n'
-      '      throw ErrorOf<Vector>(\n'
-      '          message: \'Error deserializing json to Vector.\',\n'
+      '      throw ErrorOf<DpiResolution>(\n'
+      '          message: \'Error deserializing json to DpiResolution.\',\n'
       '          invalidState: \'json[index] returned null.\',\n'
       '          expectedState: \'A map entry: {index: int value}.\');\n'
       '    }\n'
-      '    if (index >= 0 && index < Vector.values.length) {\n'
-      '      return Vector.values[index];\n'
+      '    if (index >= 0 && index < DpiResolution.values.length) {\n'
+      '      return DpiResolution.values[index];\n'
       '    } else {\n'
-      '      throw ErrorOf<Vector>(\n'
-      '          message:\n'
-      '              \'Function fromJson could not find \' \'an instance of type Vector.\',\n'
-      '          invalidState: \'Vector.values[\$index] out of bounds.\');\n'
+      '      throw ErrorOf<DpiResolution>(\n'
+      '          message: \'Function fromJson could not find \'\n'
+      '              \'an instance of type DpiResolution.\',\n'
+      '          invalidState: \'DpiResolution.values[\$index] out of bounds.\');\n'
       '    }\n'
       '  }\n'
       '\n'
       '  /// Converts `this` to a map `Map<String, dynamic>`.\n'
-      '  Map<String, dynamic> toJson() => {\'index\': Vector.values.indexOf(this)};\n'
+      '  Map<String, dynamic> toJson() =>\n'
+      '      {\'index\': DpiResolution.values.indexOf(this)};\n'
       '\n'
       '  /// Converts `this` to a json encoded `String`.\n'
-      '  String get jsonEncoded => \'{"index":\${Vector.values.indexOf(this)}}\';\n'
-      '}\n';
+      '  String get jsonEncoded => \'{"index":\${DpiResolution.values.indexOf(this)}}\';\n'
+      '}\n'
+      '';
 
   String expectedValueVector =
-      '/// Extension on `Vector` providing value-getters.\n'
-      'extension VectorValue on Vector {\n'
+      '/// Extension on `DpiResolution` providing value-getters.\n'
+      'extension DpiResolutionValue on DpiResolution {\n'
       '  /// Returns value of type <double> mapped to\n'
-      '  /// an instance of `Vector`.\n'
-      '  double get value => const <Vector, double>{\n'
-      '        Vector.alpha: 3.14,\n'
-      '        Vector.beta: 6.98,\n'
+      '  /// an instance of `DpiResolution`.\n'
+      '  double get value => const <DpiResolution, double>{\n'
+      '        DpiResolution.low: 90.0,\n'
+      '        DpiResolution.medium: 300.0,\n'
+      '        DpiResolution.high: 600.0,\n'
       '      }[this]!;\n'
       '\n'
-      '  /// Returns the String identifier of an instance of `Vector`.\n'
-      '  String get stringValue => const <Vector, String>{\n'
-      '        Vector.alpha: \'alpha\',\n'
-      '        Vector.beta: \'beta\',\n'
+      '  /// Returns the String identifier of an instance of `DpiResolution`.\n'
+      '  String get stringValue => const <DpiResolution, String>{\n'
+      '        DpiResolution.low: \'low\',\n'
+      '        DpiResolution.medium: \'medium\',\n'
+      '        DpiResolution.high: \'high\',\n'
       '      }[this]!;\n'
       '\n'
       '  /// Returns a mapping of instance name to enum instance.\n'
-      '  Map<String, Vector> get valueMap => const <String, Vector>{\n'
-      '        \'alpha\': Vector.alpha,\n'
-      '        \'beta\': Vector.beta,\n'
+      '  Map<String, DpiResolution> get valueMap => const <String, DpiResolution>{\n'
+      '        \'low\': DpiResolution.low,\n'
+      '        \'medium\': DpiResolution.medium,\n'
+      '        \'high\': DpiResolution.high,\n'
       '      };\n'
       '}\n'
       '';
