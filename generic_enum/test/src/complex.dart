@@ -18,16 +18,16 @@ class Complex {
       identical(this, other) ||
       other is Complex &&
           runtimeType == other.runtimeType &&
-          this.real == other.real &&
-          this.imag == other.imag;
+          real == other.real &&
+          imag == other.imag;
 
   @override
   int get hashCode => real.hashCode ^ imag.hashCode;
 }
 
 @GenerateValueExtension(
-  mappedValueType: ValueType<Complex>(),
-  mappedValues: const {
+  valueType: Complex,
+  values: {
     'Complex(0, 0)',
     'Complex(0, 1)',
   },
