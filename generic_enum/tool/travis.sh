@@ -1,6 +1,6 @@
 #!/bin/bash --
-# Adapted from https://github.com/google/built_value.dart/blob/master/tool/presubmit
-# BSD-3 Clause License file: https://github.com/google/built_value.dart/blob/master/LICENSE
+# Adapted from https://github.com/google/built_value.dart/blob/main/tool/presubmit
+# BSD-3 Clause License file: https://github.com/google/built_value.dart/blob/main/LICENSE
 
 # Colour definitions:
 BLUE='\033[1;34m'
