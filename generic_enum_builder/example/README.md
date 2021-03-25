@@ -12,4 +12,4 @@ Please file feature requests and bugs at the [issue tracker].
 
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
 
-[generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
+[generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/main/generic_enum_example
