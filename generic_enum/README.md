@@ -1,18 +1,5 @@
 # Generic Enumerations For Dart
-[![Build Status](https://travis-ci.com/simphotonics/generic_enum.svg?branch=master)](https://travis-ci.com/simphotonics/generic_enum)
-
-
-## Update
-
-As of [`generic_enum 0.3.0`][generic_enum] it is not longer required to extend `GenericEnum`.
-In fact, this class has been removed.
-The package now uses [`extension-methods`][extension-methods]. The change was inspired by this [issue comment]
-and greatly simplifies the complexity of [`generic_enum_builder`][generic_enum_builder].
-It also reduces the required boiler-plate (generated methods are automatically available
-without the need to reference them).
-
-The added benefit is that standard **Dart enums** can be made "generic" by mapping
-each enumeration instance to a constant value of arbitrary data-type.
+[![Build Status](https://travis-ci.com/simphotonics/generic_enum.svg?branch=main)](https://travis-ci.com/simphotonics/generic_enum)
 
 
 ## Introduction
@@ -33,54 +20,28 @@ dependencies in your `pubspec.yaml` file.
 Include [`generic_enum_builder`][generic_enum_builder],
 and [`build_runner`][build_runner] as dev_dependencies.
 
-The example below shows how to define the enumeration `ComplexConstants`
-where the value of each enum instance is mapped to a value of type `Complex`.
+The example below shows how to define the enumeration `DpiResolution`
+and map each enum instance to a value of type `double`.
 <details> <summary> Click to show source code. </summary>
 
-  ```Dart
-   // 0. Add import directives.
-   import 'package:generic_enum/generic_enum.dart';
-   import 'package:exception_templates/exception_templates.dart';
+```Dart
+ import 'package:generic_enum/generic_enum.dart';
+ // 0. Import package exception_templates.
+ import 'package:exception_templates/exception_templates.dart';
 
-   // 1. Add part statement.
-   part 'complex.g.dart';
+ // 1. Add a part statement pointing to the generated file.
+ part 'dpi_resolution.g.dart';
 
-   class Complex {
-     const Complex(this.real, this.imag);
-     final num real;
-     final num imag;
+ // 2. Define an enumeration
+ //    and annotate it with @GenerateJsonExtension().
+ @GenerateValueExtension(
+   valueType: double,
+   values: const {'90.0', '300.0', '600.0'},
+ )
+ @GenerateJsonExtension()
+ enum DpiResolution { low , medium, high }
 
-     @override
-     String toString() {
-       return '$real + ${imag}i';
-     }
-
-     @override
-     bool operator ==(Object other) =>
-         identical(this, other) ||
-         other is Complex &&
-             runtimeType == other.runtimeType &&
-             this.real == other.real &&
-             this.imag == other.imag;
-
-     @override
-     int get hashCode => real.hashCode ^ imag.hashCode;
-   }
-
-   // Define an enum and annotate it.
-   @GenerateValueExtension(
-     mappedValueType: ValueType<Complex>(),
-     mappedValues: const {
-       'Complex(0, 0)',
-       'Complex(0, 1)',
-     },
-   )
-   @GenerateJsonExtension()
-   enum ComplexConstant {
-     zero,
-     i,
-   }
-  ```
+```
 </details>
 
 The required steps are detailed below:
@@ -88,11 +49,11 @@ The required steps are detailed below:
 0. Add the import directives shown above.
 1. Add a part statement referencing the generated file `complex.g.dart`.
 2. Define an enumeration and annotate it with:
-   * @GenerateValueExtension(),
-   * @GenerateJsonExtension().
+   * @GenerateValueExtension() to generated the enum getters `value`, `valueMap` and `stringValue`
+   * @GenerateJsonExtension()  to generate the enum method `toJson()` and `To<EnumName>.fromJson(json)`.
 3. Configure the build targets (and amend the generate_for entry).
-   In your local `build.yaml` file add configurations for the builder
-   `json_builder` provided by the package [generic_enum_builder].
+   In your local `build.yaml` file add configurations for the builders
+   provided by the package [generic_enum_builder].
 
    <details>  <summary> Click to show file content. </summary>
 
@@ -110,7 +71,7 @@ The required steps are detailed below:
     ```
    </details>
 
-   Note: The file `complex.dart` should be an asset that can be resolved by the builder.
+   Note: The file `dpi_resolution.dart` should be an asset that can be resolved by the builder.
    To limit the number of files scanned for annotationed classes during
    the build process one can use a `generate_for` statement in the builder configuration.
 
@@ -121,91 +82,84 @@ The required steps are detailed below:
 5. For the example presented here, the build process will generate the file `complex.g.dart`.
     <details>  <summary> Click to show file content. </summary>
 
-      ```Dart
-       // GENERATED CODE - DO NOT MODIFY BY HAND
+     ```Dart
+     // GENERATED CODE - DO NOT MODIFY BY HAND
 
-       part of 'complex.dart';
+     part of 'dpi_resolution.dart';
 
-       // **************************************************************************
-       // ValueGenerator
-       // **************************************************************************
+     // **************************************************************************
+     // ValueGenerator
+     // **************************************************************************
 
-       /// Extension on `ComplexConstant` providing value-getters.
-       extension ComplexConstantValue on ComplexConstant {
-         /// Returns the mapped Complex value of
-         /// an instance of `ComplexConstant`.
-         Complex get value => const <ComplexConstant, Complex>{
-               ComplexConstant.zero: Complex(0, 0),
-               ComplexConstant.i: Complex(0, 1),
-             }[this];
+     /// Extension on `DpiResolution` providing value-getters.
+     extension DpiResolutionValue on DpiResolution {
+       /// Returns value of type <double> mapped to
+       /// an instance of `DpiResolution`.
+       double get value => const <DpiResolution, double>{
+             DpiResolution.low : 90.0,
+             DpiResolution.medium: 300.0,
+             DpiResolution.high: 600.0,
+           }[this]!;
 
-         /// Returns the String identifier of an instance of `ComplexConstant`.
-         String get stringValue => const <ComplexConstant, String>{
-               ComplexConstant.zero: 'zero',
-               ComplexConstant.i: 'i',
-             }[this];
-       }
+       /// Returns the String identifier of an instance of `DpiResolution`.
+       String get stringValue => const <DpiResolution, String>{
+             DpiResolution.low : 'low ',
+             DpiResolution.medium: 'medium',
+             DpiResolution.high: 'high',
+           }[this]!;
 
-       // **************************************************************************
-       // JsonGenerator
-       // **************************************************************************
+       /// Returns a mapping of instance name to enum instance.
+       Map<String, DpiResolution> get valueMap => const <String, DpiResolution>{
+             'low ': DpiResolution.low ,
+             'medium': DpiResolution.medium,
+             'high': DpiResolution.high,
+           };
+     }
 
-       /// Extension providing the functions `fromJson()`, `toJson()`,
-       /// and the getter `jsonEncoded`.
-       extension ToComplexConstant on ComplexConstant {
-         /// Converts [json] to an instance of `ComplexConstant`.
-         static ComplexConstant fromJson(Map<String, dynamic> json) {
-           final index = (json['index']) as int;
-           if (index == null) {
-             throw ErrorOf<ComplexConstant>(
-                 message: 'Error deserializing json to ComplexConstant.',
-                 invalidState: 'json[index] returned null.',
-                 expectedState: 'A map entry: {index: int value}.');
-           }
-           if (index >= 0 && index < ComplexConstant.values.length) {
-             return ComplexConstant.values[index];
-           } else {
-             throw ErrorOf<ComplexConstant>(
-                 message: 'Function fromJson could not find '
-                     'an instance of type ComplexConstant.',
-                 invalidState: 'ComplexConstant.values[$index] out of bounds.');
-           }
+     // **************************************************************************
+     // JsonGenerator
+     // **************************************************************************
+
+     /// Extension providing the functions `fromJson()`, `toJson()`,
+     /// and the getter `jsonEncoded`.
+     extension ToDpiResolution on DpiResolution {
+       /// Converts [json] to an instance of `DpiResolution`.
+       static DpiResolution fromJson(Map<String, dynamic> json) {
+         final index = (json['index']) as int?;
+         if (index == null) {
+           throw ErrorOf<DpiResolution>(
+               message: 'Error deserializing json to DpiResolution.',
+               invalidState: 'json[index] returned null.',
+               expectedState: 'A map entry: {index: int value}.');
          }
-
-         /// Converts `this` to a map `Map<String, dynamic>`.
-         Map<String, dynamic> toJson() =>
-             {'index': ComplexConstant.values.indexOf(this)};
-
-         /// Converts `this` to a json encoded `String`.
-         String get jsonEncoded => '{"index":${ComplexConstant.values.indexOf(this)}}';
+         if (index >= 0 && index < DpiResolution.values.length) {
+           return DpiResolution.values[index];
+         } else {
+           throw ErrorOf<DpiResolution>(
+               message: 'Function fromJson could not find '
+                   'an instance of type DpiResolution.',
+               invalidState: 'DpiResolution.values[$index] out of bounds.');
+         }
        }
-      ```
+
+       /// Converts `this` to a map `Map<String, dynamic>`.
+       Map<String, dynamic> toJson() =>
+           {'index': DpiResolution.values.indexOf(this)};
+
+       /// Converts `this` to a json encoded `String`.
+       String get jsonEncoded => '{"index":${DpiResolution.values.indexOf(this)}}';
+     }
+     ```
      </details>
 
 ## Enum - Value Mapping
 
-The annotation [`@GenerateValueExtension`][GenerateValueExtension] takes the following optional parameters:
+The annotation [`@GenerateValueExtension`][GenerateValueExtension] requires the following parameters:
+* `Type valueType`: The type of the constants mapped to the enum instances.
+* `Set<String> values`. The entries are copied verbatim
+by the generator and must represent valid const instances of the data-type `valueType`. The number of
+entries must match the number of enum instances.
 
-* `mappedValueType`, an instance of `ValueType<T>`. The type parameter `T` is used to specify
-the data-type of the mapped enum values.
-* `mappedValues`, a `Set` with entries of type `String`. The entries are copied verbatim
-by the value extension generator and must represent valid instances of data-type `T`.
-* `getterName`, a `String` with default value `stringValue`. It must be a valid Dart
-identifier and can be used to configure the name of the getter returning the enum `String` value.
-* `mappedGetterName`, a `String` which defaults to `value`. It must be a valid Dart
-identifier and can be used to configure the name of the getter returning the mapped enum value.
-
-In order to generate a getter that maps each enum instance to a constant value of data-type `T`
-one must provide an argument for the parameters `mappedValueType` and `mappedValues`.
-
-Alternatively, it is possible to manually write a separate extension along the lines of:
-```Dart
- extension MappedValue on ComplexConstant {
-   Complex get value => const <ComplexConstant, Complex>{
-         ComplexConstant.zero: Complex(0, 0),
-         ComplexConstant.i: Complex(0, 1),
-       }[this];
-```
 
 ## Limitations
 
@@ -229,22 +183,22 @@ is named **To** + **Enum Name**, see example below.
 import 'dart:convert';
 import 'package:test/test.dart';
 
-import 'complex.dart';
+import 'dpi_resolution.dart';
 
-final i = ComplexConstant.i;
+final low = DpiResolution.low;
 
 // Encoding to Map<String, dynamic>.
-Map<String, dynamic> json = i.toJson();
+Map<String, dynamic> json = low.toJson();
 
 // Encoding to String.
-String jsonEncoded0 = jsonEncode(i);   // Throws error! Extensions not available for dynamic types.
-String jsonEncoded1 = jsonEncode(json) // Using dart:convert.
-String jsonEncoded2 = i.jsonEncoded;   // Using the generated getter.
+String jsonEncoded0 = jsonEncode(low);   // Throws error! Extensions not available for dynamic types.
+String jsonEncoded1 = jsonEncode(json)   // Using dart:convert.
+String jsonEncoded2 = low.jsonEncoded;   // Using the generated getter.
 expect(jsonEncode1, jsonEncode2);
 
 // Decoding (notice the prefix "To").
-expect(ToComplexConstant.fromJson(json), i);
-expect(ToComplexConstant.fromJson(jsonDecode(jsonEncoded1)), i);
+expect(ToDpiResolution.fromJson(json), low);
+expect(ToDpiResolution.fromJson(jsonDecode(jsonEncoded1)), low);
 ```
 
 
@@ -260,14 +214,25 @@ Please file feature requests and bugs at the [issue tracker].
 [issue tracker]: https://github.com/simphotonics/generic_enum/issues
 
 [analyzer]: https://pub.dev/packages/analyzer
+
 [build_runner]: https://pub.dev/packages/build_runner
+
 [extension-methods]: https://dart.dev/guides/language/extension-methods
+
 [GenerateValueExtension]: https://pub.dev/documentation/generic_enum/latest/generic_enum/GenerateValueExtension-class.html
+
 [generic_enum]: https://pub.dev/packages/generic_enum
+
 [generic_enum_annotation]: https://pub.dev/packages/generic_enum_annotation
-[generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/master/generic_enum_example
+
+[generic_enum_example]: https://github.com/simphotonics/generic_enum/tree/main/generic_enum_example
+
 [generic_enum_builder]: https://pub.dev/packages/generic_enum_builder
+
 [json_serializable]: https://pub.dev/packages/json_serializable
+
 [source_gen]: https://pub.dev/packages/source_gen
+
 [issue]: https://github.com/dart-lang/sdk/issues/42742
+
 [issue comment]: https://github.com/dart-lang/language/issues/158#issuecomment-603967738
