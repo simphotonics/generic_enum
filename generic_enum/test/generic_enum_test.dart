@@ -30,6 +30,12 @@ void main() {
     test('double', () {
       expect(DpiResolution.low.toJson(), {'index': 0});
     });
+    test('jsonEncoded', () {
+      expect(
+        jsonEncode(DpiResolution.low.toJson()),
+        DpiResolution.low.jsonEncoded,
+      );
+    });
   });
 
   group('fromJson():', () {
