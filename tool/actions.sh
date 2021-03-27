@@ -16,8 +16,8 @@ for folder in $folders; do
   echo $(pwd)
 
   # Check if local script exist before executing it.
-  if [ -f tool/travis.sh ]; then
-    ./tool/travis.sh
+  if [ -f tool/actions.sh ]; then
+    ./tool/actions.sh
   fi
 
 done
