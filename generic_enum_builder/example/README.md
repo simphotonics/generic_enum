@@ -1,4 +1,6 @@
 # Generic Enum Builder
+[![Dart](https://github.com/simphotonics/generic_enum/actions/workflows/dart.yml/badge.svg)](https://github.com/simphotonics/generic_enum/actions/workflows/dart.yml)
+
 
 ## Examples
 

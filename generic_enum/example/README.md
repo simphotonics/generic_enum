@@ -1,5 +1,7 @@
 
 ## Generic Enum - Example
+[![Dart](https://github.com/simphotonics/generic_enum/actions/workflows/dart.yml/badge.svg)](https://github.com/simphotonics/generic_enum/actions/workflows/dart.yml)
+
 
 Examples on how to define and build generic enumerations can be found in the package
 [`generic_enum_example`][generic_enum_example].

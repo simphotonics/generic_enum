@@ -1,5 +1,5 @@
 # Generic Enum Example
-[![Build Status](https://travis-ci.com/simphotonics/generic_enum.svg?branch=main)](https://travis-ci.com/simphotonics/generic_enum)
+[![Dart](https://github.com/simphotonics/generic_enum/actions/workflows/dart.yml/badge.svg)](https://github.com/simphotonics/generic_enum/actions/workflows/dart.yml)
 
 
 ## Introduction
