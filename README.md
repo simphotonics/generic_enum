@@ -1,5 +1,6 @@
 # Generic Enumerations For Dart
-[![Build Status](https://travis-ci.com/simphotonics/generic_enum.svg?branch=main)](https://travis-ci.com/simphotonics/generic_enum)
+[![Dart](https://github.com/simphotonics/generic_enum/actions/workflows/dart.yml/badge.svg)](https://github.com/simphotonics/generic_enum/actions/workflows/dart.yml)
+
 
 
 ## Introduction
@@ -9,8 +10,9 @@ In Dart, the value of an `enum` instance resolves to a `String`.
 
 The package [`generic_enum`][generic_enum] can be used together with
 [`generic_enum_builder`][generic_enum_builder] to build extensions
-supporting mapping of enum instances
-to a value of arbitrary data-type as well as json-serialization.
+supporting:
+* mapping of enum instances to a value of arbitrary data-type,
+* json-serialization.
 
 
 ## Usage
@@ -163,7 +165,7 @@ entries must match the number of enum instances.
 
 ## Limitations
 
-Because of this [issue] it is not possible to pass an instance of `enum`
+Because of this [issue][issue] it is not possible to pass an instance of `enum`
 to the function `jsonEncode(Object object)` (provided by `dart:convert`)
 even if the function `toJson()` is defined in an extension on the `enum`.
 
@@ -185,16 +187,18 @@ import 'package:test/test.dart';
 
 import 'dpi_resolution.dart';
 
+// The enum instance.
 final low = DpiResolution.low;
 
 // Encoding to Map<String, dynamic>.
+// Returns: {'index': 0}
 Map<String, dynamic> json = low.toJson();
 
 // Encoding to String.
 String jsonEncoded0 = jsonEncode(low);   // Throws error! Extensions not available for dynamic types.
 String jsonEncoded1 = jsonEncode(json)   // Using dart:convert.
 String jsonEncoded2 = low.jsonEncoded;   // Using the generated getter.
-expect(jsonEncode1, jsonEncode2);
+expect(jsonEncoded1, jsonEncoded2);
 
 // Decoding (notice the prefix "To").
 expect(ToDpiResolution.fromJson(json), low);
