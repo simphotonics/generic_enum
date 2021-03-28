@@ -1,9 +1,7 @@
 #!/bin/bash --
-# Adapted from https://github.com/google/built_value.dart/blob/master/tool/presubmit
-# BSD-3 Clause License file: https://github.com/google/built_value.dart/blob/master/LICENSE
 
-# Travis script for:
-#   generic_enum_example
+# Actions script for:
+# generic_enum_example
 
 # Colour definitions:
 BLUE='\033[1;34m'
@@ -19,8 +17,8 @@ set -e
 echo
 echo -e "${BLUE}=== Resolving dependencies $PWD...${RESET}"
 echo
-pub get
-pub upgrade
+dart pub get
+dart pub upgrade
 
 echo
 echo -e "${CYAN}=== Building $PWD...${RESET}"
@@ -28,25 +26,25 @@ echo
 
 rm -rf .dart_tool/build/
 grep -q build_runner pubspec.yaml && \
-    pub run build_runner build \
+    dart run build_runner build      \
         --delete-conflicting-outputs \
-        --fail-on-severe
-
-
+        --fail-on-severe             \
+        --verbose
 echo
 echo -e "${PURPLE}=== Checking Source Code Formatting${RESET} $PWD..."
 echo
-# Overwrite files with formatted content: -w
-# Dry run: -n
-dartfmt -w $(find bin lib test -name \*.dart 2>/dev/null)
+dart format lib
 
 echo
 echo -e "${YELLOW}=== Analyzing $PWD...${RESET}"
 echo
-dartanalyzer \
+dart analyze \
     --fatal-warnings \
-    --fatal-infos \
-    --packages="$PWD/.packages" \
-    $(find bin lib test -name \*.dart 2>/dev/null)
+    --fatal-infos
 
 # No test to be run.
+
+echo
+echo -e "${GREEN}=== Sync Generated Source Code${RESET} $PWD..."
+echo
+cp lib/*.dart ../generic_enum/test/src

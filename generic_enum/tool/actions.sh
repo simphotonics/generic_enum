@@ -1,6 +1,4 @@
 #!/bin/bash --
-# Adapted from https://github.com/google/built_value.dart/blob/main/tool/presubmit
-# BSD-3 Clause License file: https://github.com/google/built_value.dart/blob/main/LICENSE
 
 # Colour definitions:
 BLUE='\033[1;34m'
@@ -16,28 +14,26 @@ set -e
 echo
 echo -e "${BLUE}=== Resolving dependencies $PWD...${RESET}"
 echo
-pub get
-pub upgrade
+dart pub get
+dart pub upgrade
 
 echo
 echo -e "${PURPLE}=== Checking Source Code Formatting${RESET} $PWD..."
 echo
 # Overwrite files with formatted content: -w
 # Dry run: -n
-dartfmt -w $(find bin lib test -name \*.dart 2>/dev/null)
+dart format lib test
 
 echo
 echo -e "${YELLOW}=== Analyzing $PWD...${RESET}"
 echo
-dartanalyzer \
+dart analyze \
     --fatal-warnings \
-    --fatal-infos \
-    --packages="$PWD/.packages" \
-    $(find bin lib test -name \*.dart 2>/dev/null)
+    --fatal-infos
 
 echo
 echo -e "${GREEN}=== Testing $PWD...${RESET}"
 echo
 # Only run if directory test exists:
 grep -q test pubspec.yaml && \
-pub run test
+dart test
