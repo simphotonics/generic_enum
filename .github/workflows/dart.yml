@@ -30,14 +30,14 @@ jobs:
       # https://github.com/dart-lang/setup-dart/blob/main/README.md
       - uses: dart-lang/setup-dart@v1
 
-      - name: generic_enum
-        working-directory: generic_enum
-        run: tool/actions.sh
-
       - name: generic_enum_builder
         working-directory: generic_enum_builder
         run: tool/actions.sh
 
       - name: generic_enum_example
         working-directory: generic_enum_example
+        run: tool/actions.sh
+
+      - name: generic_enum
+        working-directory: generic_enum
         run: tool/actions.sh
