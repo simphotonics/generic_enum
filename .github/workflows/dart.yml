@@ -31,7 +31,7 @@ jobs:
       - uses: dart-lang/setup-dart@v1
 
       - name: generic_enum
-        working_directory: generic_enum
+        working-directory: generic_enum
         run: tool/actions.sh
 
       - name: generic_enum_builder
@@ -41,4 +41,3 @@ jobs:
       - name: generic_enum_example
         working-directory: generic_enum_example
         run: tool/actions.sh
-
