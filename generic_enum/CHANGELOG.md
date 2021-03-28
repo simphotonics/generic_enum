@@ -1,3 +1,7 @@
+## 0.4.1
+
+Migrated CI to github.
+
 ## 0.4.0
 
 Migrated to null safety.

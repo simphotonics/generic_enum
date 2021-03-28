@@ -3,7 +3,7 @@ name: generic_enum_example
 description: Demonstrates how to define and build extensions on Dart enums using
   the packages generic_enum and generic_enum_builder.
 
-version: 0.4.0
+version: 0.4.1
 
 homepage: https://github.com/simphotonics/generic_enum/tree/main/generic_enum_example
 
