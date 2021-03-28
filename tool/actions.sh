@@ -18,3 +18,9 @@ for folder in $folders; do
     ./tool/actions.sh
   fi
 done
+
+# Sync README.md
+echo
+echo -e "${GREEN}=== Sync README.md${RESET} $PWD..."
+echo
+cp generic_enum/README.md .
