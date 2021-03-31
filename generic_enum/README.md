@@ -49,7 +49,7 @@ and map each enum instance to a value of type `double`.
 The required steps are detailed below:
 
 0. Add the import directives shown above.
-1. Add a part statement referencing the generated file `complex.g.dart`.
+1. Add a part statement referencing the generated file `dpi_resolution.g.dart`.
 2. Define an enumeration and annotate it with:
    * @GenerateValueExtension() to generated the enum getters `value`, `valueMap` and `stringValue`
    * @GenerateJsonExtension()  to generate the enum method `toJson()` and `To<EnumName>.fromJson(json)`.
