@@ -1,3 +1,7 @@
+## 0.4.3
+
+Updated tests.
+
 ## 0.4.2
 
 Amended README.md
