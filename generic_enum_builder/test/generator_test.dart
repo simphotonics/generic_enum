@@ -129,8 +129,8 @@ Future<void> main() async {
   String expectedValueVector =
       '/// Extension on `DpiResolution` providing value-getters.\n'
       'extension DpiResolutionValue on DpiResolution {\n'
-      '  /// Returns value of type <double> mapped to\n'
-      '  /// an instance of `DpiResolution`.\n'
+      '  /// Returns a map of type `Map<double, DpiResolution>` mapping\n'
+      '  /// each declared enum value to an instance of `DpiResolution`.\n'
       '  double get value => const <DpiResolution, double>{\n'
       '        DpiResolution.low: 90.0,\n'
       '        DpiResolution.medium: 300.0,\n'
