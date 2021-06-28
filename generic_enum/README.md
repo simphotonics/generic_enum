@@ -81,7 +81,7 @@ The required steps are detailed below:
    ```Console
    $ pub run build_runner build --delete-conflicting-outputs
    ```
-5. For the example presented here, the build process will generate the file `complex.g.dart`.
+5. For the example presented here, the build process will generate the file `dpi_resolution.g.dart`.
     <details>  <summary> Click to show file content. </summary>
 
      ```Dart
@@ -177,7 +177,7 @@ This is recommended if your project already uses [`json_serializable`][json_seri
 
 When it comes to deserialization, the usual approach is to define a factory constructor named `fromJson`.
 This is not possible since extensions do not support constructors. Moreover, static extension-methods
-are accessed by specifying the extension name,
+are accessed by specifying the extension name.
 
 To keep the notation similar to the "usual approach", the extension containing the static method `fromJson`
 is named **To** + **Enum Name**, see example below.
