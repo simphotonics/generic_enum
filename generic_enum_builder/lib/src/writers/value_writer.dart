@@ -109,8 +109,8 @@ class ValueWriter {
       return b.toString();
     }
     // Dart Docs.
-    b.writeln('/// Returns value of type <$valueType> mapped to');
-    b.writeln('/// an instance of `${enumType}`.');
+    b.writeln('/// Returns a map of type `Map<$valueType, $enumType>` mapping');
+    b.writeln('/// each declared enum value to an instance of `$enumType`.');
     // Function declaration.
     b.writeln(
       '$valueType get value => const <$enumType, $valueType>{',
