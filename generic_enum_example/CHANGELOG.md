@@ -1,3 +1,7 @@
+## 0.4.3
+
+Updated examples.
+
 ## 0.4.1
 
 Migrated CI to github.

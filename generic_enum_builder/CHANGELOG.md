@@ -1,3 +1,7 @@
+## 0.4.3
+
+Amended generated dartdocs of getter `value`.
+
 ## 0.4.1
 
 Migrated CI to github.
