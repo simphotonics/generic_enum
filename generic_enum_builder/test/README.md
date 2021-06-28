@@ -14,7 +14,7 @@ and [`JsonGenerator`][JsonGenerator] produce correct output.
 The tests may be run in a terminal by navigating to the base folder of a local
 copy of the library and using the command:
 ```Console
-$ pub run test
+$ dart test
 ```
 
 ## Examples
