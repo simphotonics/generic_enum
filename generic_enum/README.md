@@ -77,14 +77,14 @@ The required steps are detailed below:
    To limit the number of files scanned for annotationed classes during
    the build process one can use a `generate_for` statement in the builder configuration.
 
-4. Build the project by running the command:
+4. Build the project by navigating to the project root directory and running the command:
    ```Console
-   $ pub run build_runner build --delete-conflicting-outputs
+   $ dart run build_runner build --delete-conflicting-outputs
    ```
 5. For the example presented here, the build process will generate the file `dpi_resolution.g.dart`.
     <details>  <summary> Click to show file content. </summary>
 
-     ```Dart
+    ```Dart
      // GENERATED CODE - DO NOT MODIFY BY HAND
 
      part of 'dpi_resolution.dart';
@@ -95,24 +95,24 @@ The required steps are detailed below:
 
      /// Extension on `DpiResolution` providing value-getters.
      extension DpiResolutionValue on DpiResolution {
-       /// Returns value of type <double> mapped to
-       /// an instance of `DpiResolution`.
+       /// Returns a map of type `Map<double, DpiResolution>` mapping
+       /// each declared enum value to an instance of `DpiResolution`.
        double get value => const <DpiResolution, double>{
-             DpiResolution.low : 90.0,
+             DpiResolution.low: 90.0,
              DpiResolution.medium: 300.0,
              DpiResolution.high: 600.0,
            }[this]!;
 
        /// Returns the String identifier of an instance of `DpiResolution`.
        String get stringValue => const <DpiResolution, String>{
-             DpiResolution.low : 'low ',
+             DpiResolution.low: 'low',
              DpiResolution.medium: 'medium',
              DpiResolution.high: 'high',
            }[this]!;
 
        /// Returns a mapping of instance name to enum instance.
        Map<String, DpiResolution> get valueMap => const <String, DpiResolution>{
-             'low ': DpiResolution.low ,
+             'low': DpiResolution.low,
              'medium': DpiResolution.medium,
              'high': DpiResolution.high,
            };
@@ -151,7 +151,7 @@ The required steps are detailed below:
        /// Converts `this` to a json encoded `String`.
        String get jsonEncoded => '{"index":${DpiResolution.values.indexOf(this)}}';
      }
-     ```
+    ```
      </details>
 
 ## Enum - Value Mapping
