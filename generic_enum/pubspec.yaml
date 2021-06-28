@@ -4,7 +4,7 @@ description: Dart enumerations with extension-methods offering
   json-serialization and a mapping of each enum instance to a const value with
   arbitrary data-type.
 
-version: 0.4.1
+version: 0.4.2
 
 homepage: https://github.com/simphotonics/generic_enum/tree/main/generic_enum
 
@@ -15,5 +15,5 @@ dependencies: null
 
 dev_dependencies:
   exception_templates: ^0.2.1
-  pedantic: ^1.11.0
-  test: ^1.16.8
+  pedantic: ^1.11.1
+  test: ^1.17.9
