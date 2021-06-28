@@ -1,3 +1,7 @@
+## 0.4.2
+
+Amended README.md
+
 ## 0.4.1
 
 Migrated CI to github.
