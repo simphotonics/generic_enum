@@ -8,8 +8,8 @@ part of 'complex.dart';
 
 /// Extension on `ComplexConstant` providing value-getters.
 extension ComplexConstantValue on ComplexConstant {
-  /// Returns value of type <Complex> mapped to
-  /// an instance of `ComplexConstant`.
+  /// Returns a map of type `Map<Complex, ComplexConstant>` mapping
+  /// each declared enum value to an instance of `ComplexConstant`.
   Complex get value => const <ComplexConstant, Complex>{
         ComplexConstant.zero: Complex(0, 0),
         ComplexConstant.i: Complex(0, 1),

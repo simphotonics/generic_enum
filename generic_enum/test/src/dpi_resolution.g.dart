@@ -8,8 +8,8 @@ part of 'dpi_resolution.dart';
 
 /// Extension on `DpiResolution` providing value-getters.
 extension DpiResolutionValue on DpiResolution {
-  /// Returns value of type <double> mapped to
-  /// an instance of `DpiResolution`.
+  /// Returns a map of type `Map<double, DpiResolution>` mapping
+  /// each declared enum value to an instance of `DpiResolution`.
   double get value => const <DpiResolution, double>{
         DpiResolution.low: 90.0,
         DpiResolution.medium: 300.0,
